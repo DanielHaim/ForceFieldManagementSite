@@ -1,0 +1,18 @@
+<p>Dear {{ user.firstname }} {{ user.lastname }},</p>
+<p>Welcome! Thanks for signing up. Please follow this link to activate your account:</p>
+<br>
+    <tr valign="top">
+        <td>
+        	<img src="{{ url_for('static',
+        			  filename='img/molecule1.png',
+        			  _external=True) }}">
+        </td>
+        <td>
+            <a href="{{ confirm_url }}">{{ confirm_url }}</a><br />
+        </td>
+    </tr>
+</table>
+
+<p>Regards,</p>
+<p>The <code>site</code> admin</p>
+

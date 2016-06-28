@@ -1,0 +1,68 @@
+{% extends "index.html" %}
+{% block head %}
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxcore.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxdata.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxbuttons.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxscrollbar.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxmenu.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxlistbox.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxdropdownlist.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.selection.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.columnsresize.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.filter.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.sort.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.pager.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.grouping.js">
+</script>
+<meta name="NetsparkQuiltingResult" total-length="4002" removed="0" rules-found="w3281,w7466,w3477" />
+{% endblock %}
+{% block content %}
+	<div id='jqxWidgetGrid'style="font-size: 5px; font-family: Verdana; float: left; padding-top : 50px;">
+        <div id="jqxgrid"></div>
+    </div>
+<script type="text/javascript">
+
+$(document).ready(function () 
+	{
+		
+			var data = new Array();
+			var columns = new Array();
+			columns = [
+                  { text: 'Id ForceField', datafield: 'idForceField', width: 100 },
+                  { text: 'Name ForceField', datafield: 'nameForceField', width: 200 },
+                 
+                ]
+			data = {{result|safe}};
+			var source =
+            {
+                localdata: data,
+                datatype: "array"
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source, {
+                loadComplete: function (data) { },
+                loadError: function (xhr, status, error) { }      
+            });
+            $("#jqxgrid").jqxGrid(
+            {
+                source: dataAdapter,
+                columns: columns
+            });
+            
+
+	});
+</script>
+{% endblock %}

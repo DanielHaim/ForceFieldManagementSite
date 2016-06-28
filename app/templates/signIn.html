@@ -1,0 +1,82 @@
+{% extends "authBase.html" %}
+
+{% block head %}
+
+<style type="text/css">
+
+.inner {
+    width: 340px;
+}
+
+form input[type]
+{
+  margin-bottom: 10px !important;
+}
+
+</style>
+{% endblock %}
+{% block content %}
+		<div style="margin:auto;width:100px">
+			<img style="height: 80px;width: 80px;border-radius:50%;" 
+				src="static/img/molecule1.png">
+		</div>
+		<div style="height:40px;margin:auto;width:120px;font-size:35px;
+					padding-top:20px;">
+			<div>Sign In</div>
+		</div>
+		
+		<div id="formDiv">
+			     <a 
+            href='{{ url_for('oauth_authorize',
+                                sign_type='signIn',
+                                provider='google') }}' 
+            style="width:40%;" 
+            class="btn btn-danger" >
+          		<div style="border-right:1px solid;display:inline-block;float:left;padding-right:5px;" class="label-primary">G+</div>
+          		<div style="display:inline-block">Google</div>
+        	</a>
+        	<a 
+            href='{{ url_for('oauth_authorize',
+                              sign_type='signIn',
+                              provider='facebook') }}' 
+            style="width:40%;" 
+            class="btn btn-primary" >
+         		 <div style="border-right:1px solid;font-size:20px;display:inline-block;float:left;padding-right:5px;" class="label-primary">f</div>
+          		<div style="display:inline-block">Facebook</div>
+        	</a>
+			
+			<!-- line with text in the middle -->
+			<div class="group">
+    			<div id="lineId" class="item line">.</div>
+    			<div class="item text">OR</div>
+    			<div id="lineId" class="item line">.</div>
+			</div>
+			<form style="margin-bottom:0px;" action="" method="POST" name="	login"
+        autocomplete='true'>
+    		  	{{ form.hidden_tag() }}
+    		  	<p>
+    		  	    Username:<br>
+    		  	    {{ form.username}}
+    		  	    {% for error in form.username.errors %}
+            			<span style="color:red;">{{ error }}</span>
+          			{% endfor %}
+    		  	</p>
+    		  	<p>
+    		  		<div style="display:inline-block;width:100%">
+    		  	    	<div style="display:inline-block;float:left;">Password:</div>
+    		  	    	<div style="display:inline-block;float:right;">
+    		  	    		<a href="{{url_for('forgotPassword')}}">forgot password?</a>
+    		  	    	</div>
+    		  	    </div>
+    		  	    {{ form.password}}<br>
+    		  	    {% for error in form.password.errors %}
+            			<span style="color:red;">{{ error }}</span>
+          			{% endfor %}
+    		  	</p>
+    		  	<p><input type="submit" class='btn btn-success' value="Sign In"></p>
+			</form>
+			<div style="margin:0 auto;width:220px;">Don't have an account?<a href="{{url_for('signUp')}}">Sign Up</a></div>
+		</div>
+{% endblock %}
+<!--numero de telephonne de l'armmee en israel-->
+<!--037388888-->

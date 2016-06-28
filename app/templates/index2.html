@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% block head %}
+
+<script 
+    type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxcore.js">
+</script>
+<script 
+    type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxTree.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxscrollbar.js"></script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxpanel.js"></script>
+<script 
+    type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxbuttons.js">
+</script>
+<link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+<link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+
+
+
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxcore.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxdata.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxbuttons.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxscrollbar.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxmenu.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxlistbox.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxdropdownlist.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.selection.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.columnsresize.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.filter.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.sort.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.pager.js">
+</script> 
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxgrid.grouping.js">
+</script>
+<meta name="NetsparkQuiltingResult" total-length="4002" removed="0" rules-found="w3281,w7466,w3477" />
+
+
+
+<script type="text/javascript" 
+        src="/static/jqwidgets/jqwidgets/jqxdropdownlist.js">
+</script>
+<script type="text/javascript" 
+        src="/static/jqwidgets/jqwidgets/jqxcombobox.js">
+</script>
+<script type="text/javascript" 
+        src="/static/jqwidgets/jqwidgets/jqxinput.js">
+</script>
+<script type="text/javascript" 
+        src="/static/jqwidgets/jqwidgets/jqxtoolbar.js">
+</script>
+
+<style type="text/css">
+
+body{padding-left: 10px;}
+form{height: 30px;}
+
+#search {
+
+    padding-top: 10px;
+
+}
+
+#search input[type="text"] {
+    background: url(/static/img/search-icon.png) no-repeat 10px 6px #fcfcfc;
+    border: 1px solid #d1d1d1;
+    font: bold 20px Arial,Helvetica,Sans-serif;
+    color: #909090;
+    width: 300px;
+    height: 40px;
+    padding: 6px 15px 6px 35px;
+    }
+
+#search input[type="text"]:focus {
+    width: 300px;
+    }
+
+
+</style>
+
+{% endblock %}
+{% block content %}
+
+<div id = 'wraper2'>
+<div id = 'container1' style = "float: left;">
+<form method="get" action="" id="search">
+  <input name="q" type="text" size="50" placeholder="Search..." />
+</form>
+<div style= 'padding-top:20px'></div>
+<div id='jqxTree'>
+    <ul>
+        {% for ff_params_object in ff_params_list %}
+            <li>{{ff_params_object.nameForceField}}
+                <ul>
+                    {% for parameterName in ff_params_object.listOfParameter %}
+                    <li>{{parameterName}}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+<div id='container2' style="padding-top:10px;padding-left:400px;">
+    <div id="jqxToolBar"></div>
+    <div id='jqxWidgetGrid'style="font-size: 5px; font-family: Verdana; float: left;padding-top:25px;">
+        <div id="jqxgrid"></div>
+    </div>
+</div>
+<div class = 'clear' style = 'clear:both;'></div>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function () 
+    {
+            alert("Salut");
+            var data = new Array();
+            var columns = new Array();
+            columns = {{columnsList|safe}};
+            data = {{data|safe}};
+            var source =
+            {
+                localdata: data,
+                datatype: "array"
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source, {
+                loadComplete: function (data) { },
+                loadError: function (xhr, status, error) { }      
+            });
+            $("#jqxgrid").jqxGrid(
+            {
+                height: 400,
+                width: 800,
+                source: dataAdapter,
+                columns: columns
+            }); 
+
+            $('#jqxTree').jqxTree({
+                 height: '400px',
+                 width: '300px',
+                 theme: 'energyblue'
+             });
+
+            $('#jqxTree').on('itemClick', function (event) 
+            {
+                var args = event.args;
+                var item = $('#jqxTree').jqxTree('getSelectedItem');
+                var parentItem = "";
+                if (item.parentElement != null)
+                {
+                 parentItem = $('#jqxTree').jqxTree('getItem', item.parentElement);
+                 parentItem = parentItem.label;
+                 var url = "/index/" + parentItem + "/" + item.label;
+                 $.get(url, function(data){
+                        alert("Data: " + data);});
+                }
+                //var data = new Array();
+                //data = {{data|safe}};
+                //alert(data);
+                
+            });
+
+            $("#jqxToolBar").jqxToolBar({ width: "800px", height: 40, tools: "button | dropdownlist combobox | input",
+                initTools: function (type, index, tool, menuToolIninitialization) {
+                    switch (index) {
+                        case 0:
+                            tool.text("Button");
+                            break;
+                        case 1:
+                            tool.jqxDropDownList({ width: 130, source: ["Affogato", "Breve", "Café Crema"], selectedIndex: 1 });
+                            break;
+                        case 2:
+                            tool.jqxComboBox({ width: 50, source: [8, 9, 10, 11, 12, 14, 16, 18, 20], selectedIndex: 3 });
+                            break;
+                        case 3:
+                            tool.jqxInput({ width: 200, placeHolder: "Type here..." });
+                            break;
+                    }
+                }
+            
+        });
+            
+
+    });
+
+    
+
+</script>
+{% endblock %}

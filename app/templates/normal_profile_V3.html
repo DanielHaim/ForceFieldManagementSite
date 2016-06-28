@@ -1,0 +1,524 @@
+<html>
+  <head>
+  	{% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcome to FinalProject</title>
+    {% endif %}
+  	<script 
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+  	 </script>
+  	 <script src="http://code.jquery.com/jquery-latest.js"></script>
+     <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+  	 <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="	stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    {% endblock %}
+  </head>
+<style type="text/css">
+
+#background 
+{
+
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("/static/img/molecule.png") no-repeat center center;
+    background-size: cover;
+     -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+
+    /*position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/static/img/molecule.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity:0.6;*/
+}
+
+.outer {
+    display: table;
+    /*position: absolute;*/
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+#headerWrapper
+{
+  position: fixed;  
+  overflow: auto;
+  width: 100%;
+  height: 80px;
+}
+
+#contentWrapper
+{
+  position: absolute;
+  top:80px;
+  width: 100%; 
+  overflow:hidden;
+}
+#content
+{
+  position: absolute;
+  margin-top:10px;
+  width: 100%;
+}
+
+#contentTable
+{
+  height:340px;
+  overflow:hidden;
+}
+
+#contentLeft,#contentRight
+{
+  /*display: inline-block;*/
+  /*width: 45%;*/
+}
+
+#contentLeft
+{
+  margin-left: 1%;
+  width: 600px;
+  margin: auto;
+}
+
+#contentRight
+{
+  position: relative;
+  margin-right: 1%;
+  /*float: right;*/
+  height: 455px;
+}
+
+#formDiv
+{
+  padding-right:20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom:0px;
+  border-style: solid;
+  border-width: 1px;
+  border-color:#808080;
+  border-radius:10px;
+  width: 560px;
+  margin:0 auto;
+}
+
+#userInfoWrapper
+{
+  padding-right:20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom:0px;
+  border-style: solid;
+  border-width: 1px;
+  border-color:#808080;
+  border-radius:10px;
+  margin:0 auto;
+}
+
+input[type]
+{
+     height: 30px;
+     width: 290px;
+     margin-bottom:5px;
+}
+
+#userInfoForm input
+{
+  width: 250px;
+} 
+
+input[type=text]
+{
+  background-color:#FFFFE0;
+}
+
+input[type=password]
+{
+  background-color:#FFFFE0;
+}
+
+#removeAccount
+{
+  margin-top:20px; 
+  bottom: 0px;
+  width: 100%;
+}
+
+.error
+{
+  color:red;
+  margin-left: 10px;
+  float: right;
+}
+
+.errorUserInfo
+{
+  color:red;
+}
+
+td img
+{
+  height:30px;
+  width: 30px;
+}
+
+</style>
+<body style="margin-bottom:20px">
+  <div id="background"></div>
+    <div style="margin-top:20px; width:100%;display:inline-block;">
+      <div id="headerWrapper">
+      <div style="overflow:auto;position:fixed;width:100%;margin-left:10px;margin-right:10px;">
+        <!--Home button/Logout button-->
+        <div style="float:right;margin-right:20px;">
+          <a style="padding-left:0px;padding-right:5px;" 
+             class="btn btn-info" color="white" href="{{url_for('index')}}">
+              <img style="margin-right:5px;" src="static/img/icon_home.png" 
+                   width="20" eigth="20"/>Home
+          </a>
+          <a class="btn btn-danger" color="white" 
+             href="{{url_for('logOut')}}">Logout
+          </a>
+        </div>
+        <!--Flashed Message of This Page-->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category,message in messages %}
+              <div id="alertBar" class="alert alert-{{category}}" 
+                  style="text-align:center;float:left;">
+                <button class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+    </div>
+    <!--User picture-->
+    <div style="position:fixed;width:100%;z-index:-1;">
+      <div style="margin:0 auto;width:100px">
+      <img style="height: 80px;width: 80px;border-radius:50%;" 
+        src="static/img/profile.png">
+      </div>
+    </div>
+  </div>
+  <div id="contentWrapper">
+  <div id="content">
+    <!--Left side of the page-->
+    <div id="contentLeft" >
+      <div style="height:40px;margin:auto;width:145px;font-size:30px;">
+          <div>User Info</div>
+      </div>
+      <form style="margin-bottom:0px;" action="" method="POST"
+            id="userInfoForm" autocomplete='true'>
+            {{ form1.hidden_tag() }}
+          <div id="userInfoWrapper">
+            <div id="contentTable">
+             <table class="table">
+              <tbody>
+                <tr>
+                  <td><strong>Firstname:</strong></td>
+                  <td>
+                    {{ form1.firstname(readonly=true) }}
+                    {% for error in form1.firstname.errors %}
+                      <div class="errorUserInfo">{{ error }}</div>
+                    {% endfor %}
+                  </td>
+                  <td>
+                    <a id="firstname" href="#" 
+                       onclick="editInput(this)">
+                      <img src="/static/img/pencil.png">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Lastname:</strong></td>
+                  <td>
+                    {{ form1.lastname(readonly=true) }}
+                    {% for error in form1.lastname.errors %}
+                      <div class="errorUserInfo">{{ error }}</div>
+                    {% endfor %}
+                  </td>
+                  <td>
+                    <a id="lastname" href="#"
+                       onclick="editInput(this)">
+                      <img src="/static/img/pencil.png">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Username:</strong></td>
+                  <td>
+                    {{ form1.username(readonly=true) }}
+                    {% for error in form1.username.errors %}
+                      <div class="errorUserInfo">{{ error }}</div>
+                    {% endfor %}
+                  </td>
+                  <td>
+                    <a id="username" href="#"
+                       onclick="editInput(this)">
+                      <img src="/static/img/pencil.png">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Email:</strong></td>
+                  <td>
+                    {{ form1.email(readonly=true) }}
+                    {% for error in form1.email.errors %}
+                      <div class="errorUserInfo">{{ error }}</div>
+                    {% endfor %}
+                  </td>
+                  <td>
+                    <a id="email" href="#"
+                       onclick="editInput(this)">
+                      <img src="/static/img/pencil.png">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>User registred on:</strong></td>
+                  <td>
+                    <input type="text" 
+                      value="{{g.user.getTime(g.user.user_registered_on)}}" readonly>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Last modified Password:</strong></td>
+                  <td>
+                    <input type="text" 
+                      value="{{g.user.getTime(g.user.password_registered_on)}}" readonly>
+                  </td>
+                  <td></td>
+                </tr>
+                {% if ff_name_list|length > 0 %}
+                    <tr>
+                      <td><strong>Author of Forcefield:</strong></td>
+                      <td style="padding-left:60px !important;">Forcefield Name:</td>
+                      <td></td>
+                    </tr>
+                    {% for ff in  ff_name_list %}
+                    <tr>
+                      <td></td>
+                      <td><input type="text" value="{{ff}}" readonly></td>
+                      <td></td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+              </tbody>
+             </table>
+            </div>
+            <!--Button save/cancel-->
+            <div style="width:100%;margin-top:20px;">
+              <div id="btnWrapper" style="margin:0 auto;width:300px;">
+                <input id="saveUserInfoInput" type="submit" 
+                       style="width:143px;display:inline-block;" 
+                       class='btn btn-success' value="Save Info">
+                <input id="cancelUserInfoInput" type="reset" 
+                       style="width:143px;display:inline-block;" 
+                       class='btn btn-danger' value="Cance/Refresh">
+              </div>
+            </div>
+          </div>
+      </form>
+    </div>
+    <!--Right side of the page-->
+    <div id="contentRight">
+      <div id="changePassword">
+        <div style="height:40px;margin:auto;width:250px;font-size:30px;margin-top:20px">
+          <div>Change Password</div>
+        </div>
+        <div id="formDiv">
+          <form style="margin-bottom:0px;" action="" method="POST"  name="profileChangePassword" autocomplete='true'>
+            {{ form2.hidden_tag() }}
+
+            <div style="margin:0 auto;width:305px">
+              <div>
+                <div>
+                  Old Password:
+                  {% for error in form2.old_password.errors %}
+                    <span class="error">{{ error }}</span>
+                  {% endfor %}
+                </div>
+                  {{ form2.old_password}}<br>
+              </div>
+              <div>
+                <div>
+                  New password:
+                  {% for error in form2.new_password.errors %}
+                    <span class="error">{{ error }}</span>
+                  {% endfor %}
+                </div>
+                  {{ form2.new_password}}<br>
+              </div>
+              <div>
+                <div>
+                  Confirm new password:
+                  {% for error in form2.confirm_new_password.errors %}
+                    <span class="error">{{ error }}</span>
+                  {% endfor %}
+                </div>
+                  {{ form2.confirm_new_password}}<br>
+              </div>
+              <!--Button save/cancel-->
+              <div style="width:100%">
+                <div id="btnWrapper" style="margin:0 auto;width:300px;padding-top:20px;">
+                  <input  id="saveBtn" type="submit" 
+                          style="width:143px;display:inline-block;" 
+                          class='btn btn-success' value="Change password">
+                  <input  style="width:143px;display:inline-block;" 
+                          id="cancelButn" type="reset" 
+                          class='btn btn-danger' value="Cancel">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        </div>
+      <div id="removeAccount">
+        <div style="height:40px;margin:auto;width:250px;font-size:30px;">
+          <div>Remove Account</div>
+        </div>
+        <div id="formDiv">
+          <form style="margin-bottom:0px;" action="" method="POST"  
+                name="removeAccountForm" autocomplete='true'>
+            {{ form3.hidden_tag() }}
+             <div class="info" style="width:350px;margin:auto;">Please enter your password to remove your account:</div>
+            <div style="margin:0 auto;width:300px;height:110px;position:relative">
+              <div id="removeAccountWrapper" 
+                 style="bottom:0px;position:absolute">  
+                  <div>
+                    <div>
+                      {% for error in form3.password.errors %}
+                        <span class="error">{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                      {{ form3.password}}<br>
+                  </div>
+                  <!--Button save/cancel-->
+                  <div style="width:100%">
+                    <div id="btnWrapper" style="margin:0 auto;width:300px;padding-top:20px;">
+                      <input  id="saveBtn" type="submit" 
+                              style="width:143px;display:inline-block;" 
+                              class='btn btn-success' value="Remove account">
+                      <input  style="width:143px;display:inline-block;" 
+                              id="cancelBtn" type="reset" 
+                              class='btn btn-danger' value="Cancel">
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class = 'clear' style = 'clear:both;'></div>
+  </div>
+</div>
+<body>
+
+<script type="text/javascript">
+
+function editInput (element) 
+{
+   document.getElementById(element.id).readOnly = false;
+}
+
+$("#userInfoForm input[type=text]").blur(function() 
+{
+  this.readOnly = true;
+});
+
+$(document).ready(function () 
+{
+  $("#userInfoForm a").attr('data-toggle','tooltip');
+  $("#userInfoForm a").attr('title','Click here to modified the field');
+  $('[data-toggle="tooltip"]').tooltip();
+
+});
+
+$(window).load(function(){
+var $window = $(window);
+var $body = $('body');
+var $contentWrapper = $('#contentWrapper');
+var $content = $('#content');
+var minHeaderHeight =120; // the height of the header plus margin
+
+var lastWindowHeight = $window.height(); // save window height to calculate difference in height on resize
+
+checkScroll(); // make sure scroll and all heights are correct on first load
+stickyTop();   // make sure sticky top is used if needed on first load
+
+$window.resize(function() {
+    checkScroll();
+    stickyTop();
+});
+$window.scroll(function() {
+  $('body').css({height:1200});
+    stickyTop();
+});
+
+function checkScroll() {
+    var newWindowHeight = $window.height();
+    var windowHeightDif = newWindowHeight - lastWindowHeight;
+    lastWindowHeight = newWindowHeight; // save current height for next call
+        
+    var contentHeight = $content.height();
+    $contentWrapper.height(contentHeight);         // make sure wrapper will show entire content
+    $body.height(newWindowHeight + contentHeight); // allow content to be scrolled off the screen by
+                                                   // pushing content down by the amount of window height
+    
+    var windowScrollTop = $window.scrollTop();
+    if (windowScrollTop > 0) {                                // don't scroll if at top to avoid video getting covered
+        $window.scrollTop(windowScrollTop + windowHeightDif ); // scroll by window height difference to keep content 
+                                                              // in the same position on window resize
+    }
+}
+function stickyTop() {
+    var windowScrollTop = $window.scrollTop();
+  // check where the scrollbar is
+    if (windowScrollTop >= 0) {
+    // stop wrapper top at bottom of header
+        $contentWrapper.css('position', 'fixed').css('top', minHeaderHeight); 
+    } else {
+    // allow regular scrolling
+        $contentWrapper.css('position', 'absolute').css('top', ''); 
+    }
+    
+    if ($contentWrapper.css('position') === 'fixed') {       // if wrapper is fixed,
+        $content.css('top', - windowScrollTop); // continue scrolling by shifting content up
+    } else {
+        $content.css('top', 0); // make sure content is lined up with wrapper
+    }
+}
+});
+
+</script>
+</html>

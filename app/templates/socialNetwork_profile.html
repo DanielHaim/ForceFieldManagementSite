@@ -1,0 +1,414 @@
+<html>
+  <head>
+  	{% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcome to FinalProject</title>
+    {% endif %}
+  	<script 
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+  	 </script>
+  	 <script src="http://code.jquery.com/jquery-latest.js"></script>
+     <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+     <!--Jqwidget script-->
+     <script type="text/javascript" src="/static/jqwidgets/scripts/jquery-1.11.1.min.js"></script>
+     <script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxcore.js"></script>
+     <script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxtooltip.js"></script>
+     <script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxbuttons.js"></script>
+     <script 
+      type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxwindow.js">
+      </script>
+
+      <!--My script-->
+      <script type="text/javascript" src="/static/js/index.js">
+    </script>
+
+  	 <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="	stylesheet">
+
+    <!--Jqwidget css-->
+    <link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+    <!--Jqwidget Theme-->
+    <link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.ui-lightness.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    {% endblock %}
+  </head>
+<style type="text/css">
+
+#background 
+{
+
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("/static/img/molecule.png") no-repeat center center;
+    background-size: cover;
+     -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+}
+
+
+#content
+{
+  margin-top:20px;
+  width: 100%;
+}
+
+#contentLeft,#contentRight
+{
+  width: 45%;
+}
+
+#contentLeft
+{
+  margin-left: 1%;
+  padding-top: 35px;
+  min-width: 450px;
+}
+
+#contentRight
+{
+  position: relative;
+  margin-right: 1%;
+  float: right;
+  height: 320px;
+}
+
+
+input[type]
+{
+     height: 30px;
+     width: 290px;
+     margin-bottom:5px;
+}
+
+#userInfoForm input
+{
+  width: 250px;
+} 
+
+input[type=text]
+{
+  background-color:#FFFFE0;
+}
+
+input[type=password]
+{
+  background-color:#FFFFE0;
+}
+
+
+.error
+{
+  color:red;
+  margin-left: 10px;
+  float: right;
+}
+
+.errorUserInfo
+{
+  color:red;
+}
+
+td img
+{
+  height:30px;
+  width: 30px;
+}
+
+/*.tableFF tbody 
+{
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}*/
+.tableFF thead
+{
+  width: 100%;
+}
+
+ 
+.tableFF thead,.tableFF tbody,.tableFF tr,.tableFF td
+{
+  display: block;
+}
+
+
+
+
+</style>
+<body>
+  <div id="background"></div>
+    <div style="margin-top:20px; width:100%;display:inline-block;">
+      <div style="display:inline-block;float:right;width:100%;margin-bottom:10px;clear:both">
+        <!--Home button/Logout button-->
+        <div style="float:right;margin-right:10px;">
+          <a style="padding-left:0px;padding-right:5px;" 
+             class="btn btn-info" color="white" href="{{url_for('index')}}">
+              <img style="margin-right:5px;" src="static/img/icon_home.png" 
+                   width="20" eigth="20"/>Home
+          </a>
+          <a class="btn btn-danger" color="white" 
+             href="#" onclick="logOutClick()">Logout
+          </a><!--{{url_for('logOut')}}-->
+        </div>
+        <!--Flashed Message of This Page-->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category,message in messages %}
+              <div id="alertBar" class="alert alert-{{category}}" 
+                  style="text-align:center;margin:0 auto;width:50%;">
+                <button class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+    </div>
+ <form style="margin-bottom:0px;clear:both" action="" method="POST"
+            id="userInfoForm" autocomplete='true'>
+            {{ form.hidden_tag() }}
+  <!--under login/home button-->
+  <div>
+  <div style="width:100%;overflow:auto">
+    <!--Button save/cancel-->
+    <div style="display:table;width:20%;overflow:auto;
+                  float:left;height:80px;">
+      <div style="height:30px;display:table-cell;
+                vertical-align:middle;padding-left:10px;"> 
+        <input id="saveUserInfoInput" type="submit" 
+               style="width:120px;display:inline-block;" 
+               class='btn btn-success' value="Save Info">
+        <input id="cancelUserInfoInput" type="reset" 
+               style="width:120px;display:inline-block;" 
+               class='btn btn-danger' value="Cance/Refresh">
+      </div>
+    </div>
+    <!--Remove account button-->
+    <div style="display:table;width:20%;float:right;height:80px;
+                overflow:auto;text-align:right">
+        <div style="height:30px;display:table-cell;
+                    vertical-align:middle;padding-right:10px;">
+          <a id="removeBtn"
+             class="btn btn-danger" 
+             href="{{url_for('removeAccount',
+                            token=g.user.generateUserToken())}}">
+             Remove account
+          </a>
+        </div>
+
+    </div>
+    <!--user picture-->
+    <div style="display:inline-block;width:60%;float:right">
+      <div style="margin:0 auto;width:80px;height:80px;">
+          <img style="height: 80px;width: 80px;border-radius:50%;" 
+               src="static/img/profile.png"> 
+      </div> 
+    </div>   
+  </div>  
+      <div style="height:40px;margin:auto;width:145px;
+          font-size:30px;clear:both;padding-top:10px;">
+          <div>User Info</div>
+      </div>
+  </div>
+  <div id="content">
+    <!--Left side of the page-->
+    {% if ff_name_list|length > 0 %}
+      <div id="contentLeft" style="display: inline-block;">
+    {% else %}
+      <div id="contentLeft" style="margin:0 auto">
+    {% endif %}
+          <div id="userInfoWrapper">
+             <table class="table">
+              <tbody>
+                <tr>
+                  <td><strong>Firstname:</strong></td>
+                  <td>
+                    {{ form.firstname(readonly=true) }}
+                    {% for error in form.firstname.errors %}
+                      <div class="errorUserInfo">{{ error }}</div>
+                    {% endfor %}
+                  </td>
+                  <td>
+                    <a id="firstname" href="#" 
+                       onclick="editInput(this)">
+                      <img src="/static/img/pencil.png">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Lastname:</strong></td>
+                  <td>
+                    {{ form.lastname(readonly=true) }}
+                    {% for error in form.lastname.errors %}
+                      <div class="errorUserInfo">{{ error }}</div>
+                    {% endfor %}
+                  </td>
+                  <td>
+                    <a id="lastname" href="#"
+                       onclick="editInput(this)">
+                      <img src="/static/img/pencil.png">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Email:</strong></td>
+                  <td>
+                    {{ form.email(readonly=true) }}
+                    {% for error in form.email.errors %}
+                      <div class="errorUserInfo">{{ error }}</div>
+                    {% endfor %}
+                  </td>
+                  <td>
+                    <a id="email" href="#"
+                       onclick="editInput(this)">
+                      <img src="/static/img/pencil.png">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Registered via:</strong></td>
+                  <td>
+                    <input type="text" 
+                      value="{{g.user.social_network}}" readonly>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Registred on:</strong></td>
+                  <td>
+                    <input type="text" 
+                      value="{{g.user.getTime(g.user.user_registered_on)}}" readonly>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+             </table>            
+          </div>
+    </div>
+    <!--Right side of the page-->
+    {% if ff_name_list|length > 0 %}
+      <div id="contentRight" style="display: inline-block;">
+    {% else %}
+      <div id="contentRight" style="display: none;">
+    {% endif %}
+      <table class="table tableFF">
+        <thead>
+          <tr>
+            <th></th>
+            <th style="text-align:center;width:100%">Author of Forcefield:</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody style="height:250px;overflow-y:auto;">
+          {% for ff in  ff_name_list %}
+              <tr>
+                <td></td>
+                <td style="text-align:center;width:100%;"><input type="text" value="{{ff}}" readonly></td>
+                <td></td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </form>
+    <div class = 'clear' style = 'clear:both;'></div>
+  </div>
+
+    <!--style="display:none;"-->
+  <div id="alertMessage" style="display:none">
+    <div>Information</div>
+    <div id="alertMessageContent">
+        <div>
+        </div>
+        <div style="display:inline-block;width:100%;position:absolute;bottom:10;right:10;">
+            <div id='alertMessageCancelButton' style="display:inline-block;float:right">    Cancel
+            </div>
+            <div id='alertMessageOkButton' style="display:inline-block;float:right;margin-right:7px;">
+                OK
+            </div>
+        </div>
+    </div>
+  </div>
+
+<body>
+
+<script type="text/javascript">
+
+function logOutClick()
+          {
+              var url = '/checkIsSaved';
+              $.get(url,function(response)
+              {
+                  if(response == "True")
+                  {
+
+                    var url  = "/logOut";
+                    $.get(url,function(response){
+                      window.location.replace("/index");});
+                  }
+                  else
+                  {
+                    var msg = "All the opertation you have effectuate"+
+                              " aren't saved. "+
+                              "Do you want to save them ?";
+                    displayAlertMessage(msg);
+                    $('#alertMessageOkButton').on('click',function()
+                    {
+                        $("#alertMessage").jqxWindow('close');
+                        var url = '/logOut';
+                        $.get(url,function(response){window.location.replace("/index");});
+                        
+                    });
+                    $('#alertMessageCancelButton').on('click',function()
+                    {
+                        var url = '/logOut/0';
+                        $.get(url,function(response){window.location.replace("/index");});
+                    });
+                  }
+              });
+          }
+
+
+function editInput(element) 
+{
+   input = document.getElementById(element.id);
+   input.readOnly = false;  
+   input.focus();
+   setTimeout(function() { input.selectionStart = input.selectionEnd; }, 1);
+}
+
+$("#userInfoForm input[type=text]").blur(function() 
+{
+  this.readOnly = true;
+});
+
+$(document).ready(function () 
+{
+  //$("#userInfoForm a:not(#removeBtn)").attr('data-toggle','tooltip');
+  //$("#userInfoForm a:not(#removeBtn)").attr('title','Click here to modified the field');
+  //$('[data-toggle="tooltip"]').tooltip();
+  $('#alertMessageCancelButton').jqxButton({theme:'energyblue',width:50,height:18});
+  $('#alertMessageOkButton').jqxButton({theme:'energyblue',width:50,height:18});
+  $("#userInfoForm a:not(#removeBtn)").jqxTooltip({ content: 'Click here to modified the field.',position:'top-left',theme:'ui-lightness' });
+
+});
+
+</script>
+</html>

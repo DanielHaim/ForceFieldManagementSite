@@ -1,0 +1,185 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - FinalProject</title>
+    {% else %}
+    <title>Welcome to FinalProject</title>
+    {% endif %}
+
+    <script 
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="/static/jqwidgets/scripts/jquery-1.11.1.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxfileupload.js"></script>
+    <script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxmenu.js"></script>
+    <script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxnotification.js">
+</script>
+    <script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxbuttons.js"></script>
+
+    <!--My javascript file-->
+    <script type="text/javascript" src="/static/js/index.js">
+    </script>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- jQWidgets CSS -->
+    <link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link href="/static/jqwidgets/jqwidgets/styles/jqx.bootstrap.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.summer.css" type="text/css" />
+    <link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+    <meta name="NetsparkQuiltingResult" total-length="2413" removed="0" rules-found="w2845" />
+  {% block head %}
+  {% endblock %}
+  </head>
+  <body>
+    <div id='wrapper'>
+        <div id='div1' style = "height : 30px;padding-top:15px;">
+          <div style="float:left;display:inline-block;margin-left:10px;">
+            <div class="label label-info" style="height:25px">
+              <div style="margin-top:5px">
+                User:
+                {% if not g.user.is_authenticated() %}
+                    Uknown
+                {% else %}
+                    {{ g.user.firstname }} {{ g.user.lastname }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div id='jqxWidgetMenu'>
+            <div id='jqxMenu'>
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li>About Us
+                        <ul>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Projet</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+          </div>
+          <div style="float:right;display:inline-block;margin-right:10px;">
+            {% if not g.user.is_authenticated() %}
+            <div id="signInButton"  style="display:inline-block;">
+              <a class="btn btn-info" color="white" href="{{url_for('signIn')}}">signIn</a>
+            </div>
+            <div id="signUpButton" style="display:inline-block;">
+              <a class="btn btn-success" color="white" href="{{url_for('signUp')}}">signUp</a>
+            </div>
+            {% else %}
+            <div style="display:inline-block;">
+              
+            {% if g.user.social_network is none %}
+              <a href="{{url_for('normal_profile')}}">
+            {% else %}
+              <a href="{{url_for('socialNetwork_profile')}}">
+            {% endif %}
+              <img id="profileImg"
+                  src="/static/img/profile.png" width="30" height="30">
+              </a>
+            </div>
+            <div id="signOutButton" style="display:inline-block;margin-left:10px">
+              <a class="btn btn-info" color="white" 
+                href="#" onclick="logOutClick()">Log Out</a>    
+                <!--href="{{url_for('logOut')}}"-->
+            </div>
+            {% endif %}
+          </div>
+        </div>
+    </div>
+    <div class = 'clear' style = 'clear:both;'></div>
+  </div>
+  <div id='notificationContainer' style='width:500px;height:35px;padding-top:10px;overflow:hidden;'>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category,message in messages %}
+            <div id="alertBar" style="padding-top:5;margin:0"class="alert alert-{{category}}">
+                <button class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+  </div>
+  <hr style="margin:15">
+  <!--style="display:none;"-->
+  <div id="alertMessage" style="display:none">
+    <div>Information</div>
+    <div id="alertMessageContent">
+        <div>
+        </div>
+        <div style="display:inline-block;width:100%;position:absolute;bottom:10;right:10;">
+            <div id='alertMessageCancelButton' style="display:inline-block;float:right">    Cancel
+            </div>
+            <div id='alertMessageOkButton' style="display:inline-block;float:right;margin-right:7px;">
+                OK
+            </div>
+        </div>
+    </div>
+  </div>
+    <script type="text/javascript">
+          
+          jQuery.fn.center = function () {
+              this.css("position","absolute");
+              /*this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
+                                                $(window).scrollTop()) + "px");*/
+              this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
+                                                $(window).scrollLeft()) + "px");
+              return this;
+          }
+
+          function logOutClick()
+          {
+              var url = '/checkIsSaved';
+              $.get(url,function(response)
+              {
+                  if(response == "True")
+                  {
+
+                    var url  = "/logOut";
+                    $.get(url,function(response){
+                      window.location.replace("/index");});
+                  }
+                  else
+                  {
+                    var msg = "All the opertation you have effectuate"+
+                              " aren't saved. "+
+                              "Do you want to save them ?";
+                    displayAlertMessage(msg);
+                    $('#alertMessageOkButton').on('click',function()
+                    {
+                        $("#alertMessage").jqxWindow('close');
+                        var url = '/logOut';
+                        $.get(url,function(response){window.location.replace("/index");});
+                        
+                    });
+                    $('#alertMessageCancelButton').on('click',function()
+                    {
+                        var url = '/logOut/0';
+                        $.get(url,function(response){window.location.replace("/index");});
+                    });
+                  }
+              });
+          }
+
+
+            
+          $(document).ready(function () {
+                // Create a jqxMenu
+                $("#jqxMenu").jqxMenu({ width: 320, height: 30, theme: 'energyblue'});
+                $("#jqxWidgetMenu").center();
+                $('#notificationContainer').center();
+                });
+
+
+  </script>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

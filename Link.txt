@@ -1,0 +1,236 @@
+#all the doc on flask
+http://flask.pocoo.org/docs/0.10/
+http://flask.pocoo.org/docs/0.10/quickstart/
+http://flask.pocoo.org/docs/0.10/api/
+
+#flask youtube
+https://www.youtube.com/watch?v=WfpFUmV1d0w&list=PLLjmbh6XPGK4ISY747FUHXEl9lBxre4mM
+
+OAuth:
+http://blog.miguelgrinberg.com/post/oauth-authentication-with-flask
+https://github.com/litl/rauth/blob/master/rauth/service.py
+http://rauth.readthedocs.io/en/latest/api/
+https://github.com/miguelgrinberg/flask-oauth-example/blob/master/oauth.py
+https://github.com/miguelgrinberg/flask-oauth-example/blob/master/app.py
+http://www.bubblecode.net/fr/2016/01/22/comprendre-oauth2/
+https://pythonhosted.org/Flask-OAuth/
+http://pythonhosted.org/Flask-OAuth/#flask_oauth.OAuthResponse
+
+Facebook OAuth:
+https://developers.facebook.com/docs/
+https://developers.facebook.com/docs/graph-api
+https://developers.facebook.com/docs/apps/register
+https://www.facebook.com/login.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Fapps
+https://developers.facebook.com/docs/facebook-login/permissions#reference-public_profile
+https://developers.facebook.com/docs/graph-api/reference/user
+https://developers.facebook.com/docs/facebook-login/permissions/overview
+http://blog.shea.io/facebook-authentication-for-flask-apps/
+
+
+Google OAuth:
+#trés bien detailler:
+http://stackoverflow.com/questions/9499286/using-google-oauth2-with-flask
+
+#tutorial by google for python
+https://developers.google.com/api-client-library/python/guide/aaa_oauth#flow_from_clientsecrets
+
+#url pour creer un projet et avoir un id 
+https://developers.google.com/identity/protocols/OAuth2
+https://console.developers.google.com/projectselector/apis/credentials?pli=1
+
+
+
+Email Validation:
+#j'ai suivi ce tutoriel:
+https://www.scottbrady91.com/Email-Verification/Python-Email-Verification-Script
+https://github.com/rthalley/dnspython
+http://stackoverflow.com/questions/6971085/import-error-in-python
+
+Session Decoder
+https://www.kirsle.net/wizards/flask-session.cgi
+
+Flask Doc Quickstart && Session:
+http://flask.pocoo.org/docs/0.10/quickstart/#quickstart
+http://flask.pocoo.org/docs/0.10/quickstart/#sessions
+https://pythonhosted.org/Flask-Session/
+http://stackoverflow.com/questions/25137883/server-side-sessions-with-flask
+http://stackoverflow.com/questions/11783025/is-there-an-easy-way-to-make-sessions-timeout-in-flask
+http://blog.miguelgrinberg.com/post/how-secure-is-the-flask-user-session
+
+
+#diference between g and session
+http://stackoverflow.com/questions/32909851/flask-session-vs-g
+
+#Remember me logic in flask-login
+http://flask-login.readthedocs.io/en/latest/#remember-me
+
+#_fresh in session with flask-login
+http://flask-login.readthedocs.io/en/latest/#fresh-logins
+
+#flask-upload
+http://flask.pocoo.org/docs/0.10/patterns/fileuploads/
+https://pythonhosted.org/Flask-Uploads/
+http://stackoverflow.com/questions/27628053/uploading-and-downloading-files-with-flask
+http://stackoverflow.com/questions/24577349/flask-download-a-file
+
+
+#csrf  protection
+https://flask-wtf.readthedocs.io/en/latest/csrf.html
+http://flask.pocoo.org/snippets/3/
+http://stackoverflow.com/questions/26535809/csrf-protection-on-ajax-authentication-in-flask
+http://stackoverflow.com/questions/31888316/how-to-use-flask-wtforms-csrf-protection-with-ajax
+
+#wtf form
+http://wtforms.readthedocs.io/en/latest/forms.html
+
+#User and session management
+http://flask-login.readthedocs.io/en/latest/
+https://realpython.com/blog/python/using-flask-login-for-user-management-with-flask/
+http://stackoverflow.com/questions/15871391/implementing-flask-login-with-multiple-user-classes
+http://andypi.co.uk/2015/11/27/multiple-user-roles-python-flask/
+
+#decorator for user-role
+http://flask.pocoo.org/snippets/98/
+
+#trés bon tuto sur les decorateurs en python
+http://gillesfabio.com/blog/2010/12/16/python-et-les-decorateurs/
+
+#media-query
+http://stackoverflow.com/questions/18424798/twitter-bootstrap-3-how-to-use-media-queries
+
+#Json CustomEncoder
+http://jsonlint.com
+https://www.reddit.com/r/learnpython/comments/3e490k/convert_string_into_json_object/
+http://stackoverflow.com/questions/6578986/how-to-convert-json-data-into-a-python-object
+http://json.org
+https://docs.python.org/dev/library/json.html
+http://stackoverflow.com/questions/21411497/flask-jsonify-a-list-of-objects
+
+#flask and JsonEncoder
+http://stackoverflow.com/questions/24035878/fixing-the-class-to-enable-object-storing-in-flask-session
+
+#for Input file to allow only the choosen extension
+http://stackoverflow.com/questions/1548194/how-to-get-the-htmls-input-element-of-file-type-to-only-accept-pdf-files
+http://stackoverflow.com/questions/17293861/how-to-make-input-type-file-accept-only-these-types
+
+#for download
+http://www.corelangs.com/html/links/download-link.html
+http://webdesign.tutsplus.com/tutorials/quick-tip-using-the-html5-download-attribute--cms-23880
+http://www.christianschenk.org/blog/html-select-dropdown-download-files/
+
+#javascript online
+http://www.teria.com/~koseki/memo/javascript/realtime_eval.html
+
+#secure session (a faire)
+http://stackoverflow.com/questions/13735024/invalidate-an-old-session-in-flask
+
+#command sed (replace all single quote by double quote)
+sed "s/'/\"/g" rere.txt 
+							
+									Exemple
+------------------------------------------------------------------------------
+
+.eJwljUsOwjAMBe_idRf5OZ_egFNEaWxDhRRQ0i4Q4u4EsXsazei9IUvncYP16CcvkHeCFWp1EioJc7CoDW6aVNTMSGiLIQ8L1NElH487t-krrwuXFImtw1SiV4hoDQaTHJH1srHCKGZ2Y7-2fLyePLPfvrQJz8H9_6zh8wXJmyvR.ChTYWw.j7kIWO3NgG36Y0i_u02ltOfE7c4	
+
+>>> import base64
+>>> import zlib
+>>> zlib.decompress(base64.urlsafe_b64decode('eJwljUsOwjAMBe_idRf5OZ_egFNEaWxDhRRQ0i4Q4u4EsXsazei9IUvncYP16CcvkHeCFWp1EioJc7CoDW6aVNTMSGiLIQ8L1NElH487t-krrwuXFImtw1SiV4hoDQaTHJH1srHCKGZ2Y7-2fLyePLPfvrQJz8H9_6zh8wXJmyvR==='))
+b'{"_fresh":true,"_id":"cc4f7cdfee735125b1d081ee5d53a2d6","csrf_token":"061aea98de3459a8605553257294dd36fbe058f2","sign_type":"signIn","user_id":"1"}'
+>>> 
+
+------------------------------------------------------------------------------
+								Session
+
+attribut 'permanent' de l'objet session
+If set to True the session lives for permanent_session_lifetime seconds(so the user don't need to reconnect himself to the app). The default is 31 days (if the user disconnect by doing logout(), the session expire at the time of logout()). If set to False (which is the default value for permanent attribute) the session will be deleted when the user closes the browser.
+http://flask.pocoo.org/docs/0.10/api/#flask.session.modified
+
+la session dans flask a  par defaut 31 jours avant son expiration:
+on peut changer cette valeur par defaut en faisant comme ceci:
+login_user(user)
+session.permanent = True
+app.permanent_session_lifetime = timedelta(seconds=10) 
+
+ici 10 secondes apres que le user a fait signIn la session sera suprimer et le user sera deconecte.
+
+
+Remember Me
+“Remember Me” functionality can be tricky to implement. However, Flask-Login makes it nearly transparent - just pass remember=True to the login_user call. A cookie will be saved on the user’s computer, and then Flask-Login will automatically restore the user ID from that cookie if it is not in the session. The cookie is tamper-proof, so if the user tampers with it (i.e. inserts someone else’s user ID in place of their own), the cookie will merely be rejected, as if it was not there.
+
+That level of functionality is handled automatically. However, you can (and should, if your application handles any kind of sensitive data) provide additional infrastructure to increase the security of your remember cookies.
+
+The amount of time before the cookie expires, as a datetime.timedelta object.Default: 365 days (1 non-leap Gregorian year)
+
+si on fait logOut() le cookie remember_me s'efface. 
+Si on est toujours connecter c a dire quon a pas fait de logout() alors si la session a expire donc elle a ete suprime du browser le cookie va creer une nouvelle session avec tous les donnees de l'user qui sont au dans la table User,mais ne va pas restorer les donnees qu'il y'avait dans l'ancienne 
+session avant son expiration.
+Et c'est pour ca que si je fait logOut() qui requierre des donnees de l'ancienne session ca bugg.!!! je n'ai donc aucun interet a utiliser le remember me a True. a part si je trouve un moyen de garder les donnee de l'ancienne session dans le cookie afin qu'il les restore.pour l'instant je n'utiliserais pas cette propriete.
+
+pour utiliser le remember_me on ecrit dans le code login_user(user,True).
+
+------------------------------------------------------------------------------
+
+
+def createForceFieldOk(self):
+        global countOperation        
+        exist = False
+        for instance in session.query(ForceField):
+            if instance.nameForceField == self.createForceFieldEdit.text():
+                exist = True
+        if exist == False:
+            newForceField = ForceField(self.createForceFieldEdit.text())
+            session.add(newForceField)
+            session.flush()
+            #FOr the undo operation
+            instanceForUndoRedo = UndoRedoObject("addForceField",newForceField.nameForceField)
+            listOfOperation.append(instanceForUndoRedo)
+            countOperation +=1
+            self.treeWidget.clear()
+            self.initialTree()
+            self.displayTree(self.treeWidget)  
+            self.dialogCreateForceField.close()
+        else:
+            self.createForceFieldErrorLabel.setText("Force field name already exist")
+
+il fo faire en sorte que des que lq session expire 
+il se deconnecte de laplication et devient un user normal
+sinn ca fait bugger l'appli,sinon faut mettre des conditions pour 
+savoir si la session est expirer ou pas.
+
+j'ai limpression que la session s'efface lorsque je ferme le browser et apres je veut faire logout il dit quil na pas de session['numberOfcolo']...
+
+TODO:
+dans la remove dans le cas ou le class atom n'est plus utiliser
+dans la table atomType demander a l'utilisateur s'il veut le suprimer
+ou le laisser sachant qu'il peut etre utiliser dans d'autre parametre
+de ce forcefield.
+faire le champ column name
+faire dans le profile un moyen de rajouter le user si tu est l'author dun forcefield , d'en suprimer.
+rajouter le isAuthor dans la base de donne
+changer la structure la page profile.
+dans la import FF demander a yoel si y'a besoin de definir le nom du FF
+
+ajouter les fonctionalite de paging , sorting a la grid
+
+j'ai l'impression que lorsque le user ferme le browser , meme s'il attend une heure alors sa session n'expire pas , a verifier.
+
+
+z-daylondon 2013 daren de witt nvc
+lori grace  nvc 
+https://www.youtube.com/watch?v=zCaAZFFXxL0
+https://www.youtube.com/watch?v=4YmkjnaigIQ
+
+maieusthesie , l'ifs , les m.a.i , TIPI , NERTI.
+
+removeRowOk,removeFFOk,removeParameterOk
+
+A faire:
+passer dans tous les fonctions du undo/redo et remplacer le commit() par flush()
+
+success:
+background-color = #dff0d8
+color = #468847
+
+danger:
+color = #b94a48
+background-color = #f2dede

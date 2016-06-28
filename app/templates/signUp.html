@@ -1,0 +1,132 @@
+{% extends "authBase.html" %}
+
+{% block head %}
+<style type="text/css">
+
+.inner { 
+    width: 640px;
+}
+
+form input#username , #registerBtn
+{
+  width: 595px;
+}
+</style>
+{% endblock %}
+{% block content %}
+      <div style="margin:auto;width:100px">
+        <img style="height: 80px;width: 80px;border-radius:50%;" 
+          src="static/img/molecule1.png">
+      </div>
+      <div style="height:40px;margin:auto;width:145px;font-size:35px;
+          padding-top:20px;">
+          <div>Sign Up</div>
+      </div>
+
+      <div id="formDiv">
+
+        <a 
+            href='{{ url_for('oauth_authorize',
+                              sign_type='signUp',
+                              provider='google') }}' 
+            style="width:45%;" 
+            class="btn btn-danger" >
+          <div style="border-right:1px solid;display:inline-block;float:left;padding-right:5px;" class="label-primary">G+</div>
+          <div style="display:inline-block">Google</div>
+        </a>
+        <a 
+            href='{{ url_for('oauth_authorize',
+                              sign_type='signUp',
+                              provider='facebook') }}' 
+            style="width:45%;" 
+            class="btn btn-primary" >
+          <div style="border-right:1px solid;font-size:20px;display:inline-block;float:left;padding-right:5px;" class="label-primary">f</div>
+          <div style="display:inline-block">Facebook</div>
+        </a>
+      
+        <!-- line with text in the middle -->
+        <div class="group">
+          <div id="lineId" class="item line">.</div>
+          <div class="item text">OR</div>
+          <div id="lineId" class="item line">.</div>
+        </div>
+
+        <form style="margin-bottom:0px" action="" method="POST" name="login">
+          {{ form.hidden_tag() }}
+          <div style="display:inline-block;">
+            <div style="display:inline-block;">
+              <div>
+                Firstname:
+                {% for error in form.firstname.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {{ form.firstname}}<br>
+            </div>
+            <div style="display:inline-block;margin-left:10px">
+              <div>
+                Lastname:
+                {% for error in form.lastname.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+                </div>
+                {{ form.lastname}}<br>
+            </div>
+          </div>
+          <p>
+            <div>
+              Username:
+              {% for error in form.username.errors %}
+                  <span class="error">{{ error }}</span>
+              {% endfor %}
+            </div>
+              {{ form.username}}<br>
+          </p>
+          <div style="display:inline-block;">
+            <div style="display:inline-block;">
+              <div>
+                Email:
+                {% for error in form.email.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {{ form.email}}<br>
+            </div>
+            <div style="display:inline-block;margin-left:10px">
+              <div>
+                Confirm email:
+                {% for error in form.confirmEmail.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+                </div>
+                {{ form.confirmEmail}}<br>
+            </div>
+          </div>
+          <div style="display:inline-block;margin-top:10;">
+            <div style="display:inline-block;">
+              <div>
+                Password:
+                {% for error in form.password.errors %}
+                  <span class="error">{{ error }}</span>
+                {% endfor %}
+              </div>
+                {{ form.password}}<br>
+            </div>
+            <div style="display:inline-block;margin-left:10px">
+              <div>
+                Confirm Password:
+                {% for error in form.confirmPassword.errors %}
+                  <span class="error">{{ error }}</span>
+                {% endfor %}
+              </div>
+                {{ form.confirmPassword}}<br>
+            </div>
+          </div>
+          <p style="margin-top:20px;width:605px;">
+            <input id="registerBtn" type="submit" class='btn btn-success' value="Register">
+          </p>
+
+        </form>
+        <div style="margin:0 auto;width:220px;">already have an account?<a href="{{url_for('signIn')}}">Log in</a></div>
+      </div>
+{% endblock %}

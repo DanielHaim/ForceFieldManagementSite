@@ -1,0 +1,5123 @@
+{% extends "base.html" %}
+{% block head %}
+
+<script 
+    type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxcore.js">
+</script>
+<script 
+    type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxTree.js">
+</script>
+<script 
+  type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxscrollbar.js">
+</script>
+<script
+    type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxpanel.js">
+</script>
+<script 
+    type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxbuttons.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxdata.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxmenu.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxlistbox.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxdropdownlist.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxcombobox.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxinput.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxtoolbar.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxwindow.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxribbon.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxlayout.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxvalidator.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxtabs.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxnumberinput.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxfileupload.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxcheckbox.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxnotification.js">
+</script>
+<script type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxdatatable.js"></script>
+<script type="text/javascript" src="/static/js/index.js">
+</script>
+
+<!--JQXRadio Button-->
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxradiobutton.js">
+</script>
+<script 
+type="text/javascript" src="/static/jqwidgets/jqwidgets/jqxbuttongroup.js">
+</script>
+
+<!--JQXGrid -->
+<script 
+type="text/javascript" 
+src="/static/jqwidgets/jqwidgets/jqxgrid.js">
+</script>
+<script 
+type="text/javascript" 
+src="/static/jqwidgets/jqwidgets/jqxgrid.selection.js">
+</script> 
+<script 
+type="text/javascript" 
+src="/static/jqwidgets/jqwidgets/jqxgrid.columnsresize.js">
+</script> 
+<script 
+type="text/javascript" 
+src="/static/jqwidgets/jqwidgets/jqxgrid.filter.js">
+</script> 
+<script 
+type="text/javascript" 
+src="/static/jqwidgets/jqwidgets/jqxgrid.sort.js">
+</script> 
+<script 
+type="text/javascript" 
+src="/static/jqwidgets/jqwidgets/jqxgrid.pager.js">
+</script> 
+<script 
+type="text/javascript" 
+src="/static/jqwidgets/jqwidgets/jqxgrid.grouping.js">
+</script>
+<script 
+type="text/javascript" 
+src="/static/jqwidgets/jqwidgets/jqxgrid.edit.js">
+</script>
+
+<!--Bootstrap JS-->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap core CSS -->
+<link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="   stylesheet">
+
+<!-- jQWidgets CSS -->
+<link href="/static/jqwidgets/jqwidgets/styles/jqx.bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+
+<!--JQWidgets Theme CSS-->
+<link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+<link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.orange.css" type="text/css" />
+<link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.summer.css" type="text/css" />
+<link rel="stylesheet" href="/static/jqwidgets/jqwidgets/styles/jqx.darkblue.css" type="text/css" />
+
+<!--Meta Balise-->
+<meta name="NetsparkQuiltingResult" total-length="4002" removed="0" rules-found="w3281,w7466,w3477" />
+<meta name="NetsparkQuiltingResult" total-length="2596" removed="0" rules-found="w2845" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+<style type="text/css">
+
+body{padding-left: 10px;}
+form{}
+
+hr {
+  margin:10;
+}
+
+#search {
+
+    margin-top: 15px;
+    height: 30px;
+    background: url(/static/img/search-icon.png) no-repeat 10px 6px #fcfcfc;
+    border: 1px solid #d1d1d1;
+    font: bold 20px Arial,Helvetica,Sans-serif;
+    color: #909090;
+    width: 300px;
+    height: 40px;
+    padding: 6px 15px 6px 35px;
+
+}
+
+#jqxDetails .jqx-grid-cell-selected {
+    background-color:#2f96b4;
+}
+
+#jqxDetails .jqx-grid-cell-hover {
+    background-color:#428bca;
+}
+
+#jqxMaster .jqx-grid-cell-selected {
+    background-color:#2f96b4;
+}
+
+#jqxMaster .jqx-grid-cell-hover {
+    background-color:#428bca;
+}
+
+</style>
+
+{% endblock %}
+{% block content %}
+
+<div id = 'wraper2'>
+
+<!--Left content Search bar and Tree-->
+<div id = 'container1' style = "float: left;">
+<input id="search" type="text" size="50" placeholder="Search..." />
+<div style= 'padding-top:20px'></div>
+<div id='jqxTree'></div>
+</div>
+
+<!--Right content-->
+<div id='container2' style="padding-top:15px;padding-left:350px;">
+    
+    <div id="jqxToolBar"></div>
+    
+    <div id='jqxWidgetGrid'style="font-size: 5px; font-family: Verdana; float: left;padding-top:25px;">
+        <!--Grid of forcefield values-->
+        <div id="jqxgrid"></div>
+
+        <!--Pannel for CRUD operation on FF the pannel take the same 
+            size of the grid -->
+        <div id='jqxpanel'></div>
+        
+        <!--Tab for Add instead of pannel-->
+        <div id='jqxTabsAdd'>
+            <ul>
+                <li>ForceField</li>
+                <li>Parameter</li>
+                <li>Others</li>
+            </ul>
+            <div id="forcefieldAddTab"></div>
+            <div id='parameterContentTab' style='position:relative'></div>
+            <div id='OthersTab'></div>
+        </div>
+        <!--Tab for Remove instead of pannel-->
+        <div id='jqxTabsRemove'>
+            <ul>
+                <li>ForceField</li>
+                <li>Parameter</li>
+            </ul>
+            <div id="forcefieldRemoveTab"></div>
+            <div id='parameterRemoveTab' style='position:relative'></div>
+        </div>
+        <!--Tab for Rename instead of pannel-->
+        <div id='jqxTabsRename'>
+            <ul>
+                <li>ForceField</li>
+                <li>Parameter</li>
+            </ul>
+            <div id="forcefieldRenameTab"></div>
+            <div id='parameterRenameTab' style='position:relative'></div>
+        </div>
+    </div>
+</div>
+<div class = 'clear' style = 'clear:both;'></div>
+</div>
+<div id="popupWindow" style="display:none">
+    <div id="popupWindowTitle"style="height:15px;"></div>
+    <div style="overflow: scroll;width:100%">
+        <div id='windowsTab' class="windowsTab">
+            <ul style="margin-left: 30px;">
+                <li>Row</li>
+                <li>Atom Class</li>
+                <li>Atom Type</li>
+            </ul>
+            <div style="margin: 0 auto;">
+                <table id='windowsContentGeneral' class="table1" style="margin: 0 auto;">
+                </table>
+            </div>
+            <div style="margin: 0 auto;">
+                <table id='windowsContentClass' style="margin: 0 auto;height:90%;margin-top:20px;">
+                </table>
+            </div>
+            <div style="margin: 0 auto;">
+                <table id='windowsContentType' style="margin: 0 auto;height:90%;margin-top:20px;">
+                </table>
+            </div>
+        </div>
+        <div style="margin: 0 auto;" class="noWindowsTab">
+            <table id='windowsContentGeneral' class="table2" style="margin: 0 auto;">
+            </table>
+        </div>
+    </div>
+</div>
+<div id='pannelWrapper' style="display:none">
+    <fieldset style='heigth:100%'>
+        <legend id='pannelLegend'></legend>
+        <div id='pannelContent' style="position:relative;padding-top:20px;">
+            <div id="pannelContentInner"></div>
+            <div id="pannelButtonGroup" style="overflow:    hidden;bottom:0px;right:0;position:absolute;">
+                <div id='okButtonPannel'>OK</div>
+                <div id='cancelButtonPannel'>Cancel</div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div id='pannelWrapperImport' style="display:none">
+    <fieldset style='heigth:100%'>
+        <legend id='pannelImportLegend'></legend>
+        <div id='pannelImportContent' style="position:relative;padding-top:20px;">
+            <div id="pannelImportContentInner"></div>
+        </div>
+    </fieldset>
+</div>
+<div id='jqxwindowInputInfo' style="display:none">
+    <div>Input Requirement</div>
+    <div>
+        <br>
+        <strong>First character:</strong> letter only.<br>
+        Input can be composate of many word.It's no case sensitive.<br>
+        Each word must begin with letter,can contain letters or digits.<br>
+        Each word must be separate by underscore,space or '-'.<br>
+        <strong>Last  character:</strong> letter or digit.<br>
+    </div>
+</div>
+
+<!--Jqx Notification-->
+<div id="jqxnotification">
+    <div id='notificationContent'></div>
+</div>
+<!--style="display:none;"
+<div id="alertMessage" style="display:none">
+    <div>Information</div>
+    <div id="alertMessageContent">
+        <div>
+        </div>
+        <div style="display:inline-block;width:100%;position:absolute;bottom:10;right:10;">
+            <div id='alertMessageCancelButton' style="display:inline-block;float:right">    Cancel
+            </div>
+            <div id='alertMessageOkButton' style="display:inline-block;float:right;margin-right:7px;">
+                OK
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--pannel for Master Details Grid for Authors of FF-->
+<div id="pannelMasterDetails" style="display:none">
+    <div id="masterContainer" style="width:800px;margin:20px;">
+        <div id="masterDetailsLeft" style="width:200px;float:left;display:inline-block;">
+            <span>
+                <strong>ForceFields List:</strong>
+            </span>
+            <div style="height:10px;"></div>
+            <div id="jqxMaster"></div>
+            <div style="height:90px;padding-top:10px;">
+                <div><strong>Forcefield selected:</strong></div>
+                <div id="actualFF" style="color:red;height:50px;vertical-align:middle;text-align:center;line-height:50px;"></div>
+            </div>
+        </div>
+        <div id="masterDetailsRight" style="width:580px;padding-left:20px;display:inline-block;">
+            <span>
+                <strong>Authors of selected forcefield:</strong>
+            </span>
+            <div style="height:10px;"></div>
+            <div id="jqxDetails"></div>
+            <div style="height:90px;padding-top:10px;">
+                <span>
+                    <strong>
+                        Add/Delete authors of selected forcefield(only for forcefield's owner):
+                    </strong>
+                </span>
+                <div style="height:50px;width:420px;margin:auto;">
+                    <div style="padding-top:20px;">
+                    <input id="usernameInput" style="display:inline-block;float:left;margin-right:20px;" 
+                    onkeyup='masterInput(this)'>
+                    <div style="float:right;">
+                        <div id="addUserToFF" class="btn btn-info jqx-info" style="display:inline-block;">Add
+                        </div>
+                        <div id="deleteUserToFF" class="btn btn-danger jqx-danger" style="display:inline-block;">Delete
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div style="width:420px;margin:auto;">
+                <div id="masterError" style="height:10px;width:195px;font-size:13px;color:red;display:none;">
+                    error
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+var allParameters = new Array();
+var fullfillTabContentcaller = false;
+var fullfillParameterTabcaller = false;
+var fullfillRenameCaller = false;
+//radioButton on parameterTab (checked =>DDParam=able/notChecked => //DDParam=disable)
+var existingParameter = false;
+var propertyInputCounters;
+var columnsList;
+var req = 0;
+
+function bindAddUserToFF()
+{
+    $('#addUserToFF').unbind('click');
+    //when user click on add button
+    $('#addUserToFF').on('click',function()
+    {
+        //check if the input is full
+        if($('#usernameInput').val() == "")
+        {
+            $('#masterError').text('username required.');
+            $('#masterError').show();
+        }
+        else
+        {
+            var ffName = $('#actualFF').text();
+            var userName = $('#usernameInput').val(); 
+            var url = '/addUserToFF/'+ffName+'/'+userName;
+            $.get(url,function(response)
+            {
+                var res = JSON.parse(response);
+                displayNotification(res.msg,res.type);
+                var urlDetails = '/getAuthorsForDetails/'+ffName;
+                $.get(urlDetails,function(response)
+                {
+                    var detailsdata = eval(response);
+                    //create details source object
+                    var detailSource = {
+                        dataFields:[
+                            {name: 'username'},
+                            {name: 'firstname'},
+                            {name: 'lastname'},
+                            {name: 'email'}
+                        ],
+                        localdata:detailsdata
+                    }
+
+                var detailsAdapter = new $.jqx.dataAdapter(detailSource);
+                    $('#jqxDetails').jqxGrid({source:detailsAdapter});
+
+                });
+            });
+        }
+    });
+}
+
+function deleteUserFromFF(ffName,userName)
+{
+    var url = '/deleteUserToFF/'+ffName+'/'+userName;
+    $.get(url,function(response)
+    {
+        var res = JSON.parse(response);
+        var session = res.session;
+        displayNotification(res.msg,res.type);
+        
+        //if the user deleted is not the current user 
+        //so we refresh the details grid only
+        if(session.nameParameter == "False")
+        {
+        var urlDetails = '/getAuthorsForDetails/'+ffName;
+        $.get(urlDetails,function(response)
+        {
+            var detailsdata = eval(response);
+            //create details source object
+            var detailSource = {
+                dataFields:[
+                    {name: 'username'},
+                    {name: 'firstname'},
+                    {name: 'lastname'},
+                    {name: 'email'}
+                ],
+                localdata:detailsdata
+            }
+
+            var detailsAdapter = new $.jqx.dataAdapter(detailSource);
+            $('#jqxDetails').jqxGrid({source:detailsAdapter});
+            $('#usernameInput').val('');
+
+        });
+        }
+
+        //if the user deleted is the current user 
+        //so i need to refresh the master grid and
+        //i need to refresh the tree and reresh the details grid
+        if(session.nameParameter == "True")
+        {
+            updateTree(ffName,null);
+            fullfillMasterDetailsPanel();
+        }
+    });
+}
+
+function bindDeleteUserFromFF()
+{
+    //when user click on delete button
+    $('#deleteUserToFF').on('click',function()
+    {
+        //check if the input is full
+        if($('#usernameInput').val() == "")
+        {
+            $('#masterError').text('username required.');
+            $('#masterError').show();
+        }
+        else
+        {
+            var ffName = $('#actualFF').text();
+            var userName = $('#usernameInput').val();
+            
+            //if the username is the current user
+            if(userName == '{{g.user.username}}')
+            {
+                //i display the popup windows
+                var msg = "By efectuate this operation you will loose your rigth on this forcefield,Do you really want to delete yourself from this forcefield ?";
+                displayAlertMessage(msg);
+                $('#alertMessageOkButton').on('click',function()
+                {
+                    $("#alertMessage").jqxWindow('close');
+                    deleteUserFromFF(ffName,userName);
+                });
+
+            }
+            else
+            {
+                deleteUserFromFF(ffName,userName);
+            }
+            
+            
+        }
+    });
+}
+
+function masterInput(e)
+{
+    if(e.value != "")
+    {
+        $('#masterError').hide();
+        $('#addUserToFF').jqxButton({disabled:false});
+        $('#addUserToFF').unbind('click');
+        bindAddUserToFF();
+    }
+}
+
+function fullfillMasterDetailsPanel()
+{
+    $('#usernameInput').jqxInput({width:200,height:25,disabled:true,placeHolder:'username:'});
+    $('#addUserToFF').jqxButton({width:80,height:20,theme:'bootstrap',disabled:true});
+    $('#deleteUserToFF').jqxButton({width:80,height:20,theme:'bootstrap',disabled:true});
+
+    //bindAddUserToFF();
+    //bindDeleteUserFromFF();
+    
+
+    var urlMaster = '/getForceFieldListForMaster';
+    $.get(urlMaster,function(response)
+    {
+        var data = eval(response);
+        //create master source object
+        var source = {
+            dataFields:[
+                {name: 'ffName'},
+                {name: 'owner'}
+            ],
+            localdata:data
+        }
+
+        var dataAdapter = new $.jqx.dataAdapter(source);
+
+        //declaration of the master grid
+        $('#jqxMaster').jqxGrid(
+        {
+            source:dataAdapter,
+            width:200,
+            height:250,
+            keyboardNavigation:true,
+            columns:[
+                {text: 'ForceField Name', datafield: 'ffName', width:150},
+                {text: 'Owner', datafield: 'owner', width:50}
+
+            ]
+        });
+
+        //declaration of the details grid
+        $('#jqxDetails').jqxGrid(
+        {
+            width:580,
+            height:250,
+            keyboardNavigation:true,
+            columns:[
+            {text: 'Username', datafield: 'username', width:100},
+            {text: 'Firstname', datafield: 'firstname', width:100},
+            {text: 'Lastname', datafield: 'lastname', width:100},
+            {text: 'Email', datafield: 'email', width:280}
+            ]
+        });
+
+        //event trigered when user select row on details grid
+        $('#jqxDetails').on('rowselect', function (event) 
+        {   
+            // event arguments.
+            var args = event.args;
+            var rowData = args.row;
+            if(!$('#usernameInput').jqxInput('disabled'))
+                $('#usernameInput').val(rowData.username);
+            $('#addUserToFF').jqxButton({disabled:true});
+            $('#addUserToFF').unbind('click');
+        });
+
+        //select the first row of master by default
+        $('#jqxMaster').jqxGrid('selectrow',0);
+        var firstRowData = $('#jqxMaster').jqxGrid('getrowdata', 0);
+        $('#actualFF').text(firstRowData.ffName);
+        if(firstRowData.owner == "True")
+        {
+            $('#usernameInput').jqxInput({disabled:false});
+            $('#addUserToFF').jqxButton({disabled:false});
+            $('#deleteUserToFF').jqxButton({disabled:false});
+            bindAddUserToFF();
+            bindDeleteUserFromFF();
+        }
+        var urlDetails = '/getAuthorsForDetails/'+firstRowData.ffName;
+
+        $.get(urlDetails,function(response)
+        {
+            var detailsdata = eval(response);
+            //create details source object
+            var detailSource = {
+                dataFields:[
+                    {name: 'username'},
+                    {name: 'firstname'},
+                    {name: 'lastname'},
+                    {name: 'email'}
+                ],
+                localdata:detailsdata
+            }
+
+            var detailsAdapter = new $.jqx.dataAdapter(detailSource);
+
+            $('#jqxDetails').jqxGrid({source:detailsAdapter});
+        });
+
+
+        //event trigered when a row is selected on master grid
+        $('#jqxMaster').on('rowselect', function (event) 
+        {
+            // event arguments.
+            var args = event.args;
+            var rowData = args.row;
+            $('#actualFF').text(rowData.ffName);
+            if(rowData.owner == "True")
+            {
+                $('#usernameInput').jqxInput({disabled:false});
+                $('#addUserToFF').jqxButton({disabled:false});
+                $('#deleteUserToFF').jqxButton({disabled:false});
+                bindAddUserToFF();
+                bindDeleteUserFromFF();
+            }
+            else
+            {
+                $('#usernameInput').jqxInput({disabled:true});
+                $('#usernameInput').val('');
+                $('#addUserToFF').jqxButton({disabled:true});
+                $('#deleteUserToFF').jqxButton({disabled:true});
+                $('#addUserToFF').unbind('click');
+                $('#deleteUserToFF').unbind('click');
+            }
+            var urlDetails = '/getAuthorsForDetails/'+rowData.ffName;
+            $.get(urlDetails,function(response)
+            {
+                var detailsdata = eval(response);
+                //create details source object
+                var detailSource = {
+                    dataFields:[
+                        {name: 'username'},
+                        {name: 'firstname'},
+                        {name: 'lastname'},
+                        {name: 'email'}
+                    ],
+                    localdata:detailsdata
+                }
+
+                var detailsAdapter = new $.jqx.dataAdapter(detailSource);
+
+                $('#jqxDetails').jqxGrid({source:detailsAdapter});
+                $('#jqxDetails').jqxGrid('clearselection');
+
+            }); 
+
+        });
+    });
+}
+
+function escapeRegExp(str) {
+    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
+
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+
+function fulfillAtomTypeData(element,strTab)
+{
+    strTab = "_"+strTab;
+    var title = $('#popupWindowTitle').html();
+
+
+    //remove error message
+    $('#idAtomTypeError'+strTab).text('');
+    $('#idClassAtomError'+strTab).text('');
+    $('#symbolError'+strTab).text('');
+    $('#descriptionError'+strTab).text('');
+    $('#atomicNumberError'+strTab).text('');
+    $('#atomicWeightError'+strTab).text('');
+    $('#valenceError'+strTab).text('');
+    $('#general_error'+strTab).text('');
+
+
+    parameterItem = $('#jqxTree').jqxTree('getSelectedItem');
+    parameterName = parameterItem.label;
+    ffName =  $('#jqxTree').jqxTree('getItem', parameterItem.parentElement);
+
+    if(ffName != null)
+    {
+        ffName = ffName.label;
+    }
+    else
+    {
+        ffName = parameterName;
+        parameterName = "Atom Definition";
+    }
+
+    var idAtomType = element.value;
+
+
+    if(idAtomType == "")
+    {
+        $('#idClassAtom'+strTab).val('');
+        $('#idClassAtom'+strTab).removeAttr('disabled');
+        $('#symbol'+strTab).val('');
+        $('#symbol'+strTab).removeAttr('disabled');
+        $('#description'+strTab).val('');
+        $('#description'+strTab).removeAttr('disabled');
+        $('#atomicNumber'+strTab).val('');
+        $('#atomicNumber'+strTab).removeAttr('disabled');
+        $('#atomicWeight'+strTab).val('');
+        $('#atomicWeight'+strTab).removeAttr('disabled');
+        $('#valence'+strTab).val('');
+        $('#valence'+strTab).removeAttr('disabled');
+        $('#general_error'+strTab).text('');
+        $('#saveButton'+strTab).removeAttr('disabled');
+    }
+    
+    //For add windows
+    if(title.indexOf("Add") > -1)
+    {
+        if(parameterName == "Atom Definition" && idAtomType != "")
+        {
+            var url = "/getDataAtomType/"+ffName+'/'+idAtomType;
+            $.get(url,function(response)
+            {
+                if(response != "None")
+                {
+                    var res = JSON.parse(response);
+                    $('#idClassAtom'+strTab).val(res.idClassAtom);
+                    $('#idClassAtom'+strTab).attr('disabled','disabled');
+                    $('#symbol'+strTab).val(res.symbol);
+                    $('#symbol'+strTab).attr('disabled','disabled');
+                    $('#description'+strTab).val(res.description);
+                    $('#description'+strTab).attr('disabled','disabled');
+                    $('#atomicNumber'+strTab).val(res.atomicNumber);
+                    $('#atomicNumber'+strTab).attr('disabled','disabled');
+                    $('#atomicWeight'+strTab).val(res.atomicWeight);
+                    $('#atomicWeight'+strTab).attr('disabled','disabled');
+                    $('#valence'+strTab).val(res.valence);
+                    $('#valence'+strTab).attr('disabled','disabled');
+                    $('#general_error'+strTab).text('');
+                    $('#general_error'+strTab).append('existing atom type');
+                    $('#saveButton'+strTab).attr('disabled','disabled');
+                }
+                else
+                {
+                    $('#idClassAtom'+strTab).val('');
+                    $('#idClassAtom'+strTab).removeAttr('disabled');
+                    $('#symbol'+strTab).val('');
+                    $('#symbol'+strTab).removeAttr('disabled');
+                    $('#description'+strTab).val('');
+                    $('#description'+strTab).removeAttr('disabled');
+                    $('#atomicNumber'+strTab).val('');
+                    $('#atomicNumber'+strTab).removeAttr('disabled');
+                    $('#atomicWeight'+strTab).val('');
+                    $('#atomicWeight'+strTab).removeAttr('disabled');
+                    $('#valence'+strTab).val('');
+                    $('#valence'+strTab).removeAttr('disabled');
+                    $('#general_error'+strTab).text('');
+                    $('#saveButton'+strTab).removeAttr('disabled');
+                }
+    
+            }); 
+        }
+    }
+
+    //For edit windows 
+    if(title.indexOf("Edit") > -1)
+    {
+        if(parameterName == "Atom Definition" && idAtomType != "")
+        {
+            var url = "/getDataAtomType/"+ffName+'/'+idAtomType;
+            $.get(url,function(response)
+            {
+                if(response != "None")
+                {
+                    var res = JSON.parse(response);
+                    $('#idClassAtom'+strTab).val(res.idClassAtom);
+                    $('#symbol'+strTab).val(res.symbol);
+                    $('#description'+strTab).val(res.description);
+                    $('#atomicNumber'+strTab).val(res.atomicNumber);
+                    $('#atomicWeight'+strTab).val(res.atomicWeight);
+                    $('#valence'+strTab).val(res.valence);
+                    $('#general_error'+strTab).text('');
+                    $('#general_error'+strTab).append('existing atom type');
+                }
+                else
+                {
+                    $('#idClassAtom'+strTab).val('');
+                    $('#symbol'+strTab).val('');
+                    $('#description'+strTab).val('');
+                    $('#atomicNumber'+strTab).val('');
+                    $('#atomicWeight'+strTab).val('');
+                    $('#valence'+strTab).val('');
+                    $('#general_error'+strTab).text('');
+                }
+    
+            }); 
+        }
+    }
+}
+
+function addAtomTypeLink(strTab)
+{
+    strTab = "_"+strTab;
+    $('#idClassAtomError'+strTab).text('');
+    $('#idClassAtom'+strTab).val('');
+    $('#idClassAtom'+strTab).removeAttr('disabled');
+    $('#idAtomTypeError'+strTab).text('');
+    $('#idAtomType'+strTab).val('');
+    $('#idAtomType'+strTab).removeAttr('disabled');
+    $('#descriptionError'+strTab).text('');
+    $('#description'+strTab).val('');
+    $('#description'+strTab).removeAttr('disabled');
+    $('#general_error'+strTab).text('');
+    $('#saveButton'+strTab).removeAttr('disabled');
+}
+
+
+function addClassAtomLink(strTab)
+{
+    strTab = "_"+strTab;
+    $('#idClassAtomError'+strTab).text('');
+    $('#symbolError'+strTab).text('');
+    $('#atomicNumberError'+strTab).text('');
+    $('#atomicWeightError'+strTab).text('');
+    $('#valenceError'+strTab).text('');
+    $('#general_error'+strTab).text('');
+    $('#idClassAtom'+strTab).val('');
+    $('#symbol'+strTab).val('');
+    $('#atomicNumber'+strTab).val('');
+    $('#atomicWeight'+strTab).val('');
+    $('#valence'+strTab).val('');
+    $('#idClassAtom'+strTab).removeAttr('disabled');
+    $('#symbol'+strTab).removeAttr('disabled');
+    $('#atomicNumber'+strTab).removeAttr('disabled');
+    $('#atomicWeight'+strTab).removeAttr('disabled');
+    $('#valence'+strTab).removeAttr('disabled');
+    $('#saveButton'+strTab).removeAttr('disabled');
+}
+
+function fulfillClassAtomData(element,strTab)
+{
+    var strTab1 = strTab;
+    strTab = "_"+strTab;
+    var title = $('#popupWindowTitle').html();
+
+
+    //remove error message
+    if(strTab1 == "")
+    {
+        $('#idAtomTypeError'+strTab).text('');
+        $('#descriptionError'+strTab).text('');
+
+    }
+    $('#idClassAtomError'+strTab).text('');
+    $('#symbolError'+strTab).text('');
+    $('#atomicNumberError'+strTab).text('');
+    $('#atomicWeightError'+strTab).text('');
+    $('#valenceError'+strTab).text('');
+    $('#general_error'+strTab).text('');
+
+    parameterItem = $('#jqxTree').jqxTree('getSelectedItem');
+    parameterName = parameterItem.label;
+    ffName =  $('#jqxTree').jqxTree('getItem', parameterItem.parentElement);
+
+    if(ffName != null)
+    {
+        ffName = ffName.label;
+    }
+    else
+    {
+        ffName = parameterName;
+        parameterName = "Atom Definition";
+    }
+
+    var idClassAtom = element.value;
+
+    if(idClassAtom == "")
+    {
+        $('#symbol'+strTab).val('');
+        $('#symbol'+strTab).removeAttr('disabled');
+        $('#atomicNumber'+strTab).val('');
+        $('#atomicNumber'+strTab).removeAttr('disabled');
+        $('#atomicWeight'+strTab).val('');
+        $('#atomicWeight'+strTab).removeAttr('disabled');
+        $('#valence'+strTab).val('');
+        $('#valence'+strTab).removeAttr('disabled');
+        $('#general_error'+strTab).text('');
+        $('#saveButton'+strTab).removeAttr('disabled');
+    }
+    
+    if(title.indexOf("Add") > -1)
+    {    
+        if(parameterName == "Atom Definition" && idClassAtom != "")
+        {
+            var url = "/getDataClassAtom/"+ffName+'/'+idClassAtom;
+            $.get(url,function(response)
+            {
+                if(response != "None")
+                {
+                    var res = JSON.parse(response);
+                    $('#symbol'+strTab).val(res.symbol);
+                    $('#symbol'+strTab).attr('disabled','disabled');
+                    $('#atomicNumber'+strTab).val(res.atomicNumber);
+                    $('#atomicNumber'+strTab).attr('disabled','disabled');
+                    $('#atomicWeight'+strTab).val(res.atomicWeight);
+                    $('#atomicWeight'+strTab).attr('disabled','disabled');
+                    $('#valence'+strTab).val(res.valence);
+                    $('#valence'+strTab).attr('disabled','disabled');
+                    $('#general_error'+strTab).text('');
+                    $('#general_error'+strTab).append('existing class atom');
+                    if(strTab1 != "")
+                    {
+                      $('#saveButton'+strTab).attr('disabled','disabled');
+                    }
+                    
+                }
+                else
+                {
+                    $('#symbol'+strTab).val('');
+                    $('#symbol'+strTab).removeAttr('disabled');
+                    $('#atomicNumber'+strTab).val('');
+                    $('#atomicNumber'+strTab).removeAttr('disabled');
+                    $('#atomicWeight'+strTab).val('');
+                    $('#atomicWeight'+strTab).removeAttr('disabled');
+                    $('#valence'+strTab).val('');
+                    $('#valence'+strTab).removeAttr('disabled');
+                    $('#general_error'+strTab).text('');
+                    $('#saveButton'+strTab).removeAttr('disabled');
+                }
+    
+            }); 
+        }
+    }
+
+    if(title.indexOf("Edit") > -1)
+    {    
+        if(parameterName == "Atom Definition" && idClassAtom != "")
+        {
+            var url = "/getDataClassAtom/"+ffName+'/'+idClassAtom;
+            $.get(url,function(response)
+            {
+                if(response != "None")
+                {
+                    var res = JSON.parse(response);
+                    $('#symbol'+strTab).val(res.symbol);
+                    $('#atomicNumber'+strTab).val(res.atomicNumber);
+                    $('#atomicWeight'+strTab).val(res.atomicWeight);
+                    $('#valence'+strTab).val(res.valence);
+                    $('#general_error'+strTab).text('');
+                    $('#general_error'+strTab).append('existing class atom');
+                }
+                else
+                {
+                    $('#symbol'+strTab).val('');
+                    $('#atomicNumber'+strTab).val('');
+                    $('#atomicWeight'+strTab).val('');
+                    $('#valence'+strTab).val('');
+                    $('#general_error'+strTab).text('');
+                }
+    
+            }); 
+        }
+    }
+}
+
+function updateTools(undo,redo,save)
+{
+
+    if(undo==null && redo==null && save==null)
+    {
+        {% if session['undo'] %}
+            $("#jqxToolBar").jqxToolBar("disableTool", 6, false);
+        {% else %}
+            $("#jqxToolBar").jqxToolBar("disableTool", 6, true);
+        {% endif %}
+        {% if session['redo'] %}
+            $("#jqxToolBar").jqxToolBar("disableTool", 7, false);
+        {% else %}
+            $("#jqxToolBar").jqxToolBar("disableTool", 7, true);
+        {% endif %}
+        {% if session['save'] %}
+            $("#jqxToolBar").jqxToolBar("disableTool", 8, false);
+        {% else %}
+            $("#jqxToolBar").jqxToolBar("disableTool", 8, true);
+        {% endif %}
+    }
+    else
+    {
+        $("#jqxToolBar").jqxToolBar("disableTool", 6, undo);
+        $("#jqxToolBar").jqxToolBar("disableTool", 7, redo);
+        $("#jqxToolBar").jqxToolBar("disableTool", 8, save);
+    }
+
+}
+
+function updateTree(ffName,parameterName)
+{
+
+    var url = '/dataTree/None'
+    $.get(url,function(responseDataTree)
+    {
+        sourceTree = eval(responseDataTree);
+        $('#jqxTree').jqxTree({source:sourceTree});
+        var items = $('#jqxTree').jqxTree('getItems');
+        var element = items[items.length - 1].element;
+        $('#jqxTree').jqxTree('removeItem', element);
+
+        $('#jqxTree').jqxTree('collapseAll');
+        if(ffName != "" && parameterName != "" && parameterName != null)
+        {
+            selectElementTree(ffName,parameterName);
+        }
+        else if(ffName)
+        {
+            var items = $('#jqxTree').jqxTree('getItems');
+            var item;
+            for (i = 0 ; i < items.length ; i++)
+            {
+                if(items[i].label == ffName)
+                {
+                    item = items[i];
+                    break;
+                }
+            }
+            //$('#jqxTree').jqxTree('expandItem', item);
+            $('#jqxTree').jqxTree('collapseAll');
+        }
+
+
+    });
+
+    
+}
+
+
+function addToolBarClick(selectTab)
+{
+
+    $('#jqxgrid').hide();
+    $("#jqxpanel").hide();
+    $('#jqxTabsRemove').hide();
+    $('#jqxTabsRename').hide();
+    $('#pannelWrapperImport').hide();
+    $('#jqxTabsAdd').show();
+    $('#jqxTabsAdd').jqxTabs('select',selectTab); 
+    if(selectTab == 0)                               
+        fullfillForcefieldAddTab();
+    if(selectTab == 1)
+        fullfillParameterTabContent();
+    if(selectTab == 2)
+        fullfillTabContent();
+    $('#jqxTabsAdd').on('selected', function (event) 
+    {
+        var selectedTab = event.args.item;
+        var text = $('#jqxTabsAdd').jqxTabs('getTitleAt', selectedTab); 
+
+        if(text == "Others")
+        {
+            fullfillTabContent();
+
+        }
+        if(text == "Parameter")
+        {
+            fullfillParameterTabContent();
+            
+        }
+        if(text == "ForceField")
+        {
+            fullfillForcefieldAddTab();
+        }
+    });
+
+}
+
+function removeToolBarClick(selectedTab)
+{
+    $('#jqxgrid').hide();
+    $("#jqxpanel").hide();
+    $('#jqxTabsAdd').hide();
+    $('#jqxTabsRename').hide();
+    $('#pannelWrapperImport').hide();
+    $('#jqxTabsRemove').show();
+    $('#jqxTabsRemove').jqxTabs('select',selectedTab);
+    
+    if(selectedTab == 0)                               
+        fullfillRemoveForcefieldTab();
+    if(selectedTab == 1)
+        fullfillRemoveParameterTab();
+    
+    $('#jqxTabsRemove').on('selected', 
+    function (event) 
+    {
+        var selectedTab = event.args.item;
+        var text = $('#jqxTabsRemove').jqxTabs('getTitleAt', selectedTab); 
+
+        if(text == "ForceField")
+        {
+            fullfillRemoveForcefieldTab()
+
+        }
+        if(text == "Parameter")
+        {
+            fullfillRemoveParameterTab();
+        }
+                    
+    });
+}
+
+function selectElementTree(ffName,paramName)
+{
+    var ffElement;
+    var items = $('#jqxTree').jqxTree('getItems');
+    for(i = 0 ; i < items.length ; i++)
+    {
+        if(items[i].label == ffName)
+        {
+            ffElement = items[i];
+            break;
+        }
+    }
+    if(ffElement.subtreeElement)
+    {
+        for (var i = 0; i< ffElement.subtreeElement.children.length; i++)
+        {
+            var paramElement = $('#jqxTree').jqxTree('getItem', ffElement.subtreeElement.children[i]);
+            if(paramElement.label == paramName)
+            {
+                $('#jqxTree').jqxTree('selectItem', paramElement);
+                break;
+            }
+        }
+    }
+    $('#jqxTree').jqxTree('expandItem', ffElement);
+    
+}
+
+function afterOperation(session)
+{
+    var operation = session.operation;
+    switch(operation)
+    {
+        case 'addForceField':
+            addToolBarClick(0);
+            break;
+        case 'deleteForceField':
+            removeToolBarClick(0);
+            break;
+        case 'addParameterToFF':
+            addToolBarClick(1);
+            break;
+        case 'addSFToFF':
+        case 'addConstantToFF':
+            addToolBarClick(2);
+            break;
+        case 'deleteParameterToFF':
+            removeToolBarClick(1);
+            break;
+        case 'renameParameter':
+            fullfillRenameParameterdTab();
+            break;
+        case 'renameFF':
+            fullfillRenameForcefieldTab();
+            break;
+        case 'addValueParameter':
+        case 'deleteValueParameter':
+        case 'updateValueParameter':
+            //remains the central view open
+            //open the tree to the right ff and parameter
+            break;
+        default:
+            break;
+
+    }
+    
+}
+
+function afterUndoRedo(session)
+{
+    afterOperation(session);
+    
+    updateTree(session.nameForceField,session.nameParameter);
+    
+    updateTools(session.undo,session.redo,session.save);
+}
+
+function closeNotification(element)
+{   
+    var divId = (element.id).split('_')[1];
+    divId = "notificationId_"+divId.toString();
+    $('#'+divId).remove();
+
+}
+
+var idNotification = 0;
+function displayNotification(message,templateName)
+{
+    var background_color = "";
+    var color_ = "";
+    var pad = "";
+    if(templateName == "success")
+    {
+        background_color = "#dff0d8";
+        color_ = "#468847";
+    }
+    else
+    {
+        background_color = "#f2dede";
+        color_ = "#b94a48";
+    }
+    //$('#jqxnotification').css({'display':'inline-block'});
+    //$('#jqxnotification').children().remove()
+    /*
+    $('#notificationContent').html(message);
+    $("#jqxnotification").jqxNotification({template: templateName});
+    $("#jqxnotification").jqxNotification('open');
+
+    $('#notificationContainer').children('div').not($('#alertBar')).css(
+        {'padding':0,'margin':0,'padding-bottom':0,'height':35});
+    
+    //the last div of notification container
+    lastDiv = $('#notificationContainer').children().last();
+    
+    //remove the icon, wich found in the first td
+    td = lastDiv.find('td:first');
+    td.removeClass()
+    td.css({'height':25});
+
+
+    div = lastDiv.find("div");
+    //the div of notificationContent
+    div.css({'top':'4','right':'5'});
+    */
+
+    //determine the width of the message in pixel
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext("2d");
+    ctx.font = "14px Arial";        
+    var width = ctx.measureText(message).width;
+    if(width > 465)
+    {
+        pad = "0px";
+    }
+    else
+    {
+        pad = "5px";
+    }
+
+
+    $('#notificationContainer').prepend(
+        "<div id='notificationId_"+idNotification.toString()+"' "+
+            "style='height:35px;width:500px;border-radius:5px;"+
+            "background-color:"+background_color+";'>"+
+            "<div id='msgContent_"+idNotification.toString()+"'"+
+                "style='padding-top:"+pad+";width:470px;"+
+                "display:inline-block;float:left;padding-left:10px;"+
+            "color:"+color_+";'>"+
+            "</div>"+
+            "<div style='display:inline-block;float:right;"+
+                "padding-top:10px;margin-right:5px;'>"+
+                "<a id='crossImg_"+idNotification.toString()+"'"+
+                    "href='#' onclick='closeNotification(this)'>"+
+                    "<img src='/static/img/cross_.png' width=15;height=15>"+
+                "</a>"+
+            "<div>"+
+        "</div>");
+
+    $('#msgContent_'+idNotification.toString()).text(message);
+
+    idNotification = idNotification + 1; 
+
+}
+
+function checkPopupWindows(columnsName,value,numberOfAtoms,strTab)
+{
+    switch(columnsName)
+    {
+        case 'key': 
+        case 'Key':
+        case 'symbol':
+        case 'Symbol':
+        case 'description':
+        case 'Description':
+            return isString(columnsName,value,strTab);
+        case 'configuration':
+        case 'Configuration':
+            return isConfigurationPattern(columnsName,value,strTab);
+        case 'class':
+        case 'Class':
+        case 'type':
+        case 'Type':
+            return isClassOrTypePattern(columnsName,value,numberOfAtoms,strTab);
+        default:
+            return isDecimal(columnsName,value,strTab);
+
+    }
+
+}
+
+function isDecimal(columnsName,value,strTab)
+{
+    strTab = "_"+strTab;
+    $('#'+columnsName+'Error'+strTab).text('');
+    
+    var re0 = new RegExp(
+        '^([1-9][0-9]*)([ ])*$');
+    
+    var re = new RegExp(
+        '[+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?');
+    
+    var ok = re.test(value);
+    
+    if(!ok)
+        ok = re0.test(value);
+
+    if(ok)
+    {
+        return 1;
+    }
+    else if(!ok)
+    {   
+
+        $('#'+columnsName+'Error'+strTab).append('Number required');
+        return 0;
+    }
+
+}
+
+//http://www.javascripter.net/faq/backslashinregularexpressions.htm
+//https://regex101.com
+//il y'a une difference de notation pour les regex en python ou en 
+//javascript e.g '\/' et '/' sont 2 notations pour la meme chose ca
+//depend de l'environement pareil pour le '\\' et '\\\\'
+function isString(columnsName,value,strTab)
+{
+    strTab = "_"+strTab;
+    $('#'+columnsName+'Error'+strTab).text('');
+    if(typeof value =='undefined')
+        value = '';
+    var re = new RegExp('^[a-zA-Z][ ]*([a-zA-Z0-9]+[\\\\/_-]?[ ]*)*$');
+    var ok = re.test(value);
+    if(ok)
+    {
+        return 1;
+    }
+    else if(!ok)
+    {
+        $('#'+columnsName+'Error'+strTab).text('String required');
+        return 0;
+    }
+}
+
+//http://stackoverflow.com/questions/6708249/regexp-test-always-returning-//false
+function isConfigurationPattern(columnsName,value,strTab)
+{
+    strTab = "_"+strTab;
+    $('#'+columnsName+'Error'+strTab).text('');
+
+    //i supose that the field "configuration" in SF is always 
+    //in the form of 'digits-digits letters'
+    var re = new RegExp(/^[\d]+([-][\d]+){1}([ ][a-zA-Z]+)+$/i);
+    
+
+
+    
+    
+    var ok = re.test(value);
+    if(ok)
+    {
+        return 1;
+    }
+    else if(!ok)
+    {
+        $('#'+columnsName+'Error'+strTab).text('Don\'t match to pattern');
+        return 0;
+    }
+
+
+}
+
+function isClassOrTypePattern(columnsName,value,numberOfAtoms,strTab)
+{
+
+    numberOfAtoms = parseInt(numberOfAtoms)-1;
+    numberOfAtoms = numberOfAtoms.toString();
+    strTab = "_"+strTab;
+    
+    $('#'+columnsName+'Error'+strTab).text('');
+    var re = new RegExp('^([1-9][0-9]*)([-][1-9][0-9]*){'+numberOfAtoms+'}([ ])*$');
+    var ok = re.test(value);
+
+    if(ok)
+    {
+        return 1;
+    }
+    else if(!ok)
+    {
+        $('#'+columnsName+'Error'+strTab).text('Don\'t match to pattern');
+        return 0;
+    }
+}
+
+
+function closePopupWindows()
+{
+    $('#popupWindow').jqxWindow('hide');
+}
+
+
+function inputInfo()
+{
+    $("#jqxwindowInputInfo").jqxWindow({ width: 430, height: 150 ,theme:'orange',resizable: false,  isModal: true, autoOpen: false, modalOpacity: 0.01 });
+    $('#jqxwindowInputInfo').jqxWindow({ position: { x:780, y: 407 }});
+    $("#jqxwindowInputInfo").jqxWindow('open');
+    //alert($('#jqxwindowInputInfo').jqxWindow('position')); 
+
+
+}
+
+function trimSpace (str) 
+{
+    return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+}
+
+
+function centerContent()
+{
+    
+    var container = $("#jqxgrid");
+    var content = $('#descriptionDataGrid');
+    content.css({'margin-left':((container.width()/2)-(content.width()/2))});
+}
+
+function fullfillPanelContent()
+{
+    $('#pannelContentInner').children().remove();
+    $('#pannelContentInner').prepend(
+            "<form id='removeParameterForm' action='#'>"+
+                "<div style='display:inline-block;width:100%;"+
+                "overflow:auto'>"+
+                "<div style='display:inline-"+
+                "block;float:left;margin-right:53px'>"+
+                "Select ForceField:</div>"+
+                "<div id='jqxdropdownlist_ff' "+
+                "style='display:inline-block;float:right;'>"+
+                "</div>"+
+                "</div>"
+                +"<div style='padding-top:10px'>"
+                +"<div style='display:inline-block;"+
+                "margin-right:50px;float:left'>"+
+                "Select Parameter:</div>"
+                +"<div id='jqxdropdownlist_pp'"
+                +"style='display:inline-block;float:right;'>"
+                +"</div>"
+                +"</div>"+
+            "</form>"
+
+                                        
+    );
+}
+
+function fullfillDropDownList(dropDownFF,dropDownParams)
+{
+    var url = '/getForceFieldList/';
+    req = $.get(url,function(responseFFList)
+    {
+                                    
+        var source = eval(responseFFList);
+        var number = source.length;
+        var auto;
+        if (number > 10) 
+        {
+            auto = false;
+        } 
+        else 
+        {
+            auto = true;
+        };
+        dropDownFF.jqxDropDownList
+        (
+            { source: source, 
+              width: '200px', 
+              height: '25px',
+              theme: 'energyblue',
+              dropDownHeight:'200px',
+              autoDropDownHeight:auto,
+              placeHolder: 'Select Forcefield',
+            }
+        );
+
+            
+        dropDownParams.jqxDropDownList
+        (
+            {  
+              width: '200px', 
+              height: '25px',
+              theme: 'energyblue',
+              dropDownHeight:'200px',
+              placeHolder: 'Select Parameter',
+              disabled:true,
+            }
+        );
+
+        if(fullfillTabContentcaller)
+        {
+            dropDownFF.jqxDropDownList({width:300});
+            dropDownParams.jqxDropDownList({width:300});
+        }
+            
+        dropDownFF.on('change', function (event)
+        {
+            
+            if (args) 
+            {
+                var item = args.item;
+                var label = item.label;
+                var url;
+                if(fullfillParameterTabcaller)
+                {
+
+                    url = "/getOtherParameterOfForceField/";
+                }
+                else
+                {
+                    url = "/getParameterOfForceField/";
+                }
+                
+                url = url + label+"/"
+
+                $.get(url,function(responseParameterList)
+                {
+                    var source = eval(responseParameterList);
+
+                    var number = source.length;
+                    var auto;
+                    if (number > 10) 
+                    {
+                        auto = false;
+                    } 
+                    else 
+                    {
+                        auto = true;
+                    };
+                    dropDownParams.jqxDropDownList('clear');
+                    if(existingParameter && fullfillParameterTabcaller)
+                    {
+                        $('#propertyContainer').children().remove();
+                    }
+                    dropDownParams.jqxDropDownList
+                    (
+                        { 
+                            source: source, 
+                            autoDropDownHeight:auto,
+                            width: '200px', 
+                            height: '25px',
+                            theme: 'energyblue',
+                            dropDownHeight:'200px',
+                            placeHolder: 'Select Parameter',
+                            disabled:true,
+                            selectedIndex: -1
+                        }
+                    );
+
+                    if(existingParameter ||
+                    (!fullfillParameterTabcaller && !fullfillTabContentcaller) || fullfillTabContentcaller)
+                    {
+                        dropDownParams.jqxDropDownList({disabled:false});
+                    }
+
+                    if(fullfillTabContentcaller)
+                    {
+                        disableElementOfDDParams(dropDownParams);
+                        dropDownParams.jqxDropDownList({width:300});
+
+                    }
+
+                    if(fullfillRenameCaller)
+                    {
+                        dropDownParams.jqxDropDownList('disableItem',"Atom Definition");
+                    }
+
+                    
+                    dropDownParams.on('change',function (event)
+                    {
+                        
+                        if(args && fullfillParameterTabcaller && existingParameter && args.item.label!='Select Parameter')
+                        {
+
+                            var itemParam = args.item;
+                            var labelParam = itemParam.label;
+                            var url = "/columnsList/"+labelParam+"/";
+
+                            
+
+                            $.get(url,function(responseColumnsList)
+                            {
+
+                                columnsList = eval(responseColumnsList);
+                                for(i = 0 ; i < columnsList.length ; i++)
+                                {
+                                    addStaticProperty(i,columnsList[i]);
+                                }
+
+                            });
+                        }
+                        
+                    });
+
+                     
+                });
+
+
+
+            } 
+        });
+
+    });
+}
+
+function disableElementOfDDParams(dropDownParams)
+{
+    //j'utilise cette variable global dans la fonction fullfillTabContent()
+    allParameters = dropDownParams.jqxDropDownList('getItems');
+    //mettre en disabled tous ce qui est SF et constant et Atom Definition
+    dropDownParams.jqxDropDownList('disableItem',"Atom Definition");
+
+    for(i = 0 ; i < allParameters.length ; i++)
+    {
+      if((allParameters[i].label).indexOf("Scaling Factors") >=0 || (allParameters[i].label).indexOf("Constants") >= 0)
+      {        
+       dropDownParams.jqxDropDownList('disableItem',allParameters[i].label);
+      }
+        
+    }
+    
+}
+
+function fullfillTabContent()
+{
+    $('#parameterContentTab').children().remove();
+    $('#pannelContentInner').children().remove();
+    $('#OthersTab').children().remove();
+    //
+    $('#OthersTab').prepend(
+    '<form id="otherForm" action="#" style="height:320;width:500;'+'margin:30px auto 0 auto"">'+
+        '<div><strong>Add theses table to ForceField:</strong><hr></div>'+
+        '<div id="row1" style="overflow:auto;padding-top:10px;">'+
+            '<div id="sf_checkbox" style="float:left;margin-left:-3px">'+
+                '<span>scalingFactor Table</span>'+
+            '</div>'+
+            '<div id="constant_checkbox" style="float:right">'+
+                '<span>constant Table</span>'+
+            '</div>'+
+        '</div>'+
+        '<div id="errorMessageRow" style="min-height:20px;"> </div>'+
+        '<div id="row2" style="overflow:auto;padding-top:3px;">'+
+            '<div style="float:left;">Select ForceField:</div>'+
+            '<div id="jqxdropdownlist_ff_Tab" style="float:right"></div>'+
+        '</div>'+
+        '<div id="row3" style="overflow:auto;padding-top:20px">'+
+            '<div style="float:left;">Select Parameter:</div>'+
+            '<div id="jqxdropdownlist_pp_Tab" style="float:right;"></div>'+
+        '</div>'+
+        '<div id="row4" style="overflow:auto;padding-top:20px">'+
+            '<div style="float:left;height:25px">SaclingsFactor Table Name:'+'</div>'+
+            '<input id="nameScalingsFactorTableInput" style="float:right"/>'
+        +'</div>'+
+        '<div id="row5" style="overflow:auto;padding-top:25px">'+
+            '<div style="float:left;height:25px">Constant Table Name:'+'</div>'+
+            '<input id="nameConstantTableInput" style="float:right"/>'
+        +'</div>'+
+        '<div id="buttonRow" style="float:right;padding-top:30px">'+
+            '<div id="okButton" style="margin-right:20px">OK</div>'+
+            '<div id="cancelButton">Cancel</div>'+
+        '</div>'+
+    '</form>'
+    );
+
+    
+
+    fullfillTabContentcaller = true;
+    fullfillParameterTabcaller = false;
+    fullfillRenameCaller = false;
+    if(req != 0){req.abort();}
+    fullfillDropDownList($('#jqxdropdownlist_ff_Tab'),
+                         $("#jqxdropdownlist_pp_Tab"));
+                         
+    
+    $("#sf_checkbox").jqxCheckBox({ width: 155, height: 17 });
+    $("#constant_checkbox").jqxCheckBox({ width: 120, height: 17 });
+    $("#nameScalingsFactorTableInput").jqxInput({placeHolder: "Default Name", width: '300px', height: '25px',disabled:true});
+    $("#nameConstantTableInput").jqxInput({placeHolder: "Default Name", width: '300px', height: '25px',disabled:true});
+    $('#okButton').jqxButton({theme: "energyblue"});
+    $('#cancelButton').jqxButton({theme: "energyblue"});
+    $('#okButton').css({"width":80,'height':20,'display':'inline-block'});
+    $('#cancelButton').css({"width":80,'height':20,'display':'inline-block'});
+
+    var inputContentSF = "";
+    var inputContentCons = "";
+
+
+    $('#sf_checkbox').on('checked', function (event) 
+        {   
+            
+            var item = $("#jqxdropdownlist_pp_Tab").jqxDropDownList('getSelectedItem').value; 
+            if(item != "Select Parameter")
+            {
+                $("#nameScalingsFactorTableInput").jqxInput({disabled:false});
+                $("#nameScalingsFactorTableInput").val(inputContentSF);
+            }
+
+        });
+    $('#constant_checkbox').on('checked', function (event) 
+        {   
+            
+            var item = $("#jqxdropdownlist_pp_Tab").jqxDropDownList('getSelectedItem').value; 
+            if(item != "Select Parameter")
+            {
+                $("#nameConstantTableInput").jqxInput({disabled:false});
+                $("#nameConstantTableInput").val(inputContentCons);
+            }
+
+        });
+    $('#sf_checkbox').on('unchecked', function (event) 
+        {   
+            $("#nameScalingsFactorTableInput").jqxInput({disabled:true});
+            $("#nameScalingsFactorTableInput").val("");
+
+        });
+    $('#constant_checkbox').on('unchecked', function (event) 
+        {   
+            $("#nameConstantTableInput").jqxInput({disabled:true});
+            $("#nameConstantTableInput").val("");
+
+        });
+
+    $('#jqxdropdownlist_pp_Tab').on('select', function (event)
+    {
+        var args = event.args;
+        if (args) 
+        {
+            var item = args.item;
+            var value = item.value;
+            var inputContentTempSF = "";
+            var inputContentTempCons = "";
+            var counterSF = 1;
+            var counterCons = 1;
+            var checkContent = false;
+
+            inputContentSF = value + ' Scaling Factors';
+            inputContentTempSF = inputContentSF;
+            inputContentCons = value + ' Constants';
+            inputContentTempCons = inputContentCons;
+            do
+            {
+                checkContent = false;
+                for(i = 0 ; i < allParameters.length ; i++)
+                {
+                    if(allParameters[i].label == inputContentSF)
+                    {
+                        checkContent = true;
+                        inputContentSF = inputContentTempSF + counterSF.toString();
+                        counterSF++;
+                        break;
+                    }
+
+                    if(allParameters[i].label  == inputContentCons)
+                    {
+                        checkContent = true;
+                        inputContentCons = inputContentTempCons + counterCons.toString();
+                        counterCons++;
+                        break;
+                    }
+                }
+            }
+            while(checkContent);
+
+
+            if($('#sf_checkbox').jqxCheckBox('checked'))
+            {
+                
+                $("#nameScalingsFactorTableInput").jqxInput({disabled:false});
+                $("#nameScalingsFactorTableInput").val(inputContentSF);
+            }
+            if($('#constant_checkbox').jqxCheckBox('checked'))
+            {
+                $("#nameConstantTableInput").jqxInput({disabled:false});
+                $("#nameConstantTableInput").val(inputContentCons);
+            }
+        }                        
+    });
+    
+    var that = this;
+    var render = function (message, input) 
+    {
+        if (that._message) {
+            that._message.remove();
+        }
+        that._message = $('<div class="jqx-validator-hint jqx-rc-all style="display: block">' + message + '</div>');
+        $('#errorMessageRow').children().remove();
+        $('#errorMessageRow').append(that._message);
+        return that._message;
+    }
+
+    
+
+    //message d'erreur en cas de nom existant ou inexistant
+    $('#otherForm').jqxValidator({
+        arrow: false,
+        animation:'fade',
+        animationDuration:1000,
+        rules:[
+
+            {
+                input:'#nameScalingsFactorTableInput',
+                message:'Name required',
+                action:'validationError',
+                rule: function (input,commit)
+                {
+                   
+                if($('#nameScalingsFactorTableInput').jqxInput('disabled') || ($('#nameScalingsFactorTableInput').val() != "" &&
+                    !$('#nameScalingsFactorTableInput').jqxInput('disabled')))
+                {
+                    return true;
+                }
+                else if(!$('#nameScalingsFactorTableInput').jqxInput('disabled') && $('#nameScalingsFactorTableInput').val() == "")
+                {
+                    return false;
+                }
+
+                }
+
+            },
+            {
+                input:'#nameConstantTableInput',
+                message:'Name required',
+                action:'validationError',
+                rule: function (input,commit)
+                {
+                    
+                    if($('#nameConstantTableInput').jqxInput('disabled') || ($('#nameConstantTableInput').val() != "" && !$('#nameConstantTableInput').jqxInput('disabled')))
+                {
+                    return true;
+                }
+                else if(!$('#nameConstantTableInput').jqxInput('disabled') 
+                    && $('#nameConstantTableInput').val() == "")
+                {
+                    return false;
+                }
+
+                }
+            },
+            {
+                input:'#nameScalingsFactorTableInput',
+                message:'Existing name,Please choose another name',
+                action:'validationError',
+                rule: function (input,commit){
+
+                    if($('#nameScalingsFactorTableInput').jqxInput('disabled'))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        for(i = 0 ; i< allParameters.length ; i++)
+                        {
+                        
+                            if($('#nameScalingsFactorTableInput').val() == allParameters[i].label)
+                            {
+                                return false;
+                            }
+
+                        
+                        }
+
+                        return true;
+                    }
+
+                },
+                position:'bottom:-205,0',
+            },
+            {
+                input:'#nameConstantTableInput',
+                message:'Existing name,Please choose another name',
+                action:'validationError',
+                rule:function(input,commit){
+
+                    if($('#nameConstantTableInput').jqxInput('disabled'))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        for(i = 0 ; i< allParameters.length ; i++)
+                        {
+                            if($('#nameConstantTableInput').val() == allParameters[i].label)
+                            {
+                                return false;
+                            }
+
+                        }
+
+                        return true;
+                    }
+                },
+                position:'bottom:-205,0',
+            },
+            {
+                input:'#sf_checkbox',
+                message:'Please check one of checkBoxs',
+                action:'validationError',
+                rule:function(input,commit)
+                {
+                    
+                    if(!$('#sf_checkbox').jqxCheckBox('checked') && 
+                        !$('#constant_checkbox').jqxCheckBox('checked'))
+                    {
+                        return false;
+                    }
+
+                    return true;
+                },
+                position:'right',
+
+            },
+            {
+                input:'#jqxdropdownlist_ff_Tab',
+                message:'Please select Forcefield',
+                action:'validationError',
+                rule:function(input,commit)
+                {
+                    
+                    if($('#jqxdropdownlist_ff_Tab').jqxDropDownList('selectedIndex') == -1)
+                    {
+                        return false;
+                    }
+
+                    return true;
+                },
+                position:'right',
+
+            },
+            {
+                input:'#jqxdropdownlist_pp_Tab',
+                message:'Please select parameter',
+                action:'validationError',
+                rule:function(input,commit)
+                {
+                    
+                    if($('#jqxdropdownlist_ff_Tab').jqxDropDownList('selectedIndex') != -1 && 
+                        $('#jqxdropdownlist_pp_Tab').jqxDropDownList('selectedIndex') == -1)
+                    {
+                        return false;
+                    }
+
+                    return true;
+                },
+                position:'right:-5,0',
+
+            }
+        ]
+    })
+    
+
+    //verifiaction au moment ou on click
+    $('#okButton').on('click', function () 
+    {
+        $('#otherForm').jqxValidator('validate');
+        setTimeout(function() 
+        { 
+            $('#otherForm').jqxValidator('hide');
+                
+        },1500);
+    });
+
+    $('#otherForm').on('validationSuccess',function (event)
+    {   
+        var parameterName = $("#jqxdropdownlist_pp_Tab").jqxDropDownList('getSelectedItem').value;
+        var forcefieldName = $("#jqxdropdownlist_ff_Tab").jqxDropDownList('getSelectedItem').value;
+        var constantName = $('#nameConstantTableInput').val();
+        var sfName = $('#nameScalingsFactorTableInput').val();
+        var SF = $('#sf_checkbox').jqxCheckBox('checked');
+        var CST = $('#constant_checkbox').jqxCheckBox('checked');
+        var parameterType = "";
+        if(SF && CST)
+            parameterType = "SF&Constant";
+        else if (SF)
+            parameterType = "SF";
+        else if (CST)
+            parameterType = "Constant";
+        
+        var jsonData = {};
+        jsonData['constantName'] = constantName;
+        jsonData['sfName'] = sfName;
+        jsonData['forcefieldName'] = forcefieldName;
+        jsonData['parameterName'] =  parameterName;
+        jsonData['parameterType'] = parameterType;
+        jsonData['isClass'] = true; 
+        jsonData['numberOfAtoms'] = 0;
+        jsonData['isNewParameter'] = false;
+        
+        $.ajax
+        (
+        {
+
+            url:"/addParameterOk",
+            type:'GET',
+            data:jsonData,
+            success: function(response)
+            {
+                var res = JSON.parse(response);
+                displayNotification(res.msg,res.type);
+                var session = res.session;
+                updateTools(session.undo,session.redo,session.save);
+                updateTree(session.nameForceField,session.nameParameter);
+                existingParameter = false;
+                afterOperation(session);
+                
+                
+                
+            }
+
+        }); 
+
+    });
+    
+
+}
+
+function onChangeUpload(file)
+{
+        filename = file.value;
+        filename = filename.substr(filename.lastIndexOf('\\') + 1);
+        $('#fileNameSpan').text(filename);
+        $('#fileNameSpan').css({'color':'black'});
+        $('#uploadBtn').jqxButton({disabled:false});
+        $('#deleteUploadDiv').css({'display':'inline-block'});
+
+}
+
+function deleteFileUpload()
+{   
+    $('#fileUpload').val('');
+    $('#fileNameSpan').text('Choosen file:');
+    $('#fileNameSpan').css({'color':'#808080'});
+    $('#uploadBtn').jqxButton({disabled:true});
+    $('#deleteUploadDiv').css({'display':'none'});
+
+}
+
+function fullfillExportFFpannel()
+{
+    $('#pannelContentInner').children().remove();
+    $("#pannelWrapper").css({"margin":50});
+    $('#pannelContent').css({'height':150});
+    $('#pannelLegend').html('<strong>Export ForceField</strong>');
+    $("#pannelWrapper").show();
+    $('#pannelContentInner').prepend(
+        "<form id='exportForm' action='#'>"+
+        "<div id='row1'>"+
+            "<span>Select Forcefield to export:</span>"+
+            "<div id='ffDDP' style='float:right'></div>"+
+        "</div>"+
+        "<div id='row2' style='padding-top:40px;'>"+
+            "<span>Select format to export to:</span>"+
+            "<div id='formarDDP' style='float:right'></div>"+
+        "</div>"+
+        "<form>"
+        );
+
+    $('#ffDDP').jqxDropDownList({width: '200px',  theme: 'energyblue',placeHolder: 'Select Forcefield',height:25,
+        autoDropDownHeight:true});
+    $('#formarDDP').jqxDropDownList({source:['Tinker'], width: '200px',  theme: 'energyblue',placeHolder: 'Select format',height:25,autoDropDownHeight:true});
+
+    
+    var url = "/getAllForceField"
+    $.get(url,function(AllFF)
+    {
+        ffList = eval(AllFF);
+        $('#ffDDP').jqxDropDownList({source:ffList});
+    
+
+    $('#exportForm').jqxValidator({
+        arrow: false,
+        animation:'fade',
+        animationDuration:1000,
+        rules:[
+            {
+                input:'#ffDDP',
+                message:'Please select forcefield',
+                action:'validationError',
+                rule: function (input,commit)
+                {
+                    if($('#ffDDP').jqxDropDownList('selectedIndex') == -1)
+                    {
+                        return false;
+                    }
+                    else
+                        return true;
+                },
+                position:"right"
+            },
+            {
+                input:'#formarDDP',
+                message:'Please select format',
+                action:'validationError',
+                rule: function (input,commit)
+                {
+                    if($('#formarDDP').jqxDropDownList('selectedIndex') 
+                        == -1)
+                    {
+                        return false;
+                    }
+                    else
+                        return true;
+                },
+                position:"right"
+
+            }
+        ]});
+
+    //verifiaction au moment ou on click
+    $('#okButtonPannel').unbind('click');
+    $('#okButtonPannel').on('click', function () 
+    {
+        $('#exportForm').jqxValidator('validate');
+            setTimeout(function() 
+            { 
+                $('#exportForm').jqxValidator('hide');
+            },1500);
+    });
+
+    });    
+
+}
+
+function deleteAuthorImport(element)
+{
+    var num = element.id.split("_")[1];
+    $('#authorImport_'+num.toString()).remove();
+
+    count = $('#authorWrapperImport >div').length;
+    var x = 0;
+    $('#authorWrapperImport').children('div').each(function()
+    {   
+        x = x + 1;
+        $(this).attr('id' ,'authorImport_' + x.toString());
+        $(this).find('span:first-of-type').text('Author '+(x).toString()+':');
+        $(this).find('a').attr('id','authorImgImport_'+x.toString());
+        $(this).find('input').attr('id','authorInputImport_'+x.toString());
+
+    });
+    
+}
+
+function addAuthorToImport()
+{   
+    count = $('#authorWrapperImport >div').length;
+    count = count + 1;
+    $('#authorWrapperImport').append(
+        "<div id='authorImport_"+count+"' style='width:100%;"+
+             "display:inline-block;padding-top:10px;'>"+
+             "<span>Author "+count+":</span>"+
+             "<span style='float:right;margin-left:5px;"+
+                    "margin-right:20px;'>"+
+                 "<a id='authorImgImport_"+count+"' href='#'"+
+                     "onclick='deleteAuthorImport(this)'>"+
+                     "<img src='/static/img/delete.png'"+
+                           " style='height:20px;width:20px;'>"+
+                     "</img>"+
+                 "</a>"+
+             "</span>"+
+             "<input id='authorInputImport_"+count+"'"+
+                   " style='float:right;'/>"+
+        "</div>"
+        );
+    $('#authorInputImport_'+count).jqxInput({width:'230px',height:'25px',placeHolder:'Username'});
+}
+
+function fullfillImportFFpannel()
+{
+    var format = '';
+    $('#pannelImportContentInner').children().remove();
+    $("#pannelWrapperImport").css({"margin":20});
+    $('#pannelImportContent').css({'height':120,'padding-top':10});
+    $('#pannelImportLegend').html('<strong>Import ForceField</strong>');
+    $("#pannelWrapperImport").show();
+    $('#pannelImportContentInner').prepend(
+        "<form id='uploadForm' enctype='multipart/form-data' "+
+           " action='' "+
+                "method='post'>"+
+        "<input type='hidden' name='csrf_token' "+
+           " value='{{ csrf_token() }}'/>" +
+        "<span>Select format of file and then choose file:</span>"+
+        "<div id='row1' style='clear:both;display:inline-block;"+
+               "width:100%;padding-top:10px;'>"+
+            "<div id='chooseButton'"+ 
+                "style='display:inline-block;float:right;'>"+
+                "<label for='fileUpload' style='width:100px;height:20px;"+
+                    "font-size:13px;margin:0'>"+
+                "Choose File</label>"+
+                "<input type='file' name='file' "+
+                "style='height:0;width:0;"+
+                "visibility:hidden;' onchange='onChangeUpload(this)'"+
+                " id='fileUpload' "+
+                "accept='image/*'>"+
+            "</div>"+
+            "<div id='DropDownFormat'"+ 
+                "style='display:inline-block;float:left;'>"+
+            "</div>"+
+        "</div>"+
+        "<div style='padding-top:20px;'>"+
+            "<span><strong>Authors</strong></span>"+
+            "<a href='#' style='float:right;'"+
+             "onclick='addAuthorToImport()'>"+
+             "add author</a>"+
+        "</div>"+
+        "<hr>"+
+        "<div id='authorWrapperImport' style='height:110px;"+
+                "overflow:scroll;'>"+
+          "<div style='width:100%;display:inline-block;'>"+
+                "<span>Author 1:</span>"+
+                "<input id='authorImport_1' style='float:right;"+
+                    "margin-right:45px;'/>"+
+          "</div>"+
+        "</div>"+
+        "<div style='min-height:20px;'></div>"+
+        "<div id='fileNameContainer' style='border-style: solid;"+
+        "border-width: 1px;border-color:#E0E9F5;border-radius:10px;"+
+        "height:30px;width:100%;'>"+
+            "<div style='height:30px;display:inline-block;"+
+                "padding-top:8px;'>"+
+            "<span id='fileNameSpan' style='color:#808080'>"+
+                    "Choosen filename:</span>"+
+            "</div>"+
+            "<div style='float:right;width:60px;height:30px;'>"+
+            "<input id='uploadBtn' type='submit' "+
+                "style='border-radius:10px;padding:0;' value='Upload'/>"+
+            "</div>"+
+            "<div id='deleteUploadDiv' style='float:right;"+
+                "display:none;"+
+            "height:30;margin-right:10px;padding-top:5px;'>"+
+                "<a href='#'>"+
+                "<img src='/static/img/delete.png'"+
+                    "style='height:20;width:20;'"+
+                    "onclick='deleteFileUpload()' />"+
+                "</a>"+
+            "</div>"+
+        "</div>"+
+        "</form>"
+
+        );
+
+    $('#authorImport_1').jqxInput({width:'230px',height:'25px',disabled:true});
+    $('#authorImport_1').val('{{current_user.username}}');
+    $('#fileUpload').attr('disabled','disabled');
+    $('#DropDownFormat').jqxDropDownList({source:['Tinker'], width: '250px',  theme: 'energyblue',placeHolder: 'Select format',autoDropDownHeight:true,height:25});
+    
+    $('#uploadBtn').jqxButton({width:60,theme:'energyblue',height:30,disabled:true});
+
+    $('#chooseButton').jqxButton({width:100,theme:'energyblue',height:20,disabled:true});
+
+    $('#DropDownFormat').on('select',function(event)
+    {
+        format = event.args.item.value;
+        var action = "{{url_for("upload_file",format='')}}"+format;
+        $('#chooseButton').jqxButton({disabled:false});
+        $('#fileUpload').removeAttr('disabled');
+        $('#uploadForm').attr('action','');
+        $('#uploadForm').attr('action',action);
+    });
+
+}
+
+
+function fullfillRenameForcefieldTab()
+{
+    $('#pannelContentInner').children().remove();
+    $('#forcefieldRenameTab').append($("#pannelWrapper"));
+    $("#pannelWrapper").css({"margin":50});
+    $('#pannelContent').css({'height':150});
+    $('#pannelLegend').html('<strong>Rename ForceField</strong>');
+    $("#pannelWrapper").show();
+
+    $('#pannelContentInner').children().remove();
+        $('#pannelContentInner').prepend(
+            "<form id='renameFFform' action='#'>"+
+            "<div style='display:inline-"+
+            "block;float:left;margin-right:10px'>"+
+            "Select ForceField to Rename:</div>"+
+            "<div id='jqxdropdownlist_ff_rename' "+
+            "style='display:inline-block;float:right;'></div>"+
+            "<div style='width:100%;min-height:20px;clear:both;'></div>"+
+            "<span>Rename ForceField:</span>"+
+            "<input type='text' id='renameFFinput'"+
+            "style='text-transform:uppercase;"+
+            "float:right;'/>"+
+            "</form>"
+            );
+
+
+    $("#renameFFinput").jqxInput({placeHolder: "Rename ForceField:", width: '185px', height: '25px',disabled: true});
+    var  ff_list;
+    var url = '/getForceFieldList/';
+    
+    $.get(url,function(responseFFList)
+    {
+        
+
+        var source = eval(responseFFList);
+        $("#jqxdropdownlist_ff_rename").jqxDropDownList
+        (
+            { source: source, 
+              width: '190px', 
+              height: '25px',
+              theme: 'energyblue',
+              autoDropDownHeight: true,
+              placeHolder: 'Select Forcefield',
+            }
+        );
+
+        var url = '/getAllForceField/';
+        $.get(url,function(responseAllForceField)
+        {
+            ff_list = eval(responseAllForceField);
+
+
+        $("#jqxdropdownlist_ff_rename").on('select',function(event)
+        {
+            var args = event.args;
+            if (args) 
+            {
+                var value = args.item.value;
+                $('#renameFFinput').jqxInput({disabled: false });
+                $('#renameFFinput').val(value);
+            }
+        });
+        
+
+        $('#renameFFform').jqxValidator({
+        arrow: false,
+        animation:'fade',
+        animationDuration:1000,
+        rules:[
+            {
+            input:'#jqxdropdownlist_ff_rename',
+            message:'Please select forcefield',
+            action:'validationError',
+            rule: function (input,commit)
+            {
+                if($('#jqxdropdownlist_ff_rename').jqxDropDownList('selectedIndex') == -1)
+                {
+                    return false;
+                }
+                else
+                    return true;
+            },
+            position:"bottom:-210,-5"
+            },
+            {
+                input:'#renameFFinput',
+                message:'Input Required',
+                action:'validationError',
+                rule: function (input,commit)
+                {
+                    if($('#renameFFinput').val() == "")
+                    {
+                        return false;
+                    }
+                    else
+                        return true;
+            },
+            position:"bottom:-145,0"
+            },
+            {
+                input:'#renameFFinput',
+                message:'Existing Forcefield',
+                action:'validationError',
+                rule: function (input,commit)
+                {
+                    var DDPvalue = ""
+                    if($("#jqxdropdownlist_ff_rename").jqxDropDownList('selectedIndex') != -1)
+                    {
+                         DDPvalue = $("#jqxdropdownlist_ff_rename").jqxDropDownList('getSelectedItem').value;
+                    }
+                    var inputValue =  trimSpace($('#renameFFinput').val().toUpperCase());
+                    
+                    if(inputValue == DDPvalue || 
+                        ff_list.indexOf(inputValue) >= 0)
+                    {
+                        return false;
+                    }
+                    else
+                        return true;
+            },
+                position:"bottom:-145,0"
+
+            }
+        ]
+        });
+
+        //verifiaction au moment ou on click
+        $('#okButtonPannel').unbind('click');
+        $('#okButtonPannel').on('click', function () 
+        {
+            $('#renameFFform').jqxValidator('validate');
+                setTimeout(function() 
+                { 
+                    $('#renameFFform').jqxValidator('hide');
+                },1500);
+        });
+
+        $('#renameFFform').on('validationSuccess',function(event)
+        {
+            var oldName = $("#jqxdropdownlist_ff_rename").jqxDropDownList('getSelectedItem').value;
+            var newName = trimSpace($('#renameFFinput').val().toUpperCase());
+            var url = '/renameFFOk/'+  oldName + '/' +newName;
+
+            $.get(url,function(response)
+            {
+                var res = JSON.parse(response);
+                displayNotification(res.msg,res.type);
+                var session = res.session;
+                if(res.type == "success")
+                {
+                 updateTree(session.nameForceField,session.nameParameter);
+                 updateTools(session.undo,session.redo,session.save);
+                 afterOperation(session); 
+                }
+            });
+
+        });
+
+      });
+    });
+
+}
+
+function fullfillRenameParameterdTab()
+{
+    $('#pannelContentInner').children().remove();
+    $("#parameterRenameTab").append($("#pannelWrapper"));
+    $("#pannelWrapper").css({"margin":50});
+    $('#pannelContent').css({'height':180});
+    $('#pannelLegend').html('<strong>Rename Parameter</strong>');
+    $("#pannelWrapper").show();
+    fullfillRenameCaller = true;
+    fullfillTabContentcaller = false;
+    fullfillParameterTabcaller = false;
+    if(req != 0){req.abort();}
+
+    $('#pannelContentInner').prepend(
+        "<form id='renameParameterForm' action='#'>"+
+            "<div style='display:inline-block;width:100%;"+
+            "overflow:auto'>"+
+            "<div style='display:inline-"+
+            "block;float:left;margin-right:53px'>"+
+            "Select ForceField:</div>"+
+            "<div id='jqxdropdownlist_ff' "+
+            "style='display:inline-block;float:right;'>"+
+            "</div>"+
+            "</div>"
+            +"<div style='padding-top:10px'>"
+            +"<div style='display:inline-block;"+
+            "margin-right:50px;float:left'>"+
+            "Select Parameter:</div>"
+            +"<div id='jqxdropdownlist_pp'"
+            +"style='display:inline-block;float:right;'>"
+            +"</div>"
+            +"</div>"+
+            "<div style='width:100%;min-height:10px;clear:both;'></div>"+
+            "<div style='padding-bottom:10px;'>Rename this Parameter to:"+
+            "</div>"+
+            "<input type='text' id='renamePPinput'/>"+
+            "</form>"
+
+                                        
+    );
+    
+    
+    fullfillDropDownList($('#jqxdropdownlist_ff'),$('#jqxdropdownlist_pp'));
+    $("#renamePPinput").jqxInput({placeHolder: "Rename Parameter:", width: '400px', height: '25px',disabled: true});
+
+    
+
+    $("#jqxdropdownlist_pp").on('select',function(event)
+        {
+
+            var args = event.args;
+            if (args) 
+            {
+
+                var value = args.item.value;
+                $('#renamePPinput').jqxInput({disabled: false });
+                $('#renamePPinput').val(value);
+            }
+        });
+
+    $('#renameParameterForm').jqxValidator(
+    {
+        arrow: false,
+        animation:'fade',
+        animationDuration:1000,
+        rules:[
+            {
+            input:'#jqxdropdownlist_ff',
+            message:'Please select forcefield',
+            action:'validationError',
+            rule: function (input,commit)
+            {
+                if($('#jqxdropdownlist_ff').jqxDropDownList('selectedIndex') == -1)
+                {
+                    return false;
+                }
+                else
+                    return true;
+            },
+            position:"right"
+            },
+            {
+                input:'#jqxdropdownlist_pp',
+                message:'Please select parameter',
+                action:'validationError',
+                rule: function (input,commit)
+                {
+                    if($('#jqxdropdownlist_ff').jqxDropDownList('selectedIndex') != -1 &&
+                    $('#jqxdropdownlist_pp').jqxDropDownList('selectedIndex') == -1)
+                    {
+                        return false;
+                    }
+                    else
+                        return true;
+            },
+            position:"right"
+            }
+            
+            ]
+
+    });
+    //verifiaction au moment ou on click
+    $('#okButtonPannel').unbind('click');
+    $('#okButtonPannel').on('click', function () 
+    {
+        $('#renameParameterForm').jqxValidator('validate');
+        setTimeout(function() 
+        { 
+            $('#renameParameterForm').jqxValidator('hide');
+        },1500);
+    });
+
+    $('#renameParameterForm').on('validationSuccess',function(event)
+    {
+        var ffName = $("#jqxdropdownlist_ff").jqxDropDownList('getSelectedItem').value;
+        var oldName = $("#jqxdropdownlist_pp").jqxDropDownList('getSelectedItem').value;
+        var newName = trimSpace($('#renamePPinput').val());
+        var url = '/renameParameterOk/' + ffName + '/' + oldName + '/' +newName;
+
+        $.get(url,function(response)
+        {
+           var res = JSON.parse(response);
+           displayNotification(res.msg,res.type);
+           var session = res.session;
+           if(res.type == "success")
+           {
+            updateTree(session.nameForceField,session.nameParameter);
+            updateTools(session.undo,session.redo,session.save);
+            afterOperation(session); 
+           }
+        });
+
+    });
+}
+
+function fullfillRemoveForcefieldTab()
+{
+    $('#pannelContentInner').children().remove();
+    $('#forcefieldRemoveTab').append($("#pannelWrapper"));
+    $("#pannelWrapper").css({"margin":50});
+    $('#pannelContent').css({'height':100});
+    $('#pannelLegend').html('<strong>Remove ForceField</strong>');
+    $("#pannelWrapper").show();
+
+    $('#pannelContentInner').children().remove();
+        $('#pannelContentInner').prepend(
+            "<form id='removeFFform' action='#'>"+
+            "<div style='display:inline-"+
+            "block;float:left;margin-right:10px'>"+
+            "Select ForceField to Remove:</div>"+
+            "<div id='jqxdropdownlist_ff' "+
+            "style='display:inline-block;float:right;'></div>"+
+            "</form>"
+            );
+
+    var url = '/getForceFieldList/';
+    $.get(url,function(responseFFList)
+    {
+        var source = eval(responseFFList);
+        $("#jqxdropdownlist_ff").jqxDropDownList
+        (
+            { source: source, 
+              width: '190px', 
+              height: '25px',
+              theme: 'energyblue',
+              autoDropDownHeight: true,
+              placeHolder: 'Select Forcefield',
+            }
+        );
+        
+
+        $('#removeFFform').jqxValidator({
+        arrow: false,
+        animation:'fade',
+        animationDuration:1000,
+        rules:[
+            {
+            input:'#jqxdropdownlist_ff',
+            message:'Please select forcefield',
+            action:'validationError',
+            rule: function (input,commit)
+            {
+                if($('#jqxdropdownlist_ff').jqxDropDownList('selectedIndex') == -1)
+                {
+                    return false;
+                }
+                else
+                    return true;
+            },
+            position:"bottom:-210,-5"
+        }]
+        });
+
+        //verifiaction au moment ou on click
+        $('#okButtonPannel').unbind('click');
+        $('#okButtonPannel').on('click', function () 
+        {
+            $('#removeFFform').jqxValidator('validate');
+                setTimeout(function() 
+                { 
+                    $('#removeFFform').jqxValidator('hide');
+                },1500);
+        });
+
+        $('#removeFFform').on('validationSuccess',function(event)
+        {
+            var nameFF = $('#jqxdropdownlist_ff').jqxDropDownList('getSelectedItem').value;
+            
+            var url = '/removeForceFieldOk/'+nameFF;
+            $.get(url,function(response)
+            {
+                res = JSON.parse(response);
+
+                //update tree
+                updateTree(null,null);
+                
+                //displayNotification
+                displayNotification(res.msg,res.type);
+
+                //updateTools
+                var session = res.session; 
+                updateTools(session.undo,session.redo,session.save);
+
+                //reinitialize the ff dd 
+                var url = '/getForceFieldList/';
+                $.get(url,function(responseFFList)
+                {
+                    var source = eval(responseFFList);
+                    $("#jqxdropdownlist_ff").jqxDropDownList
+                    (
+                        { 
+                          source: source, 
+                          placeHolder: 'Select Forcefield',
+                        }
+                    );
+                });
+
+            });
+        });
+
+    });
+}
+
+function fullfillRemoveParameterTab()
+{
+    $('#pannelContentInner').children().remove();
+    $("#parameterRemoveTab").append($("#pannelWrapper"));
+    $("#pannelWrapper").css({"margin":50});
+    $('#pannelContent').css({'height':150});
+    $('#pannelLegend').html('<strong>Remove Parameter</strong>');
+    $("#pannelWrapper").show();
+    fullfillPanelContent();
+    fullfillTabContentcaller = false;
+    fullfillParameterTabcaller = false;
+    fullfillRenameCaller = false;
+    if(req != 0){req.abort();}
+    fullfillDropDownList($('#jqxdropdownlist_ff'),$('#jqxdropdownlist_pp'));
+
+    $('#removeParameterForm').jqxValidator(
+    {
+        arrow: false,
+        animation:'fade',
+        animationDuration:1000,
+        rules:[
+            {
+            input:'#jqxdropdownlist_ff',
+            message:'Please select forcefield',
+            action:'validationError',
+            rule: function (input,commit)
+            {
+                if($('#jqxdropdownlist_ff').jqxDropDownList('selectedIndex') == -1)
+                {
+                    return false;
+                }
+                else
+                    return true;
+            },
+            position:"bottom:-200,50"
+            },
+            {
+                input:'#jqxdropdownlist_pp',
+                message:'Please select parameter',
+                action:'validationError',
+                rule: function (input,commit)
+                {
+                    if($('#jqxdropdownlist_ff').jqxDropDownList('selectedIndex') != -1 &&
+                    $('#jqxdropdownlist_pp').jqxDropDownList('selectedIndex') == -1)
+                    {
+                        return false;
+                    }
+                    else
+                        return true;
+            },
+            position:"bottom:-200,10"
+            }]
+
+    });
+    //verifiaction au moment ou on click
+    $('#okButtonPannel').unbind('click');
+    $('#okButtonPannel').on('click', function () 
+    {
+        $('#removeParameterForm').jqxValidator('validate');
+        setTimeout(function() 
+        { 
+            $('#removeParameterForm').jqxValidator('hide');
+        },1500);
+    });
+
+    $('#removeParameterForm').on('validationSuccess', function (event) 
+    {
+        ff = $("#jqxdropdownlist_ff").jqxDropDownList('getSelectedItem').value;
+        param = $("#jqxdropdownlist_pp").jqxDropDownList('getSelectedItem').value;
+        var url = '/removeParameterOk/'+ff+'/'+param;
+        $.get(url,function(response)
+        {
+            var res = JSON.parse(response);
+            var session = res.session;
+            displayNotification(res.msg,res.type);
+            updateTools(session.undo,session.redo,session.save);
+            updateTree(ff,param);
+            afterOperation(session);
+        });
+
+    }); 
+
+}
+
+function deleteAuthorFF(element)
+{
+    var num = element.id.split("_")[1];
+    $('#authorFF_'+num.toString()).remove();
+
+    count = $('#authorWrapper >div').length;
+    var x = 0;
+    $('#authorWrapper').children('div').each(function()
+    {   
+        x = x + 1;
+        $(this).attr('id' ,'authorFF_' + x.toString());
+        $(this).find('span:first-of-type').text('Author '+(x).toString()+':');
+        $(this).find('a').attr('id','authorImg_'+x.toString());
+        $(this).find('input').attr('id','authorInputFF_'+x.toString());
+
+    });
+    
+}
+
+function addAuthorToFF()
+{   
+    count = $('#authorWrapper >div').length;
+    count = count + 1;
+    $('#authorWrapper').append(
+        "<div id='authorFF_"+count+"' style='width:100%;"+
+             "display:inline-block;padding-top:10px;'>"+
+             "<span>Author "+count+":</span>"+
+             "<span style='float:right;margin-left:5px;"+
+                    "margin-right:20px;'>"+
+                 "<a id='authorImg_"+count+"' href='#'"+
+                     "onclick='deleteAuthorFF(this)'>"+
+                     "<img src='/static/img/delete.png'"+
+                           " style='height:20px;width:20px;'>"+
+                     "</img>"+
+                 "</a>"+
+             "</span>"+
+             "<input id='authorInputFF_"+count+"' style='float:right;'/>"+
+        "</div>"
+        );
+    $('#authorInputFF_'+count).jqxInput({width:'230px',height:'25px',placeHolder:'Username'});
+}
+
+function fullfillForcefieldAddTab()
+{
+    $('#pannelContentInner').children().remove();
+    $('#OthersTab').children().remove();
+    $('#parameterContentTab').children().remove();
+    $('#forcefieldAddTab').append($("#pannelWrapper"));
+    $("#pannelWrapper").css({"margin":20});
+    $('#pannelContentInner').children().remove();
+    $('#pannelContentInner').prepend(
+         "<form id='addForm' style='height:100%;' action='#'>"+
+         '<span style="float:right;">'+
+         '<a onclick="inputInfo()" href="#">'+
+         'input help</a></span>'+
+         "<div style='display:inline-"+
+         "block;float:left;width:100%'>"+
+         "<span>Add New ForceField:</span>"+
+         "<input type='text' id='input' "+
+         "style='display:inline-block;float:right;"+
+         "text-transform:uppercase;'/>"+"</div>"+
+         "<div style='min-height:20px;clear:both;'></div>"+ 
+         "<div>"+
+            "<span><strong>Authors</strong></span>"+
+            "<a href='#' style='float:right;'"+
+             "onclick='addAuthorToFF()'>"+
+             "add author</a>"+
+        "</div>"+
+        "<hr>"+
+        "<div id='authorWrapper' style='height:110px;overflow:scroll;'>"+
+          "<div style='width:100%;display:inline-block;'>"+
+                "<span>Author 1:</span>"+
+                "<input id='authorFF_1' style='float:right;"+
+                    "margin-right:45px;'/>"+
+          "</div>"+
+        "</div>"+
+        "</form>"
+    );
+    
+    $("#input").jqxInput({placeHolder: "Enter Name ForceField:", width: '230px', height: '25px'});
+    $("#authorFF_1").jqxInput({width:'230px',height:'25px',disabled:true});
+    $("#authorFF_1").val('{{current_user.username}}');
+    $('#pannelContent').css({'height':260,'padding-top':0});
+    $('#pannelContentInner').css({'height':260});
+    $('#pannelLegend').html('<strong>Add ForceField</strong>');
+    $("#pannelWrapper").show();
+    
+    $('#addForm').jqxValidator(
+        {
+            arrow: false ,
+            animation:'fade',
+            animationDuration:1000,
+            rules: [
+                {
+                input: '#input',
+                message: 'Invalid Input',
+                action: 'validationError',
+                rule: function (input,commit) 
+                {
+                    var inputVal = trimSpace($('#input').val());
+                    var re = new RegExp(
+                "^[A-Za-z][A-Za-z0-9]*(?:(_|-| )[A-Za-z]+[A-Za-z0-9]*)*$");
+                    return re.test(inputVal.toUpperCase());
+                },
+                position:"bottom:0,0"
+                }
+                ]
+            });
+                                    
+        $('#okButtonPannel').unbind('click');
+        $('#okButtonPannel').click(function()
+        {
+            $('#addForm').jqxValidator('validate');
+            setTimeout(function() 
+            { 
+                $('#addForm').jqxValidator('hide');
+            },1500);
+
+        });
+
+        //Add ForceField when all validator succes 
+        $('#addForm').on('validationSuccess', function (event) 
+        { 
+            inputVal = trimSpace($('#input').val()).toUpperCase();
+            var url = '/addForcefield/'+inputVal
+            var usernameList = {};
+            var x = 0;
+            $('#authorWrapper').children('div').each(function()
+            {   
+                x = x + 1;
+                var username  = $(this).find('input').val();
+                if(username != "")
+                    usernameList['username'+x.toString()] = username;
+
+            });
+
+            $.ajax
+            (
+            {
+
+                url:'/addForcefield/'+inputVal,
+                type:'GET',
+                data:usernameList,
+                success: function(responseAddFF)
+                {
+                    var res = JSON.parse(responseAddFF)
+                    var session = res.session;
+                    displayNotification(res.msg,res.type);
+                    updateTools(session.undo,session.redo,session.save);
+                    updateTree(null,null);
+                    afterOperation(session);
+                    
+                }
+
+            }); 
+
+
+        });
+
+
+  
+}
+
+
+function fullfillParameterTabContent()
+{
+    propertyInputCounter = 0;
+    $('#pannelContentInner').children().remove();
+    $('#OthersTab').children().remove();
+    $('#parameterContentTab').children().remove();
+    $('#parameterContentTab').prepend(
+    '<form id="parameterTabForm" action="#">'+
+    '<div id="column1ParameterTab" style="width:50%;'+
+        'margin-left:10px;float:left">'+
+        '<div style="padding-top:10px;">'+
+            '<strong>Name Definition:</strong>'+
+        '</div>'+
+        '<div><hr></div>'+
+        '<div id="row1" style="overflow:auto;padding-top:10px;">'+
+            '<div style="float:left;margin-left:5px">'+
+                'Select ForceField:'+
+            '</div>'+
+            '<div id="jqxdropdownlist_ff_Param" style="float:right;margin-'+'left:20px">'+
+            '</div>'+
+        '</div>'+
+        '<div id="row2" style="overflow:auto;padding-top:10px;">'+
+            '<div id="existingParameterRadioButton" style="float:left">'+
+            '<span>Existing Parameter:</span>'+
+            '</div>'+
+            '<div id="jqxdropdownlist_pp_Param" style="float:right;margin-'+'left:20px">'+
+            '</div>'+
+        '</div>'+
+        '<div id="row3" style="overflow:auto;padding-top:10px;">'+
+            '<div id="newParameterRadioButton" style="float:left">'+
+            '<span>New Parameter:</span>'+
+            '</div>'+
+            '<div style="float:right">'+
+                '<input id="newParameterInput" style="margin-'+
+                'left:5px">'+
+                '<a style="display:block;margin-left:150px;'+ 
+                'font-size:10px;" onclick="inputInfo()"'+
+                    'href="#">input help</a>'+
+            '</div>'+
+        '</div>'+
+        '<div style="padding-top:20px;">'+
+            '<strong>Atom Definition:</strong>'+
+        '</div>'+
+        '<div><hr></div>'+
+        '<div id="row4" style="padding-top:20px;display:inline-block">'+
+            '<div style="margin-left:20px;'+
+                'display:inline-block;vertical-align:middle">'+
+                'The calculation of this parameter is based on:'+
+            '</div>'+
+            '<div style="margin-left:20px;display:inline-block;'+
+                'vertical-align:middle">'+
+                '<div id="typeRadioButton">'+
+                    '<span>type</span>'+
+                '</div>'+
+                '<div id="classRadioButton" style="padding-top:10px">'+
+                    '<span>class</span>'+
+                '</div>'+
+            '</div>'+
+        '</div>'+
+        '<div id="row5" style="padding-top:20px;display:inline-block">'+
+            '<div style="width:300px;margin-left:20px;'+
+                'display:inline-block;vertical-align:middle">'+
+                'With how many number of atom this parameter interact:'+
+            '</div>'+
+            '<div id="jqxNumberInput" style="display:inline-block;'+
+                'vertical-align:middle;margin-left:32px;">'+
+            '</div>'+
+        '</div>'+
+    '</div>'+
+    '<div id="column2ParameterTab" style="width:45%;float:right;'+
+        'padding-top:10px;margin-right:10px;">'+
+        '<div><strong>Property Definition:</strong></div><hr>'+
+        '<a id="addPropertyLink" style="display:none" '+
+            'onclick="addDynamicProperty()" href="#">add property</a>'+
+        '<div id="rowProperty" style="padding-top:10px;">'+
+            '<input style="display:none" id="jqxInputProperty"/>'+
+        '</div>'+
+        '<div id="propertyContainer" style="overflow:scroll;height:230px">'+
+        '</div>'+
+    '</form>'+
+    '</div>'+
+    '<div id="buttonRow" style="position:absolute;bottom:20;right:10;">'+
+            '<div id="okButton" style="margin-right:20px">OK</div>'+
+            '<div id="cancelButton">Cancel</div>'+
+    '</div>'
+        );
+
+    //vertical-align:middle => link: http://jsfiddle.net/kizu/Tky8T/
+    
+
+    fullfillParameterTabcaller = true;
+    fullfillTabContentcaller = false;
+    fullfillRenameCaller = false;
+    if(req != 0){req.abort();}
+    fullfillDropDownList($('#jqxdropdownlist_ff_Param'),
+                         $("#jqxdropdownlist_pp_Param"));
+
+    $('#jqxInputProperty').jqxInput({'disabled':true,width: '250px', height: '25px',placeHolder:'Type or Class:'});
+    $("#existingParameterRadioButton").jqxRadioButton({groupName:'1', width: 120, height: 25 });
+    $("#newParameterRadioButton").jqxRadioButton({groupName:'1', width: 130, height: 25 });
+    $("#typeRadioButton").jqxRadioButton({groupName:'2', width: 50, height: 17 });
+    $("#classRadioButton").jqxRadioButton({groupName:'2', width: 60, height: 17 });
+    $("#newParameterInput").jqxInput({placeHolder: "Default Name", width: '200px', height: '25px',disabled:true});
+    $('#jqxNumberInput').jqxNumberInput({ width: '50px', height: '25px',decimalDigits:0,inputMode:'simple',readOnly:true,spinButtons:true,min:1,max:10,decimal:1});
+    $('#okButton').jqxButton({theme:'energyblue'});
+    $('#cancelButton').jqxButton({theme:'energyblue'});
+    $('#okButton').css({"width":80,'height':20,'display':'inline-block'});
+    $('#cancelButton').css({"width":80,'height':20,'display':'inline-block'});
+
+    $('#existingParameterRadioButton').on('checked', function (event) 
+    { 
+        existingParameter = true; 
+        if($('#jqxdropdownlist_ff_Param').jqxDropDownList('selectedIndex')> -1)
+        {
+            $("#jqxdropdownlist_pp_Param").jqxDropDownList({disabled:false});
+        }
+        $('#addPropertyLink').hide();
+        $('#jqxInputProperty').hide();
+        $('#propertyContainer').children().remove();
+
+        if($('#jqxdropdownlist_pp_Param').jqxDropDownList('selectedIndex')> -1)
+        {
+            for(i = 0 ; i < columnsList.length ; i++)
+            {
+                addStaticProperty(i,columnsList[i]);
+            }
+        }
+
+        $('#row4').fadeTo(500,0.5);
+        $('#row5').fadeTo(500,0.5);
+        $("#typeRadioButton").jqxRadioButton({disabled:true});
+        $("#classRadioButton").jqxRadioButton({disabled:true});
+        $('#jqxNumberInput').jqxNumberInput({disabled:true});
+
+
+    }); 
+
+    
+    $("#classRadioButton").on('checked', function (event) 
+    { 
+        $('#jqxInputProperty').val('class');
+
+    });
+
+    $("#typeRadioButton").on('checked', function (event) 
+    { 
+        $('#jqxInputProperty').val('type');
+
+    });
+
+    $('#existingParameterRadioButton').on('unchecked', function (event) 
+    { 
+        existingParameter = false; 
+        $("#jqxdropdownlist_pp_Param").jqxDropDownList({disabled:true});
+    });
+
+    
+
+    $('#newParameterRadioButton').on('checked', function (event) 
+    { 
+        existingParameter = false;
+        $("#newParameterInput").jqxInput({disabled:false});
+        $("#jqxdropdownlist_pp_Param").jqxDropDownList({disabled:true});
+        $('#addPropertyLink').show();
+        $('#jqxInputProperty').show();
+        $('#propertyContainer').children().remove();
+        for(i = 0 ; i < 3 ; i++)
+        {
+            addDynamicProperty();
+        }
+        $('#row4').fadeTo(500,1);
+        $('#row5').fadeTo(500,1);
+        $("#typeRadioButton").jqxRadioButton({disabled:false});
+        $("#classRadioButton").jqxRadioButton({disabled:false});
+        $('#jqxNumberInput').jqxNumberInput({disabled:false});
+        
+
+
+    }); 
+
+    $('#newParameterRadioButton').on('unchecked', function (event) 
+    { 
+        $("#newParameterInput").jqxInput({disabled:true}); 
+    });
+
+    $('#parameterTabForm').jqxValidator(
+        {
+            arrow: false,
+            animation:'fade',
+            animationDuration:1000,
+            rules: [
+                {
+                    input: '#existingParameterRadioButton',
+                    message: 'Please select forcefield',
+                    action: 'validationError',
+                    rule: function (input,commit) 
+                    {
+                        if($('#jqxdropdownlist_ff_Param').jqxDropDownList('selectedIndex') == -1)
+                        {
+                            return false;
+                        }
+                        return true;
+                    },
+                    position:'bottom:220,-110'
+
+                },
+                {
+                    input: '#existingParameterRadioButton',
+                    message: 'Please check one checkbox',
+                    action: 'validationError',
+                    rule: function (input,commit) 
+                    {
+                        if(!$('#existingParameterRadioButton').jqxRadioButton('checked') && !$('#newParameterRadioButton').jqxRadioButton('checked'))
+                        {
+                            return false;
+                        }
+                        return true;
+                    },
+                    position:'bottom:-5,30'
+
+                },
+                {
+                    input: '#existingParameterRadioButton',
+                    message: 'Please select parameter',
+                    action: 'validationError',
+                    rule: function (input,commit) 
+                    {
+                        if($('#existingParameterRadioButton').jqxRadioButton('checked') && $('#jqxdropdownlist_pp_Param').jqxDropDownList('selectedIndex') == -1)
+                        {
+                            return false;
+                        }
+                        return true;
+                    },
+                    position:'bottom:220,-110'
+                },
+                {
+                    input: '#newParameterInput',
+                    message: 'Name required',
+                    action: 'validationError',
+                    rule: function (input,commit) 
+                    {
+                        if($('#newParameterRadioButton').jqxRadioButton('checked') && $('#newParameterInput').val() == "")
+                        {
+                            return false;
+                        }
+                        return true;
+                    },
+                    position:'bottom:-5,0'
+                },
+                
+                {
+                    input: '#newParameterInput',
+                    message: 'pattern dosen\'t match',
+                    action: 'validationError',
+                    rule: function (input,commit) 
+                    {
+                        if($('#newParameterRadioButton').jqxRadioButton('checked'))
+                        {
+                        var inputVal = trimSpace($('#newParameterInput').val());
+                        var re = new RegExp("^[A-Za-z][A-Za-z0-9]*(?:(_|-| )[A-Za-z]+[A-Za-z0-9]*)*$");
+                        commit(re.test(inputVal));
+                        }
+                        else
+                            commit(true);
+                    },
+                    position:'bottom:-225,0'
+                },
+                {
+                    input: '#typeRadioButton',
+                    message: 'please check one checkBox',
+                    action: 'validationError',
+                    rule: function (input,commit) 
+                    {
+                        if($('#newParameterRadioButton').jqxRadioButton('checked') && !$('#typeRadioButton').jqxRadioButton('checked') && !$('#classRadioButton').jqxRadioButton('checked'))
+                        {
+                            commit(false);
+                        }
+                        commit(true);
+                    },
+                    position:'bottom:-335,0'
+
+                },
+                {
+                    input: '#newParameterInput',
+                    message: 'Please add at less one property',
+                    action: 'validationError',
+                    rule: function (input,commit) 
+                    {
+                        if($('#newParameterRadioButton').jqxRadioButton('checked'))
+                        {
+                       
+                        var containerContent = $('#propertyContainer>*');
+                        for(i = 0 ; i < containerContent.length ; i++)
+                        {
+                            var inputElem = containerContent[i].firstChild;
+                            if(inputElem.value != "")
+                            {
+                                commit(true);
+                                return;
+                            }
+                            
+                            
+                        }
+                        commit(false);
+                        }
+                        else
+                            commit(true);
+                    },
+                    position:'bottom:220,130'
+
+                },
+                {
+                    input: '#newParameterInput',
+                    message: 'pattern doen\'t match',
+                    action: 'validationError',
+                    rule: function (input,commit) 
+                    {
+                        if($('#newParameterRadioButton').jqxRadioButton('checked'))
+                        {
+                        var re = new RegExp("^[A-Za-z][A-Za-z0-9]*(?:(_|-| )[A-Za-z]+[A-Za-z0-9]*)*$");
+                        var inputVal;
+                        var containerContent = $('#propertyContainer>*');
+                        var bitwise = true;
+                        for(i = 0 ; i < containerContent.length ; i++)
+                        {
+                            var inputElem = containerContent[i].firstChild;
+                            if(inputElem.value != "")
+                            {
+                                inputVal = trimSpace(inputElem.value);
+                                bitwise = bitwise & re.test(inputVal);
+                            }
+                            
+                        }
+                            return bitwise;
+                        }
+                        else
+                            commit(true);
+                    },
+                    position:'bottom:220,135'
+
+                }
+
+            ]
+        }
+    );
+    
+    
+
+        
+    $('#okButton').on('click', function () 
+    {
+        $('#parameterTabForm').jqxValidator('validate');
+        setTimeout(function() 
+        { 
+            $('#parameterTabForm').jqxValidator('hide');
+                
+        },1500);
+    });
+
+    $('#parameterTabForm').on('validationSuccess',function(event)
+    {
+        
+        var forcefieldName = $("#jqxdropdownlist_ff_Param").jqxDropDownList('getSelectedItem').value;
+        var isNewParameter = $('#newParameterRadioButton').jqxRadioButton('checked');
+        var parameterName = ""
+        var numberOfAtoms = ""
+        var isClass = ""
+
+        if(!isNewParameter)
+        {
+            parameterName = $("#jqxdropdownlist_pp_Param").jqxDropDownList('getSelectedItem').value;
+        }
+        else
+        {
+            parameterName = $('#newParameterInput').val();
+            numberOfAtoms = $('#jqxNumberInput').val();
+            isClass = $('#classRadioButton').jqxRadioButton('checked');
+        }
+         
+        
+        
+        var containerContent = $('#propertyContainer>*');
+        
+        var jsonData = {};
+        jsonData['constantName'] = "";
+        jsonData['sfName'] = "";
+        jsonData['forcefieldName'] = forcefieldName
+        jsonData['parameterName'] =  parameterName
+        jsonData['parameterType'] = "Parameter";
+        jsonData['isClass'] = isClass; 
+        jsonData['numberOfAtoms'] = numberOfAtoms;
+        jsonData['isNewParameter'] = isNewParameter;
+
+        if(isClass)
+            jsonData['ClassOrType'] = 'Class';
+        else
+            jsonData['ClassOrType'] = 'Type';
+
+        for(i = 0 ; i < containerContent.length ; i++)
+        {
+            var inputElem = containerContent[i].firstChild;
+            if(inputElem.value != "")
+            {
+                jsonData['parameters_'+i.toString()] = inputElem.value;
+            }
+        }
+
+
+                    
+
+      $.ajax
+      (
+        {
+
+            url:"/addParameterOk",
+            type:'GET',
+            data:jsonData,
+            success: function(response)
+            {
+                var res = JSON.parse(response);
+                displayNotification(res.msg,res.type);
+                var session = res.session;
+                updateTools(session.undo,session.redo,session.save);
+                updateTree(session.nameForceField,session.nameParameter);
+                existingParameter = false;
+                afterOperation(session);
+                
+                
+                
+            }
+
+        }); 
+    });
+
+}
+
+
+function addStaticProperty(num,columsName)
+{
+    if(num == 0)
+    {
+        $('#propertyContainer').children().remove();
+        $('#propertyContainer').append('<div style="text-decoration:underline;padding-bottom:10px;">List Property:</div>');
+    }
+    $('#propertyContainer').append(
+        '<div style="padding-left:50px;padding-top:10px;">'+
+            '<input id="jqxInputProperty_" >'+
+        '</div>');
+    var elementInput = $("#propertyContainer  div:last-child input:first");
+    elementInput.attr('id','jqxInputProperty_'+num.toString());
+    elementInput.jqxInput({width: '150px', height: '25px',disabled:true});
+    elementInput.val(columsName);
+    elementInput.fadeTo(0,1);
+}
+
+
+function addDynamicProperty()
+{
+    
+    $('#propertyContainer').append(
+        '<div id="rowProperty_" style="padding-top:10px;">'+
+            '<input id="jqxInputProperty_" '+
+               ' onblur="propertyInputOnblur(this)">'+
+            '<span><a style="font-size:10px;"'+
+                'onclick="inputInfo()" href="#">'+
+                'input help</a></span>'+
+            '<span style="padding-left:10px;">'+
+            '<a onclick="editPropertyInput(this)" href="#">'+
+            '<img id="pencilImg_"'+
+                'src="/static/img/pencil.png" width="20" height="20">'+
+            '</span>'+
+            '</a>'+
+            '<span style="padding-left:5px;">'+
+            '<a  onclick="deletePropertyInput(this)" href="#">'+
+            '<img id="deleteImg_" '+
+                'src="/static/img/delete.png" width="20" height="20">'+
+            '</a>'+
+            '</span>'+
+        '</div>'
+            );
+    
+    //var inputId = 'jqxInputProperty' + propertyInputCounter.toString();
+    var elementRowProperty = $("#propertyContainer div:last-child");
+    var elementInput = $("#propertyContainer  div:last-child input:first");
+    var elementPencilImg =$("#propertyContainer  div:last-child img:first");
+    var elementDeleteImg =$("#propertyContainer  div:last-child img:last");
+    elementRowProperty.attr('id','rowProperty_'+propertyInputCounter.toString());
+    elementInput.attr('id',
+        'jqxInputProperty_'+propertyInputCounter.toString());
+    elementPencilImg.attr('id','pencilImg_'+propertyInputCounter.toString());
+    elementDeleteImg.attr('id','deleteImg_'+propertyInputCounter.toString());
+    
+    elementInput.jqxInput({placeHolder: "Property Name:", width: '250px', height: '25px',disabled:false});
+    
+    propertyInputCounter++;
+}
+
+function propertyInputOnblur(element)
+{
+   $('#'+element.id).jqxInput({disabled:true});
+   $('#'+element.id).css({'background-color':'#E0E9F5'});
+   $('#'+element.id).jqxInput({theme:'energyblue'});
+}
+
+function editPropertyInput(element)
+{
+    //element = <a> tag we need to find <img> tag (first child)
+    var element = element.children[0];
+    var num = element.id.split("_")[1];
+    $('#jqxInputProperty_'+num.toString()).jqxInput({disabled:false});
+    $('#jqxInputProperty_'+num.toString()).css({'background-color':'white'});
+}
+
+function deletePropertyInput(element)
+{   
+    //element = <a> tag we need to find <img> tag (first child)
+    var element = element.children[0];
+    var num = element.id.split("_")[1];
+    $('#rowProperty_'+num.toString()).remove();
+
+}
+
+function getSelectedItemTree()
+{
+    parameterItem = $('#jqxTree').jqxTree('getSelectedItem');
+    parameterName = parameterItem.label;
+    
+    ffName =  $('#jqxTree').jqxTree('getItem', parameterItem.parentElement);
+
+    if(ffName != null)
+    {
+        ffName = ffName.label;
+    }
+    else
+    {
+        ffName = parameterName;
+        parameterName = "Atom Definition";
+
+    }
+
+    return ffName+','+parameterName;
+}
+function addAtomType()
+{
+    var dataToServer = {};
+    var isOk = 1;
+    treeInfo = getSelectedItemTree();
+    ffName = treeInfo.split(',')[0];
+
+    //bitwise operation (AND)
+    userInput = $("#idAtomType_Type").val();
+    isOk = isOk&checkPopupWindows("idAtomType",userInput,1,"Type");
+    userInput = $("#idClassAtom_Type").val();
+    isOk = isOk&checkPopupWindows("idClassAtom",userInput,1,"Type");
+    userInput = $("#description_Type").val();
+    isOk = isOk&checkPopupWindows("description",userInput,1,"Type");
+
+
+    if(isOk)
+    {
+        dataToServer['ForceField'] = ffName;
+        dataToServer['idClassAtom'] = $("#idClassAtom_Type").val();
+        dataToServer['idAtomType'] = $("#idAtomType_Type").val();
+        dataToServer['description'] = $("#description_Type").val();
+        
+        $.ajax(
+        {
+            url:"/addAtomTypeOk",
+            type:"GET",
+            data:dataToServer,
+            success:function(response)
+            {
+                var res = JSON.parse(response);
+                displayNotification(res.msg,res.type);
+                if(res.type == "success")
+                {                
+                    var session = res.session;
+                    updateTools(session.undo,session.redo,session.save);
+                updateTree(session.nameForceField,session.nameParameter);
+                }
+                
+                $("#popupWindow").jqxWindow('hide');
+                
+            }
+        });
+    }
+}
+
+function addAtomClass()
+{
+    var dataToServer = {};
+    var isOk = 1;
+    
+    treeInfo = getSelectedItemTree();
+    ffName = treeInfo.split(',')[0];
+
+    //bitwise operation (AND)
+    userInput = $("#idClassAtom_Class").val();
+    isOk = isOk&checkPopupWindows("idClassAtom",userInput,1,"Class");
+    userInput = $("#symbol_Class").val();
+    isOk = isOk&checkPopupWindows("symbol",userInput,1,"Class");
+    userInput = $("#atomicNumber_Class").val();
+    isOk = isOk&checkPopupWindows("atomicNumber",userInput,1,"Class");
+    userInput = $("#atomicWeight_Class").val();
+    isOk = isOk&checkPopupWindows("atomicWeight",userInput,1,"Class");
+    userInput = $("#valence_Class").val();
+    isOk = isOk&checkPopupWindows("valence",userInput,1,"Class");
+
+    if(isOk)
+    {
+        dataToServer['ForceField'] = ffName;
+        dataToServer['idClassAtom'] = $("#idClassAtom_Class").val();
+        dataToServer['symbol'] = $("#symbol_Class").val();
+        dataToServer['atomicNumber'] = $("#atomicNumber_Class").val();
+        dataToServer['atomicWeight'] = $("#atomicWeight_Class").val();
+        dataToServer['valence'] = $("#valence_Class").val();
+        $.ajax(
+        {
+            url:"/addAtomClassOk",
+            type:"GET",
+            data:dataToServer,
+            success:function(response)
+            {
+                var res = JSON.parse(response);
+                displayNotification(res.msg,res.type);
+                var session = res.session;
+                updateTools(session.undo,session.redo,session.save);
+                $("#popupWindow").jqxWindow('hide');
+            }
+        });
+    }
+}
+
+function addRow(numberOfAtoms,strTab)
+{
+    var url = "/getKeyList/";
+    $.get(url,function(responseKeyList)
+    {
+    
+        //get all columns name of the tab
+        var keyList = eval(responseKeyList);
+        
+        var dataInfo = $("#jqxgrid").jqxGrid('getdatainformation');
+
+        //number of row in the grid
+        var rowscount =  dataInfo.rowscount;
+        
+        //new number of row with the new add row
+        var numberOfRow = rowscount + 1 ;
+        
+        //get columns object of the grid
+        var cols = $("#jqxgrid").jqxGrid("columns");
+    
+        var isOk = 1;
+        //var arrayCheck = new Array(keyList.length);
+        //get user input and check it
+        for(i = 0 ; i < keyList.length ; i++)
+        {
+            var element = keyList[i];
+            element = replaceAll(element,' ','_');
+            element = replaceAll(element,'(','_');
+            element = replaceAll(element,')','_');
+            element = replaceAll(element,'-','_');
+            element1 = element + "_";
+            userInput = $('#'+element1).val();
+            //bitwise operation (AND)
+            isOk = isOk&checkPopupWindows(element,userInput,numberOfAtoms,strTab);
+        }
+                    
+
+
+    /*
+        here i have to add input check part with ajax
+        request to the server
+    */
+
+    /*
+        if the verification is ok so we can execute the 
+        code below
+    */
+
+    if(isOk)
+    {
+        //create new empty row 
+        var row = {}
+
+        //get user input and put it to the new row object
+        for(i = 0 ; i < keyList.length ; i++)
+        {
+            var element = keyList[i];
+            element1 = replaceAll(element,' ','_');
+            element1 = replaceAll(element1,'(','_');
+            element1 = replaceAll(element1,')','_');
+            element1 = replaceAll(element1,'-','_');
+            element1 = element1 + "_";
+            row[element] = $('#'+element1).val();
+        }
+
+        //get the new rowId wich is equal to number of row
+        // minus 1     
+        var newRowId = $('#jqxgrid').jqxGrid('getrowid',numberOfRow - 1);
+                            
+        //add the new row in the grid
+        var commit = $("#jqxgrid").jqxGrid('addrow', newRowId, row);                 
+                        
+
+        //hide the popup windows
+        $("#popupWindow").jqxWindow('hide');
+    }
+    });
+}
+
+function editAtomType(idSelected,isACtoDelete,old_idClassAtom)
+{
+    treeInfo = getSelectedItemTree();
+    ffName = treeInfo.split(',')[0];
+    var dictValues = {};
+    
+    dictValues['deleteOldClassAtom'] = isACtoDelete;
+    dictValues['old_idClassAtom'] = old_idClassAtom;
+    dictValues['ddl_AtomType'] = idSelected;
+    dictValues['ForceField'] = ffName;
+    dictValues['idClassAtom'] = $("#idClassAtom_Type").val();
+    dictValues['description'] = $("#description_Type").val();
+    dictValues['idAtomType'] = $("#idAtomType_Type").val();
+
+        
+    $.ajax(
+    {
+        url:"/editAtomType",
+        type:"GET",
+        data:dictValues,
+        success:function(response)
+        {
+            var res = JSON.parse(response);
+            var session = res.session;
+            displayNotification(res.msg,res.type);
+            if(res.type == "success")
+            {
+                updateTools(session.undo,session.redo,session.save);
+                updateTree(session.nameForceField,session.nameParameter);
+                $("#popupWindow").jqxWindow('close');
+            }
+            
+        }   
+
+    });
+        
+}
+
+function editAtomClass(idSelected)
+{
+    treeInfo = getSelectedItemTree();
+    ffName = treeInfo.split(',')[0];
+    var dictValues = {};
+    var isOk = 1;
+
+    userInput = $("#idClassAtom_Class").val();
+    isOk = isOk&checkPopupWindows("idClassAtom",userInput,1,"Class");
+    userInput = $("#symbol_Class").val();
+    isOk = isOk&checkPopupWindows("symbol",userInput,1,"Class");
+    userInput = $("#atomicNumber_Class").val();
+    isOk = isOk&checkPopupWindows("atomicNumber",userInput,1,"Class");
+    userInput = $("#atomicWeight_Class").val();
+    isOk = isOk&checkPopupWindows("atomicWeight",userInput,1,"Class");
+    userInput = $("#valence_Class").val();
+    isOk = isOk&checkPopupWindows("valence",userInput,1,"Class");
+
+
+    if(isOk)
+    {
+        dictValues['ddl_classAtom'] = idSelected;
+        dictValues['ForceField'] = ffName;
+        dictValues['idClassAtom'] = $("#idClassAtom_Class").val();
+        dictValues['symbol'] = $("#symbol_Class").val();
+        dictValues['atomicNumber'] = $("#atomicNumber_Class").val();
+        dictValues['atomicWeight'] = $("#atomicWeight_Class").val();
+        dictValues['valence'] = $("#valence_Class").val();
+        
+        $.ajax(
+        {
+            url:"/editAtomClassOk",
+            type:"GET",
+            data:dictValues,
+            success:function(response)
+            {
+                var res = JSON.parse(response);
+                var session = res.session;
+                displayNotification(res.msg,res.type);
+                if(res.type == "success")
+                {
+                    updateTools(session.undo,session.redo,session.save);
+                    updateTree(session.nameForceField,session.nameParameter);
+                    $("#popupWindow").jqxWindow('close');
+                }
+                
+            }   
+
+        });
+        
+    }
+    
+
+}
+
+
+
+//this function must to be dynamic because it save for all kind
+//of parameter and not only for atom definition
+//however editClassAtom and editAtomType are only for Atom definition
+//specific case , so i wrote them static.
+function saveEditRow(numberOfAtoms,dataRow,dataToServer,rowindex,strTab)
+{
+    var id = $("#jqxgrid").jqxGrid('getrowid', rowindex);
+            
+    //select all the input of the popupWindows
+    //except the 2 last and get their id 
+    //and check user input type
+    var isOk = 1;
+    var listid=$('#windowsContent'+strTab +' :input');
+    if(strTab == "General")
+    {strTab = "";}
+    for(i = 0 ; i < listid.length-2 ; i++)
+    {
+        key = listid[i].getAttribute('id');
+        keyArray = key.split('_');
+        keyArray.pop();
+        key1 =  keyArray.join('_');
+        key = key1+"_"+strTab;
+        //assign to the dictionary the new value
+        //of the row
+        dataToServer['new_'+key1] = $('#' + key).val();
+        isOk=isOk&checkPopupWindows(key1,$('#' + key).val(),numberOfAtoms,strTab);
+
+    }
+
+    if(isOk)
+    {
+        
+        $.ajax(
+        {
+        url:"/updateValueRowOk/"+ffName+'/'+parameterName,
+        type:'GET',
+        data:dataToServer,
+        success: function(response)
+        {
+            var res = JSON.parse(response);
+            displayNotification(res.msg,res.type);
+            if(res.type == "success")
+            {
+                var session = res.session;
+                updateTools(session.undo,session.redo,session.save);
+                updateTree(session.nameForceField,session.nameParameter);
+            }
+            if(res.type == "error")
+            {
+                updateTree(ffName,parameterName);
+            }
+                            
+            //insert userInput in the gridRow back
+            Object.keys(dataRow).forEach(function (key)
+            {
+
+                if(key != 'numberOfRow' && key != 'checkBoxColumn' && key != 'uid')
+                {
+                    newkey = replaceAll(key,' ','_');
+                    newkey = replaceAll(newkey,'(','_');
+                    newkey = replaceAll(newkey,')','_');
+                    newkey = replaceAll(newkey,'-','_');
+                    newkey = newkey + "_" + strTab;
+                    dataRow[key] = $('#' + newkey).val();
+
+                }
+            });
+            //$("#jqxgrid").jqxGrid('updaterow', id, dataRow,dataToServer);
+            //checkBox unchecked
+            $("#jqxgrid").jqxGrid("setcellvalue",id,"checkBoxColumn",false);
+            //clear the selection of the row
+            $("#jqxgrid").jqxGrid('clearSelection');
+            //remove and edit button to false
+            $('#removeRowDataButton').jqxButton({disabled:true});
+            $('#editRowButton').jqxButton({disabled:true});
+            $("#popupWindow").jqxWindow('hide');
+
+        }
+        
+        });
+        
+        
+    }
+}
+
+function edit_ddl(type,id)
+{
+
+    treeInfo = getSelectedItemTree();
+    ffName = treeInfo.split(',')[0];
+
+    var url; 
+    if(type == "class")
+    {
+        url = "/getDataClassAtom/"+ffName+"/"+id;
+        $.get(url,function(response)
+        {
+            var dictValues = JSON.parse(response);
+            $("#idClassAtom_Class").val(dictValues['idClassAtom']);
+            $("#symbol_Class").val(dictValues['symbol']);
+            $("#atomicWeight_Class").val(dictValues['atomicWeight']);
+            $("#atomicNumber_Class").val(dictValues['atomicNumber']);
+            $("#valence_Class").val(dictValues['valence']);
+
+        });
+    }
+    if(type == "type")
+    {
+        url = "/getDataAtomType/"+ffName+"/"+id;
+        $.get(url,function(response)
+        {
+
+            var dictValues = JSON.parse(response);
+            $("#idClassAtom_Type").val(dictValues['idClassAtom']);
+            $("#description_Type").val(dictValues['description']);
+            
+        });
+    }
+
+}
+
+function initializeClassAtomList(operation)
+{
+    var url = "/getClassAtomList/"+ffName;
+    $.get(url,function(response)
+    {
+         var source = eval(response);
+         $("#ddl_classAtom").jqxDropDownList(
+         {
+              source: source, 
+              width: '100px', 
+              height: '25px',
+              theme: 'energyblue',
+              dropDownHeight:'100px',
+              placeHolder: 'ClassAtom',
+            
+         });
+         $("#ddl_classAtom").on('select',function(event)
+         {
+             var args = event.args;
+             if(args)
+             {
+                 var item = args.item;
+                 $("#idClassAtom_Class").val(item.value);
+                 if(operation == "add")
+                 {
+                    $("#idClassAtom_Class").attr('disabled','disabled');
+                    fulfillClassAtomData(item,"Class");
+                 }
+                 if(operation == "edit")
+                 {
+                    edit_ddl("class",item.value);
+                 }
+             }
+         });
+    });
+}
+
+function initializeAtomTypeList(operation)
+{
+    var url = "/getAtomTypeList/"+ffName;
+    $.get(url,function(response)
+    {
+         var source = eval(response);
+         $("#ddl_AtomType").jqxDropDownList(
+         {
+              source: source, 
+              width: '100px', 
+              height: '25px',
+              theme: 'energyblue',
+              dropDownHeight:'100px',
+              placeHolder: 'AtomType',
+            
+         });
+         $("#ddl_AtomType").on('select',function(event)
+         {
+             var args = event.args;
+             if(args)
+             {
+                 var item = args.item;
+                 $("#idAtomType_Type").val(item.value);
+                 if(operation == "add")
+                 {
+                    $("#idAtomType_Type").attr('disabled','disabled');
+                    fulfillAtomTypeData(item,"Type");
+                 }
+                 if(operation == "edit")
+                 {
+                    edit_ddl("type",item.value);
+                 }
+             }
+         });
+    });
+} 
+
+
+
+$(document).ready(function () 
+    {
+
+        $("#jqxnotification").jqxNotification({ width: "auto",height:30,opacity: 0.9,autoClose: false,appendContainer:"#notificationContainer",autoCloseDelay: 1000});
+
+            {% if current_user.is_anonymous() %}
+                displayNotification('You are loged out!','error');
+            {% else %}
+                displayNotification('Welcome!','success');
+            {% endif %}
+
+            $('#alertMessageOkButton').jqxButton({theme:"energyblue",width:50,height:18});
+            $('#alertMessageCancelButton').jqxButton({theme:"energyblue",width:50,height:18});
+            
+            var dataGrid = new Array();
+            var columnsGrid = new Array();
+            var sourceTree = new Array();
+            sourceTree = {{dataTree|safe}};
+            var initialTree = sourceTree;
+            columnsGrid = {{columnsGrid|safe}};
+            dataGrid = {{dataGrid|safe}};
+
+            var rowsToSave = new Array();
+
+            var rowEdit = null;
+            
+            var sourceGrid =
+            {
+                localdata: dataGrid,
+                datatype: "array",
+                addrow:function (rowid, rowdata, position, commit) 
+                {
+                    
+                    treeInfo = getSelectedItemTree();
+                    ffName = treeInfo.split(',')[0];
+                    parameterName = treeInfo.split(',')[1];
+
+                    var dataDict = {};
+                    var i = 0;
+                    Object.keys(rowdata).forEach(function (key) 
+                    {
+                        dataDict[i.toString()] = rowdata[key]; 
+                        i = i + 1;
+                    });
+                    $.ajax(
+                    {
+                    url:"/addRowOk/"+ffName+'/'+parameterName,
+                    type:'GET',
+                    data:dataDict,
+                    success: function(response)
+                    {
+                        var res = JSON.parse(response);
+                        displayNotification(res.msg,res.type);
+                        
+                       if(res.type == "success")
+                       {
+                        var session = res.session;
+                    updateTools(session.undo,session.redo,session.save);
+                updateTree(session.nameForceField,session.nameParameter);
+                            commit(true);
+                            var numberOfRow = $("#jqxgrid").jqxGrid('getdatainformation').rowscount;
+
+                            //update the column 'numberOfRow' of the grid
+                            for(i = 0 ; i < numberOfRow ; i++)
+                            {
+                                $("#jqxgrid").jqxGrid('setcellvalue',i,'numberOfRow',i+1);
+                            }
+                       }
+                       else
+                        commit(false);
+                    }
+                    });
+                    
+                }
+               
+            };
+            
+            var dataAdapter = new $.jqx.dataAdapter(sourceGrid, {
+                loadComplete: function (dataGrid) { },
+                loadError: function (xhr, status, error) { }      
+            });
+            
+            $("#jqxgrid").jqxGrid(
+            {
+                height: 400,
+                width: 850,
+                source: dataAdapter,
+                selectionmode: 'singlecell',
+                editable: true,
+                showtoolbar: true,
+                columns: columnsGrid,
+
+
+            }); 
+            $('#toolbarjqxgrid').prepend
+            (
+                "<div id='jqxdropdownlist' style='display:inline-block'>" +
+                "</div>"+
+                "<button id='addRowDataButton' style='display:inline-" +"block'>"+ "Add Value" +
+                "</button>" +
+                 "<button id='removeRowDataButton' style='display:inline-block'>"+"Remove Row(s)"+
+                 "</button>" +
+                 "<button id='editRowButton' style='display:inline-" +"block'>"+ "Edit Value" +
+                 "</button>" +
+                 "<div id='descriptionDataGrid' "+
+                    "style='display:none'>" +
+                    "<div id='ff_NameDataGrid' style='text-align:right'>"
+                    +"</div>"+
+                    "<div id='paramNameDataGrid' style='text-align:right'>"
+                    +"</div>" +
+                 +"</div>"
+            );
+            
+
+            $('#addRowDataButton').jqxButton({theme: "arctic"});
+            $('#editRowButton').jqxButton({theme: "arctic"});
+            $('#removeRowDataButton').jqxButton({theme: "arctic",disabled:true});
+            $('#jqxdropdownlist').jqxDropDownList({source:['All','None'], width: '70px', height: '23px', theme: 'artic',autoDropDownHeight: true,placeHolder: 'Select', });
+            $('#jqxdropdownlist').css({"margin-top":5,"margin-left":5,"display":"none"});
+            $('#removeRowDataButton').css({"vertical-align":"top","width":"120px","margin-top":5,"margin-left":5,"display":"none"});
+            $('#addRowDataButton').css({"vertical-align":"top","width":"80px","margin-top":5,"margin-left":5,"display":"none"});
+            $('#editRowButton').css({"vertical-align":"top","width":"80px","margin-top":5,"margin-left":5,"display":"none"});
+            
+            $('#jqxTree').jqxTree({
+                 source: sourceTree,
+                 height: '400px',
+                 width: '300px',
+                 keyboardNavigation: true,
+                 theme: 'energyblue'
+             });
+
+            
+        //PANNEL INITIALISATION
+        $("#jqxpanel").jqxPanel({ width: 850, height: 400 });
+        $('#okButtonPannel').jqxButton({theme: "energyblue"});
+        $('#cancelButtonPannel').jqxButton({theme: "energyblue"});
+        $('#okButtonPannel').css({"width":80,'height':20,'display':'inline-block'});
+        $('#cancelButtonPannel').css({"width":80,'height':20,'display':'inline-block'});
+        $("#jqxpanel").hide();
+        $('fieldset').css({'width': 400,'margin-left':"auto","margin-right":'auto'});
+        $("#pannelWrapper").css({"margin":50});
+        $("#jqxpanel").jqxPanel('append', $("#pannelWrapper"));
+
+
+        //TAB INITIALISATION
+        $('#jqxTabsAdd').jqxTabs({ width: 850, height: 400 });
+        $('#jqxTabsAdd').hide();
+        $('#jqxTabsRemove').jqxTabs({ width: 850, height: 400 });
+        $('#jqxTabsRemove').hide();
+        $('#jqxTabsRename').jqxTabs({ width: 850, height: 400 });
+        $('#jqxTabsRename').hide();
+                        
+            //CELL BEGIN EDIT
+            $("#jqxgrid").bind('cellbeginedit', function (event) 
+            {
+                var args = event.args;
+                var rowBoundIndex = event.args.rowindex;
+                var columns = args.datafield;
+                    
+                    if(rowBoundIndex == rowEdit)
+                    {
+                        
+                        $("#jqxgrid").jqxGrid('begincelledit',rowBoundIndex, columns);
+                    }
+                    else
+                    {
+                        $("#jqxgrid").jqxGrid('endcelledit', rowBoundIndex, columns,true);
+                    }
+
+                
+            });
+
+            
+            //CELL END EDIT            
+            $("#jqxgrid").bind('cellendedit', function (event) 
+            {
+                var args = event.args;
+                var columns = args.datafield;
+                var rowBoundIndex = event.args.rowindex;
+                
+                if(columns == 'checkBoxColumn')
+                {
+                    var rowsindex = $("#jqxgrid").jqxGrid('getselectedrowindexes');
+                    if (event.args.value) 
+                    {
+                        
+                       $("#jqxgrid").jqxGrid('selectrow',event.args.rowindex);
+                       $('#removeRowDataButton').jqxButton({disabled:false});
+                        
+
+                    }
+                    else 
+                    {
+                        $("#jqxgrid").jqxGrid('unselectrow', event.args.rowindex);           
+                                
+                        if (rowsindex.length == 0)
+                        {
+                            $('#removeRowDataButton').jqxButton({disabled:true});
+                            $('#editRowButton').jqxButton({disabled:true});
+
+                        }
+                        
+                    }
+                    if(rowsindex.length == 1)
+                    {
+                        $('#editRowButton').jqxButton({disabled:false});
+                    }
+                    else
+                    {
+                        $('#editRowButton').jqxButton({disabled:true});
+                    }
+                }
+                
+            });
+            
+            //CELL CHANGED
+            $("#jqxgrid").on('cellvaluechanged', function (event) 
+            {
+                // event arguments.
+                var args = event.args;
+                // column data field.
+                var datafield = event.args.datafield;
+                // row's bound index.
+                var rowBoundIndex = args.rowindex;
+                // new cell value.
+                var value = args.newvalue;
+                // old cell value.
+                var oldvalue = args.oldvalue;
+
+                if(rowBoundIndex == rowEdit)
+                {
+
+                    var cols = $("#jqxgrid").jqxGrid("columns");
+                    var emptyCell = false;
+                    var rowData = $('#jqxgrid').jqxGrid('getrowdata',    rowBoundIndex);
+
+                
+                    for(i = 0 ; i < cols.records.length ; i ++)
+                    {
+                        var res = rowData[cols.records[i].datafield];
+                        
+                        if(res.length == 0)
+                        {
+                            emptyCell = true;
+                            break;
+                        }
+                    }
+
+                    if (emptyCell == false)
+                    {
+                        
+                        rowEdit = -1;
+                        $("#addRowDataButton").jqxButton({disabled:false});
+                    }
+                }
+            });    
+
+   
+            //ADD ROW
+            $('#addRowDataButton').on('click',function()
+            {
+                treeInfo = getSelectedItemTree();
+                ffName = treeInfo.split(',')[0];
+                parameterName = treeInfo.split(',')[1];
+                var url = "/getHtmlKeyList/";
+            $.get(url,function(responseHtmlKeyList)
+            {
+                var numberOfAtoms = responseHtmlKeyList.split('@')[1];
+                
+                var htmlKeyList;
+
+                if(parameterName != "Atom Definition")
+                {
+                   $(".table1").removeAttr('id');
+                   $(".table2").attr('id',"windowsContentGeneral");
+                   htmlKeyList = responseHtmlKeyList.split('@')[0];
+                }
+                else
+                {
+                   $(".table1").attr('id',"windowsContentGeneral");
+                   $(".table2").removeAttr('id');
+                   htmlKeyList = responseHtmlKeyList.split('%%%')[0];
+            htmlKeyListTabClass = responseHtmlKeyList.split('%%%')[1];
+                   htmlKeyListAtom = responseHtmlKeyList.split('%%%')[2];
+                   $("#popupWindow").jqxWindow({
+                        initContent: function () {
+                        $('#windowsTab').jqxTabs(
+                            { height: '100%', width:  '100%' });
+                    }
+                    });
+                   $('#windowsTab').jqxTabs('select',0);
+                   $('#windowsContentClass').children().remove();
+                   $('#windowsContentType').children().remove();
+                   $('#windowsContentClass').prepend(htmlKeyListTabClass);
+                   $('#windowsContentType').prepend(htmlKeyListAtom);
+                   $('#saveButton_Class').unbind('click');
+                   $('#saveButton_Type').unbind('click');
+                   $('#saveButton_Class').on('click',function()
+                   {
+                        addAtomClass();
+                   });
+                   $('#saveButton_Type').on('click',function()
+                   {
+                        addAtomType();
+                   });
+                   $("#ddl_AtomType").unbind('select');
+                   $("#ddl_classAtom").unbind('select');
+                   initializeClassAtomList("add");
+                   initializeAtomTypeList("add");
+                    
+                   $('#popupWindow').jqxWindow({ cancelButton: $('#cancelButton_Class')});
+                   $('#popupWindow').jqxWindow({ cancelButton: $('#cancelButton_Type')}); 
+                }
+                
+
+                $('#windowsContentGeneral').prepend(htmlKeyList);
+
+                var count = $('#windowsContentGeneral').children('tr').length;
+                
+                //27px => size of header
+                //50px => size of save/cancel Buttons
+                //30px => size of html input tag
+                var heightSize = ((count-1)/2)*30+((count-1)/2)*16+50+27;
+                if(parameterName == "Atom Definition")
+                    heightSize = heightSize + 35;
+                // initialize the popup window and buttons.
+                if(parameterName != "Atom Definition")
+                {
+                $(".noWindowsTab").show();
+                $(".windowsTab").hide();
+                $("#popupWindow").jqxWindow({
+                    width: 400,height:heightSize, resizable: false,  isModal: true, autoOpen: false, cancelButton: $("#cancelButton"), modalOpacity: 0.01, theme:'energyblue'         
+                });
+                }
+                if(parameterName == "Atom Definition")
+                {
+                    $(".noWindowsTab").hide();
+                    $(".windowsTab").show();
+                    $("#popupWindow").jqxWindow({
+                    width: 400,height:heightSize, resizable: false,  isModal: true, autoOpen: false, cancelButton: $("#cancelButton"), modalOpacity: 0.01, theme:'energyblue'         
+                    });
+                    
+                    $("#cancelButton_Class").jqxButton({theme:'energyblue'});
+                    $("#saveButton_Class").jqxButton({theme:'energyblue'});
+                    $("#cancelButton_Type").jqxButton({theme:'energyblue'});
+                    $("#saveButton_Type").jqxButton({theme:'energyblue'});
+                }
+
+                $('#popupWindowTitle').empty();
+                $('#popupWindowTitle').append('Add');
+                $('#popupWindowTitle').append('<a style="display:inline-block;float:right;margin-right:5px;" onclick="closePopupWindows()" href="#"><span style="width:15px;height:20px;display:inline-block;"class="jqx-window-close-button jqx-window-close-button-light jqx-icon-close jqx-icon-close-light"></span></a>');
+
+                $('#saveButton_').jqxButton({theme: "energyblue"});
+                $('#cancelButton_').jqxButton({theme:"energyblue"});
+
+                var offset = $("#jqxgrid").offset();
+                
+                $("#popupWindow").jqxWindow({ position: { x: parseInt(offset.left) + 250, y: parseInt(offset.top) - 20} });
+                $('#popupWindow').on('close', function (event) 
+                {
+                        
+                    $('#windowsContentGeneral').children('tr').remove();  
+                });
+
+                    
+                    
+                
+                $("#popupWindow").jqxWindow('open');
+                $('#saveButton_').on('click',function()
+                {
+                    addRow(numberOfAtoms,"");
+
+                });
+
+            });
+                 
+                                        
+            });
+
+function isOldAtomClassStillUsed(oldIdClassAtom,selectedIdAtomType,data)
+{
+    treeInfo = getSelectedItemTree();
+    ffName = treeInfo.split(',')[0];
+    
+    var url = "/isOldAtomClassStillUsed/"+ffName+"/"+oldIdClassAtom;
+    $.get(url,function(response)
+    {
+        if(response == "still")
+        {
+            if(data['caller'] == "atomType")
+                editAtomType(selectedIdAtomType,"False",oldIdClassAtom);
+            if(data['caller'] == "atomDefinition")
+            {
+                var dataToServer = data['dataToServer'];
+                dataToServer['deleteOldClassAtom'] = "False";
+                saveEditRow(data['numberOfAtoms'],data['dataRow'],dataToServer,data['rowIndex'],"General");
+            }
+        }
+        else
+        {
+            var msg;
+            if(response == "noStill")
+            {
+                msg = "The class atom number "+oldIdClassAtom +
+                      " will no more be used in "+
+                      " atomDefinition grid after the actual update."+
+                      " Do you want to remove it? if you remove it"+
+                      " it may delete row(s) in other(s) parameter(s).";
+            }
+            else if(response == "False")
+            {
+                msg = "The class atom number "+oldIdClassAtom +
+                      " will no more "+
+                      "be used in this forcefield after the actual update."+
+                      " Do you want to remove it?";
+            }
+            displayAlertMessage(msg);
+            $("#alertMessageOkButton").on('click',function(event)
+            {
+                //il faut apeler la editAtomType avec 
+                //un argument en plus qui lui dit 
+                //qu'il faut suprimer l'atom class plus utiliser
+                if(data['caller'] == "atomType")
+                    editAtomType(selectedIdAtomType,"True",oldIdClassAtom);
+                if(data['caller'] == "atomDefinition")
+                {
+                    var dataToServer = data['dataToServer'];
+                    dataToServer['deleteOldClassAtom'] = "True";
+                    saveEditRow(data['numberOfAtoms'],data['dataRow'],dataToServer,data['rowIndex'],"General");
+                }
+                $("#alertMessage").jqxWindow('close');
+
+            });
+            $("#alertMessageCancelButton").on('click',function(event)
+            {
+                //il faut apeler la editAtomType avec 
+                //un argument en plus qui lui dit 
+                //qu'il faut pas suprimer l'atom class plus utiliser
+                if(data['caller'] == "atomType")
+                    editAtomType(selectedIdAtomType,"False",oldIdClassAtom);
+                if(data['caller'] == "atomDefinition")
+                {
+                    var dataToServer = data['dataToServer'];
+                    dataToServer['deleteOldClassAtom'] = "False";
+                    saveEditRow(data['numberOfAtoms'],data['dataRow'],dataToServer,data['rowIndex'],"General");
+                }
+            });
+        }
+    });
+
+}
+
+function isClassAtomExist(new_idClassAtom,selectedIdAtomType,old_idClassAtom,data)
+{
+    treeInfo = getSelectedItemTree();
+    ffName = treeInfo.split(',')[0];
+    var isOk = 1;
+
+    userInput = $("#idClassAtom_Type").val();
+    isOk = isOk&checkPopupWindows("idClassAtom",userInput,1,"Type");
+    userInput = $("#idAtomType_Type").val();
+    isOk = isOk&checkPopupWindows("idAtomType",userInput,1,"Type");
+    userInput = $("#description_Type").val();
+    isOk = isOk&checkPopupWindows("description",userInput,1,"Type");
+
+    if(isOk)
+    {
+
+        var url = "/isClassAtomExist/"+ffName+"/"+new_idClassAtom
+        $.get(url,function(response)
+        {
+            if(response == "True")
+            {
+                isOldAtomClassStillUsed(old_idClassAtom,selectedIdAtomType,data);
+            }
+            else
+            {
+                var msg = "The class atom number "+new_idClassAtom+
+                          " dosen't exist,please choose existing "+
+                          "one or create it before by clicking on "+
+                          "\'Add Value\' button and \'atom class\'.";
+                displayAlertMessage(msg);
+                $("#alertMessageOkButton").on('click',function(event)
+                {
+                    $("#alertMessage").jqxWindow('close');
+                });
+            }
+        });   
+    }
+}
+        
+            //EDIT  ROW
+            $('#editRowButton').on('click',function()
+            {
+              treeInfo = getSelectedItemTree();
+              ffName = treeInfo.split(',')[0];
+              parameterName = treeInfo.split(',')[1];
+              var dataToServer = {}; 
+              //only one row can be selected to edit
+              var rowindex = $('#jqxgrid').jqxGrid('getselectedrowindex');
+              
+              //get the value of the row from the grid
+              var dataRow = $('#jqxgrid').jqxGrid('getrowdata',rowindex);
+
+              //get the html to insert in the popupWindows
+              var url = "/getHtmlKeyList/";
+              $.get(url,function(responseHtmlKeyList)
+              {
+                var numberOfAtoms = responseHtmlKeyList.split('@')[1];
+                
+                var htmlKeyList;
+
+                if(parameterName != "Atom Definition")
+                {
+                   $(".table1").removeAttr('id');
+                   $(".table2").attr('id',"windowsContentGeneral");
+                   htmlKeyList = responseHtmlKeyList.split('@')[0];
+                }
+                else
+                {
+                   $(".table1").attr('id',"windowsContentGeneral");
+                   $(".table2").removeAttr('id');
+                   htmlKeyList = responseHtmlKeyList.split('%%%')[0];
+            htmlKeyListTabClass = responseHtmlKeyList.split('%%%')[1];
+                   htmlKeyListAtom = responseHtmlKeyList.split('%%%')[2];
+                   $("#popupWindow").jqxWindow({
+                        initContent: function () {
+                        $('#windowsTab').jqxTabs(
+                            { height: '100%', width:  '100%' });
+                    }
+                    });
+                   $('#windowsTab').jqxTabs('select',0);
+                   $('#windowsContentClass').children().remove();
+                   $('#windowsContentType').children().remove();
+                   $('#windowsContentClass').prepend(htmlKeyListTabClass);
+                   $('#windowsContentType').prepend(htmlKeyListAtom);
+                   $('#windowsContentClass').find('a').remove();
+                   $('#windowsContentType').find('a').remove();
+                   $('#saveButton_Class').unbind('click');
+                   $('#saveButton_Type').unbind('click');
+                   $("#ddl_AtomType").unbind('select');
+                   $("#ddl_classAtom").unbind('select');
+                   initializeAtomTypeList("edit");
+                   initializeClassAtomList("edit");
+                   $('#saveButton_Class').on('click',function()
+                   {
+
+                        editAtomClass(dataToServer['old_idClassAtom']);
+                   });
+                   $('#saveButton_Type').on('click',function()
+                   {    
+                        var data = {};
+                        data['caller'] = "atomType";
+                        new_idClassAtom = $('#idClassAtom_Type').val();
+                        if(new_idClassAtom.toString() != 
+                                dataToServer['old_idClassAtom'])
+                        {
+                            isClassAtomExist(new_idClassAtom,
+                                            dataToServer['old_idAtomType'],
+                                            dataToServer['old_idClassAtom'],
+                                            data);
+                        }
+                        else
+                        {
+                            editAtomType(dataToServer['old_idAtomType'],
+                                        "False",
+                                        dataToServer['old_idClassAtom']);
+                        }
+
+                   });
+                   $('#popupWindow').jqxWindow({ cancelButton: $('#cancelButton_Class')});
+                   $('#popupWindow').jqxWindow({ cancelButton: $('#cancelButton_Type')}); 
+
+
+
+
+                }
+                
+                //insert the html in the windows
+                $('#windowsContentGeneral').prepend(htmlKeyList);
+                var count = $('#windowsContentGeneral').children('tr').length;
+                    
+
+                //27px => size of header
+                //50px => size of save/cancel Buttons
+                //30px => size of html input tag
+                //16px => size of the error field
+                var heightSize = ((count-1)/2)*30+((count-1)/2)*16+50+27;
+                if(parameterName == "Atom Definition")
+                    heightSize = heightSize + 35;
+                // initialize the popup window and buttons.
+                if(parameterName != "Atom Definition")
+                {
+                $(".noWindowsTab").show();
+                $(".windowsTab").hide();
+                $("#popupWindow").jqxWindow({
+                    width: 400,height:heightSize, resizable: false,  isModal: true, autoOpen: false, cancelButton: $("#cancelButton_"), modalOpacity: 0.01, theme:'energyblue'         
+                });
+                }
+                if(parameterName == "Atom Definition")
+                {
+                    $(".noWindowsTab").hide();
+                    $(".windowsTab").show();
+                    $("#popupWindow").jqxWindow({
+                    width: 400,height:heightSize, resizable: false,  isModal: true, autoOpen: false, cancelButton: $("#cancelButton"), modalOpacity: 0.01, theme:'energyblue'         
+                    });
+                    $("#cancelButton_Class").jqxButton({theme:'energyblue'});
+                    $("#saveButton_Class").jqxButton({theme:'energyblue'});
+                    $("#cancelButton_Type").jqxButton({theme:'energyblue'});
+                    $("#saveButton_Type").jqxButton({theme:'energyblue'});
+                    
+                    $('#idClassAtom_Class').val(dataRow['idClassAtom']);
+                    $('#symbol_Class').val(dataRow['symbol']);
+                    $('#atomicWeight_Class').val(dataRow['atomicWeight']);
+                    $('#atomicNumber_Class').val(dataRow['atomicNumber']);
+                    $('#valence_Class').val(dataRow['valence']);
+                    $('#idClassAtom_Type').val(dataRow['idClassAtom']);
+                    $('#idAtomType_Type').val(dataRow['idAtomType']);
+                    $('#description_Type').val(dataRow['description']);
+
+                    
+                }
+
+                //Title of the windows
+                $('#popupWindowTitle').empty();
+                $('#popupWindowTitle').append('Edit');
+                $('#popupWindowTitle').append('<a style="display:inline-block;float:right;margin-right:5px;" onclick="closePopupWindows()" href="#"><span style="width:15px;height:20px;display:inline-block;"class="jqx-window-close-button jqx-window-close-button-light jqx-icon-close jqx-icon-close-light"></span></a>');
+
+                $('#saveButton_').jqxButton({theme: "energyblue"});
+                $('#cancelButton_').jqxButton({theme:"energyblue"});
+
+                //position of the popupWindows in the windows
+                var offset = $("#jqxgrid").offset();
+                
+                $("#popupWindow").jqxWindow({ position: { x: parseInt(offset.left) + 250, y: parseInt(offset.top) - 20 } });
+                
+                Object.keys(dataRow).forEach(function (key) {
+                    if(key != 'numberOfRow' && key != 'checkBoxColumn' && key != "uid")
+                    {
+                        
+                        //insert the value of row from the grid to 
+                        //the poupupWindows
+                        newkey = replaceAll(key,' ','_');
+                        newkey = replaceAll(newkey,'(','_');
+                        newkey = replaceAll(newkey,')','_');
+                        newkey = replaceAll(newkey,'-','_');
+                        //assign to the dictionary the old values
+                        //of the row
+                        dataToServer['old_'+newkey] = dataRow[key];
+                        newkey = newkey + "_"
+                        $('#' + newkey).val(dataRow[key]);
+                    }
+                    
+                });
+                
+                $("#popupWindow").jqxWindow('open'); 
+                    
+                $('#popupWindow').on('close', function (event) 
+                {
+                    $('#windowsContentGeneral').children('tr').remove();  
+                });
+
+                //save button of the windows
+                $('#saveButton_').on('click',function()
+                {
+                    var data = {};
+                    data['caller'] = "atomDefinition";
+                    data['numberOfAtoms'] = numberOfAtoms;
+                    data['dataRow'] = dataRow;
+                    data['dataToServer'] = dataToServer;
+                    data['rowIndex'] = rowindex;
+                    data['strTab'] = "General";
+                    if(parameterName == "Atom Definition")
+                    {
+                        new_idClassAtom = $('#idClassAtom_').val();
+                    
+                        if(new_idClassAtom.toString() != 
+                                    dataToServer['old_idClassAtom'])
+                        {
+                            isClassAtomExist(new_idClassAtom,
+                                        dataToServer['old_idAtomType'],
+                                        dataToServer['old_idClassAtom'],
+                                        data);
+                        }
+                        else
+                        {
+
+                            dataToServer['deleteOldClassAtom'] = "False";
+                            saveEditRow(data['numberOfAtoms'],data['dataRow'],dataToServer,data['rowIndex'],"General");
+                        }
+                    }
+                    else
+                    {
+
+                        dataToServer['deleteOldClassAtom'] = "False";
+                        saveEditRow(data['numberOfAtoms'],data['dataRow'],dataToServer,data['rowIndex'],"General");
+                    }
+                    
+
+                });
+            });
+              
+            });
+
+function removeRow()
+{
+    
+
+        treeInfo = getSelectedItemTree();
+        ffName = treeInfo.split(',')[0];
+        parameterName = treeInfo.split(',')[1];
+        var valueDict = {};
+        var rowsindex = $("#jqxgrid").jqxGrid('getselectedrowindexes');
+        var i = 0;
+        rowIndex = new Array();
+        rowIds = new Array();
+        rowsindex.forEach(function(index)
+        {
+            row_data = $('#jqxgrid').jqxGrid('getrowdata',index);
+            valueDict[i.toString()] = row_data[Object.keys(row_data)[2]];
+            rowIndex.push($("#jqxgrid").jqxGrid('getrowid',index));
+            i = i + 1;
+        });
+
+
+        $.ajax({
+            url:"/removeRowOk/"+ffName+'/'+parameterName,
+            type:'GET',
+            data:valueDict,
+            success: function(response)
+            {
+                var res = JSON.parse(response);
+                displayNotification(res.msg,res.type);
+                var session = res.session;
+                updateTools(session.undo,session.redo,session.save);
+                //updateTree(session.nameForceField,session.//nameParameter);
+                
+            }
+        });
+
+        /*
+        here i need to call the function on server to remove
+        on database.
+        */
+            
+        $("#jqxgrid").jqxGrid('deleterow', rowIndex);
+
+        var dataInfo = $("#jqxgrid").jqxGrid('getdatainformation');
+        var numberOfRow =  dataInfo.rowscount;
+
+        for(i = 0 ; i < numberOfRow ; i++)
+        {
+            $("#jqxgrid").jqxGrid('setcellvalue',i,'numberOfRow',i+1);
+        }
+
+        $('#removeRowDataButton').jqxButton({disabled:true});
+        $('#editRowButton').jqxButton({disabled:true});
+        $('#jqxgrid').jqxGrid('clearselection');
+
+}
+
+
+            //REMOVE ROW BUTTON
+            $('#removeRowDataButton').on('click',function()
+            {
+                treeInfo = getSelectedItemTree();
+                ffName = treeInfo.split(',')[0];
+                parameterName = treeInfo.split(',')[1];
+                //open windows alert the user that may delete 
+                //cascad in other place
+                if(parameterName == "Atom Definition")
+                {
+                  msg = "This operation will delete all data in relation "+
+                        "with this atom class and atom type.\n"+
+                        "Are you sure to delete ?";
+                    
+                    displayAlertMessage(msg);
+                    
+                    $("#alertMessageOkButton").on('click',function()
+                    {
+                        removeRow();
+                        $("#alertMessage").jqxWindow('close');
+                    });
+                }
+                else
+                {
+                    removeRow();
+                }
+                
+            });
+
+
+
+            //SELECT  DROPDOWNLIST
+            $('#jqxdropdownlist').on('select', function (event)
+            {
+                 var args = event.args;
+                 if (args) 
+                 {
+                    var item = args.item;
+                    // get item's label and value.
+                    var label = item.label;
+
+                    if(label == "All")
+                    {
+                        $('#jqxgrid').jqxGrid('selectallrows');
+                        var rowsindex = $("#jqxgrid").jqxGrid('getselectedrowindexes');
+                        var data = "";
+                        for (i = 0 ; i < rowsindex.length ; i++)
+                        {
+                            data = $('#jqxgrid').jqxGrid('getrowdata', i);
+                            $("#jqxgrid").jqxGrid("setcellvalue",i,"checkBoxColumn",true);
+                        }
+                        $('#removeRowDataButton').jqxButton({disabled:false});
+                        $('#editRowButton').jqxButton({disabled:true})
+                        ;
+
+                        
+                    }
+                    if(label == "None")
+                    {
+                        var rowsindex = $("#jqxgrid").jqxGrid('getselectedrowindexes');
+                        $('#jqxgrid').jqxGrid('clearselection');
+                        var data = "";
+                        for (i = 0 ; i < rowsindex.length ; i++)
+                        {
+                            data = $('#jqxgrid').jqxGrid('getrowdata', i);
+                            $("#jqxgrid").jqxGrid("setcellvalue",rowsindex[i],"checkBoxColumn",false);
+                        }
+                        $('#removeRowDataButton').jqxButton({disabled:true});
+                        $('#editRowButton').jqxButton({disabled:true});
+                    }
+                    $("#jqxdropdownlist").jqxDropDownList('clearSelection');
+                    $('#addRowDataButton').jqxButton({disabled:false}); 
+                
+                   
+                 }  
+            });
+
+            
+            
+            //TREE ITEM CLICK
+            $('#jqxTree').on('select', function (event) 
+            {
+                $('#jqxgrid').show();
+                $('#jqxTabsAdd').hide();
+                $('#jqxTabsRemove').hide();
+                $('#jqxTabsRename').hide();
+                $("#jqxpanel").hide();
+                $('#pannelWrapperImport').hide();
+                var args = event.args;
+                var item = $('#jqxTree').jqxTree('getSelectedItem');
+                var parentItem = "";
+                var url = "";
+                var ffName = "";
+                var paramName = "";
+                //if child is selected
+                if (item.parentElement != null)
+                {
+
+                 parentItem = $('#jqxTree').jqxTree('getItem', item.parentElement);
+                 parentItem = parentItem.label;
+                 ffName = parentItem;
+                 paramName = item.label;
+
+                }
+
+                //if parent is selected
+                else
+                {
+                    ffName = item.label;
+                    paramName = "Atom Definition";
+                }
+
+                
+                
+                //unselect all rows
+                $('#jqxgrid').jqxGrid('clearselection');
+                
+                $('#editRowButton').jqxButton({disabled:true});
+                $('#removeRowDataButton').jqxButton({disabled:true});
+                $('#addRowDataButton').jqxButton({disabled:false});
+                $('#ff_NameDataGrid').html(ffName);
+                $('#paramNameDataGrid').html(paramName);
+                $('#descriptionDataGrid').css({'display':'inline-block','float':'right'});
+                $('#jqxdropdownlist').css({'display':'inline-block'});
+                $('#addRowDataButton').css({'display':'inline-block'});
+                $('#removeRowDataButton').css({'display':'inline-block'});
+                $('#editRowButton').css({'display':'inline-block'});
+
+            {% if current_user.is_anonymous() %}
+                url = "/isAuthor/0/"+ffName;
+            {% else %}
+                url = "/isAuthor/"+{{ (current_user.user_id)|int }}+"/"+ffName;
+            {% endif %}
+            
+            $.get(url,function(response_isAuthor)
+            {
+                if(response_isAuthor == "False")
+                {
+                    $('#addRowDataButton').jqxButton({disabled:true});
+                    $('#jqxdropdownlist').jqxDropDownList({disabled:true});
+                }
+                else
+                {
+                    $('#addRowDataButton').jqxButton({disabled:false});
+                    $('#jqxdropdownlist').jqxDropDownList({disabled:false});
+                }
+
+                 url = "/dataGrid/" + ffName + "/" + paramName;
+                 $.get(url,function(responseData)
+                 {
+
+                    var url = "/columsGrid/" + ffName + "/" + paramName;
+                    $.get(url,function(responseColumns)
+                    {
+                        sourceGrid.localdata =eval(responseData);
+                        columnsGrid = eval(responseColumns);
+
+                        $("#jqxgrid").jqxGrid(
+                        {
+                            height: 400,
+                            width: 850,
+                            source: dataAdapter,
+                            showtoolbar: true,
+                            editable: true,
+                            selectionmode: 'none',
+                            columns: columnsGrid
+
+                        }); 
+                        
+                    });
+                });
+            });
+                 
+                
+        });
+
+
+            //SEARCH TEXT
+            $('#search').bind("keyup", function() 
+            { 
+                var dInput = this.value;
+                var url = ""; 
+                if(dInput == "")
+                {
+                    url = "/dataTree/None";
+                    $.get(url,function(responseDataTree)
+                    {
+                        
+                        var sourceTree = eval(responseDataTree);
+                        $('#jqxTree').jqxTree(
+                        {
+                            source: sourceTree,
+                            height: '400px',
+                            width: '300px',
+                            theme: 'energyblue',
+                            keyboardNavigation: true
+                        });
+
+                        var items = $('#jqxTree').jqxTree('getItems');
+                        var element = items[items.length - 1].element;
+                        $('#jqxTree').jqxTree('removeItem', element);
+                    });
+                    
+                }
+                else
+                {
+                    url = "/dataTree/" + dInput;
+                    $.get(url,function(responseDataTree)
+                    {
+                        var sourceTree = eval(responseDataTree);
+                        $('#jqxTree').jqxTree(
+                        {
+                            source: sourceTree,
+                            height: '400px',
+                            width: '300px',
+                            theme: 'energyblue',
+                            keyboardNavigation: true
+                        });
+                    });
+                }
+                
+                
+
+                
+                
+            });
+
+
+
+            //TOOLBAR
+            $("#jqxToolBar").jqxToolBar({ width: "850px", height: 40, tools: "button | button | button | button | button | button | button | button | button",
+                initTools: function (type, index, tool, menuToolIninitialization) {
+                    switch (index) {
+                        case 0:
+                            tool.jqxButton({width:100});
+                            tool.text("Add");
+                            tool.click(function()
+                            {
+                                addToolBarClick(0);
+                                
+                            });
+                            break;
+                            
+                        case 1:
+                            tool.jqxButton({width:100});
+                            tool.text("Remove");
+                            tool.click(function()
+                            {
+                                removeToolBarClick(0);
+                                    
+                            });
+                            break;
+                        case 2:
+                            tool.jqxButton({width:100});
+                            tool.text("Rename");
+                            tool.click(function()
+                            {
+                                $('#jqxgrid').hide();
+                                $("#jqxpanel").hide();
+                                $('#jqxTabsAdd').hide();
+                                $('#jqxTabsRemove').hide();
+                                $('#pannelWrapperImport').hide();
+                                $('#jqxTabsRename').show();
+                                $('#jqxTabsRename').jqxTabs('select',0);
+                                
+                                fullfillRenameForcefieldTab();
+
+                            $('#jqxTabsRename').on('selected', 
+                            function (event) 
+                            {
+                                var selectedTab = event.args.item;
+                                var text = $('#jqxTabsRename').jqxTabs('getTitleAt', selectedTab); 
+
+                                if(text == "ForceField")
+                                {
+                                    fullfillRenameForcefieldTab();
+
+                                }
+                                if(text == "Parameter")
+                                {
+                                    fullfillRenameParameterdTab();
+
+                                }
+                    
+                            });
+                                    
+                            });
+                            break;
+                        case 3:
+                            tool.jqxButton({width:100});
+                            tool.text('Import FF');
+                            tool.click(function()
+                            {
+                                $('#jqxgrid').hide();
+                                $('#jqxTabsAdd').hide();
+                                $('#jqxTabsRemove').hide();
+                                $('#jqxTabsRename').hide();
+                                $('#pannelWrapper').hide();
+                                $('#pannelMasterDetails').hide();
+                                $("#jqxpanel").show();
+                                $('#pannelWrapperImport').show();
+                                $("#jqxpanel").jqxPanel('append',$('#pannelWrapperImport'));
+                                
+                                fullfillImportFFpannel();
+                                
+                            });
+                            break;
+                        case 4:
+                            tool.jqxButton({width:100});
+                            tool.text('Export FF');
+                            tool.click(function()
+                            {
+                                $('#jqxgrid').hide();
+                                $('#jqxTabsAdd').hide();
+                                $('#jqxTabsRemove').hide();
+                                $('#jqxTabsRename').hide();
+                                $('#pannelWrapperImport').hide();
+                                $('#pannelMasterDetails').hide();
+                                $("#jqxpanel").show();
+                                $("#jqxpanel").jqxPanel('append',$('#pannelWrapper'));
+                                $('#pannelWrapper').show();
+                                
+                                fullfillExportFFpannel();
+                                
+                            });
+                            break;
+                        case 5:
+                            tool.jqxButton({width:100});
+                            tool.text('FF\'s Authors');
+                            tool.click(function()
+                            {
+                                $('#jqxgrid').hide();
+                                $('#jqxTabsAdd').hide();
+                                $('#jqxTabsRemove').hide();
+                                $('#jqxTabsRename').hide();
+                                $('#pannelWrapper').hide();
+                                $('#pannelWrapperImport').hide();
+                                $('#pannelWrapper').hide();
+                                $('#pannelMasterDetails').hide();
+                                $("#jqxpanel").show();
+                                $("#jqxpanel").jqxPanel('append',$('#pannelMasterDetails'));
+                                $('#pannelMasterDetails').show();
+                                fullfillMasterDetailsPanel();
+                                
+                            });
+                            break;
+                        case 6:
+                            tool.jqxButton({width:40});
+                            tool.css({'margin-left':55});
+                            tool.prepend('<img src="/static/img/undo.png" width="20" height="20" >');
+                            tool.click(function()
+                            {
+                                var url = "/undoFunction"
+                                $.get(url,function(response)
+                                {
+                                            
+                                    var res = JSON.parse(response);
+                                    afterUndoRedo(res.session);
+
+                                });
+                            });
+                            break;
+                        case 7:
+                            tool.jqxButton({width:40});
+                            tool.prepend('<img src="/static/img/redo.png" width="20" height="20" >');
+                            tool.click(function()
+                            {
+                               var url = "/redoFunction"
+                                $.get(url,function(response)
+                                {
+                                    var res = JSON.parse(response);
+                                    afterUndoRedo(res.session);
+
+                                });
+                            })
+                            break;
+                        case 8:
+                            tool.jqxButton({width:40});
+                            tool.prepend('<img src="/static/img/save.png" width="20" height="20" >');
+                            tool.click(function()
+                            {
+                                var url = '/saveOperation';
+                                $.get(url,function(response)
+                                {
+                                    var res = JSON.parse(response);
+                                    var session = res.session;
+                                    displayNotification(res.msg,res.type);
+                                    updateTools(session.undo,session.redo,session.save);
+                                });
+                            })
+                            break;
+                    }
+                }
+            
+            });
+        
+        updateTools(null,null,null);
+        {% if current_user.is_anonymous() %}
+            //$("#jqxToolBar").jqxToolBar({ disabled: true});
+            $("#jqxToolBar").jqxToolBar("disableTool", 0, true);
+            $("#jqxToolBar").jqxToolBar("disableTool", 1, true);
+            $("#jqxToolBar").jqxToolBar("disableTool", 2, true);
+            $("#jqxToolBar").jqxToolBar("disableTool", 3, true);
+            $("#jqxToolBar").jqxToolBar("disableTool", 5, true);
+            $("#jqxToolBar").jqxToolBar("disableTool", 6, true);
+            $("#jqxToolBar").jqxToolBar("disableTool", 7, true);
+            $("#jqxToolBar").jqxToolBar("disableTool", 8, true);
+        {% else %}
+            $("#jqxToolBar").jqxToolBar({ disabled: false});
+        {% endif %}
+            
+    });
+    
+           
+
+</script>
+{% endblock %}
+
+<!--<span style="margin-left: 4px; position: relative; top: -3px;">Redo</span>-->

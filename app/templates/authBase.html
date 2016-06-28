@@ -1,0 +1,167 @@
+<html>
+  <head>
+  	{% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcome to FinalProject</title>
+    {% endif %}
+  	<script 
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+  	 </script>
+  	 <script src="http://code.jquery.com/jquery-latest.js"></script>
+     <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+  	 <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="	stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    {% endblock %}
+  </head>
+<style type="text/css">
+body
+{
+  overflow: scroll;
+}
+
+#background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("/static/img/molecule.png") no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 90%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.group { 
+  display: table;
+  width: 100%;
+  font-size: 1em;
+}
+.item {
+  display: table-cell;
+}
+.text { 
+  white-space: nowrap;
+  width: 1%;
+  padding: 0px 5px;
+}
+.line {
+  border-top: 1px solid #808080;
+  position: relative;
+  top: 0.7em;
+}
+
+#lineId 
+{
+  color: transparent;
+}
+
+p
+{
+  margin-bottom: 0px;
+}
+
+form input[type]
+{
+     height: 30px;
+     width: 290px;
+     margin-bottom:5px;
+}
+
+form input[type=text]
+{
+  background-color:#FFFFE0;
+}
+
+form input[type=password]
+{
+  background-color:#FFFFE0;
+}
+
+#formDiv
+{
+  padding-right:20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom:0px;
+  border-style: solid;
+  border-width: 1px;
+  border-color:#808080;
+  border-radius:10px;
+}
+
+.error
+{
+  color:red;
+  margin-left: 10px;
+  float: right;
+}
+
+#alertBar
+{
+  height: 20px;
+  width: 50%;
+  margin: 0 auto;
+  text-align:center;
+  padding-top:10px;
+  /*margin-bottom: 200px;*/
+}
+
+</style>
+  <body>
+    <div id="background"></div>
+    <div style="display:inline-block;width:100%;padding-top:10px;
+          margin-right:10px;">
+      <div style="float:right;margin-right:10px;">
+          <a style="padding-left:0px;padding-right:5px;" 
+             class="btn btn-info" color="white" href="{{url_for('index')}}">
+              <img style="margin-right:5px;" src="static/img/icon_home.png" 
+                   width="20" eigth="20"/>Home
+          </a>
+      </div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category,message in messages %}
+            <div id="alertBar" class="alert alert-{{category}}">
+                <button class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
+    <div class="outer">
+    <div class="middle">
+    <div class="inner">
+       {% block content %}
+       {% endblock %}
+    </div>
+    </div>
+    </div>
+  </body>
+</html>  

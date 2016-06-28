@@ -1,0 +1,6 @@
+Welcome {{ user.firstname }} {{ user.lastname }}! 
+Thanks for signing up. Please follow this link to activate your account:
+
+{{ confirm_url }}
+
+Regards,The site admin.
