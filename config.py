@@ -22,14 +22,9 @@ MAIL_PORT = 465
 MAIL_USE_TLS = False
 MAIL_USE_SSL = True
 MAIL_USERNAME = "danielmoisehaim@gmail.com"
-MAIL_PASSWORD = "K3baLLet"
+MAIL_PASSWORD = ""
 MAIL_ASCII_ATTACHMENTS = True
 ADMINS = ['danielmoisehaim@gmail.com']
-
-
-#Facebook
-#Davidhaim27@hotmail.fr
-#Code : 0635372692lcl
 
 
 #config for OAuth 
